@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 3,000-Mile Myth — AUTOS.CON.007</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========== CSS VARIABLES ========== */
+    :root {
+      --color-bg-dark: #1a1a1a;
+      --color-bg-light: #faf9f6;
+      --color-bg-warm-gray: #f2f0ec;
+      --color-accent-amber: #d4a843;
+      --color-accent-blue: #4a6fa5;
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555555;
+      --color-text-inverse: #faf9f6;
+      --color-success: #3a7d44;
+      --color-danger: #c0392b;
+      --color-fluid-transmission: #c0392b;
+      --color-fluid-brake: #d4a843;
+      --color-fluid-washer: #4a90d9;
+      --color-fluid-coolant: #27ae60;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      --space-section: 8rem;
+      --max-width-content: 780px;
+      --max-width-wide: 1100px;
+      --transition-reveal: opacity 0.6s ease, transform 0.6s ease;
+      --transition-hover: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+      background: var(--color-bg-light);
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 {
+      font-family: 'DM Serif Display', serif;
+      line-height: 1.2;
+      margin-top: 0;
+    }
+    h2 { font-size: 2.2rem; margin-bottom: var(--space-xs); }
+    h3 { font-size: 1.35rem; }
+    p { margin: 0 0 var(--space-sm); }
+    a { color: var(--color-accent-blue); }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ========== PROGRESS BAR ========== */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: var(--color-accent-amber);
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* ========== SCROLL REVEAL ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition-reveal);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== LAYOUT ========== */
+    .section { padding: var(--space-section) var(--space-md); }
+    .section-inner {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+    .section-inner--wide {
+      max-width: var(--max-width-wide);
+      margin: 0 auto;
+    }
+    .section--warm { background: var(--color-bg-warm-gray); }
+    .section--dark {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+    }
+    .styled-subheading {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-md);
+    }
+    .section--dark .styled-subheading { color: #bbb; }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--color-text-inverse);
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+      background-attachment: fixed;
+      padding: var(--space-lg) var(--space-md);
+      position: relative;
+    }
+    .hero-fallback {
+      background: linear-gradient(135deg, var(--color-bg-dark) 0%, #2c2c2c 50%, var(--color-accent-amber) 150%);
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: var(--space-xs);
+      letter-spacing: -0.02em;
+    }
+    .hero .lead {
+      font-size: 1.3rem;
+      font-style: italic;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto var(--space-lg);
+    }
+    .scroll-arrow {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.8rem;
+      opacity: 0.7;
+      animation: bounce 2s ease infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* ========== COMPARISON CARDS ========== */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .comparison-card {
+      padding: var(--space-md);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+    }
+    .comparison-card--dealer {
+      border: 2px solid var(--color-danger);
+    }
+    .comparison-card--mfr {
+      border: 2px solid var(--color-success);
+    }
+    .comparison-card h3 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+    .comparison-card--dealer h3 { color: var(--color-danger); }
+    .comparison-card--mfr h3 { color: var(--color-success); }
+    .comparison-card .big-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.4rem;
+      font-weight: 700;
+      display: block;
+      margin: var(--space-xs) 0;
+    }
+    .comparison-card .detail {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .comparison-bottom {
+      text-align: center;
+      margin: var(--space-md) 0 var(--space-xs);
+    }
+    .comparison-bottom .savings {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-success);
+    }
+    .comparison-bottom .fine-print {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-top: var(--space-xs);
+    }
+
+    /* ========== CALLOUT BOX ========== */
+    .callout {
+      border-left: 4px solid var(--color-accent-amber);
+      background: rgba(212, 168, 67, 0.08);
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-md) 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 1rem;
+    }
+    .callout--dark {
+      background: rgba(212, 168, 67, 0.12);
+    }
+    .callout strong { color: var(--color-accent-amber); }
+
+    /* ========== FLOWCHART ========== */
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: var(--space-md) 0;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .flow-box {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 8px;
+      text-align: center;
+      max-width: 360px;
+      width: 100%;
+      font-weight: 600;
+    }
+    .flow-box--accent { background: var(--color-accent-amber); color: var(--color-bg-dark); }
+    .flow-box--success { background: var(--color-success); }
+    .flow-box--danger { background: var(--color-danger); }
+    .flow-arrow {
+      font-size: 1.5rem;
+      color: var(--color-text-secondary);
+      line-height: 1;
+      padding: var(--space-xs) 0;
+    }
+    .flow-branch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      max-width: 360px;
+      width: 100%;
+    }
+    .flow-branch-label {
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-xs);
+    }
+
+    /* ========== SECTION IMAGE ========== */
+    .section-image {
+      border-radius: 8px;
+      margin: var(--space-md) 0;
+      width: 100%;
+    }
+
+    /* ========== OIL TYPE CARDS ========== */
+    .oil-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .oil-card {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+      text-align: center;
+    }
+    .oil-card h3 {
+      margin-bottom: var(--space-sm);
+      font-size: 1.15rem;
+    }
+    .oil-card .oil-row {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid #f0ede8;
+      font-size: 0.9rem;
+    }
+    .oil-card .oil-row:last-child { border-bottom: none; }
+    .oil-card .oil-label {
+      color: var(--color-text-secondary);
+      text-align: left;
+    }
+    .oil-card .oil-value {
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      text-align: right;
+      font-size: 0.85rem;
+    }
+
+    /* ========== FLUID CARDS ========== */
+    .fluid-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .fluid-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e0ddd8;
+    }
+    .fluid-card__accent {
+      height: 6px;
+    }
+    .fluid-card__body {
+      padding: var(--space-md);
+    }
+    .fluid-card h3 { margin-bottom: var(--space-xs); font-size: 1.15rem; }
+    .fluid-card p { font-size: 0.95rem; margin-bottom: var(--space-xs); }
+    .fluid-card .warning {
+      color: var(--color-danger);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .fluid-card .interval {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ========== NOTE BOX ========== */
+    .note-box {
+      background: var(--color-bg-warm-gray);
+      border: 1px solid #e0ddd8;
+      border-radius: 6px;
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      margin: var(--space-md) 0;
+    }
+
+    /* ========== UPSELL DEFENSE ========== */
+    .defense-box {
+      border: 2px solid var(--color-accent-amber);
+      border-radius: 8px;
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+      background: rgba(212, 168, 67, 0.06);
+    }
+    .defense-box h3 {
+      color: var(--color-accent-amber);
+      margin-bottom: var(--space-xs);
+      font-family: 'Source Sans 3', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+    }
+
+    /* ========== VALUE COMPARISON ========== */
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+      text-align: center;
+    }
+    .value-card {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+    }
+    .value-card h3 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-xs);
+    }
+    .value-card .price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .value-card--low .price { color: var(--color-danger); }
+    .value-card--high .price { color: var(--color-success); }
+    .value-card .label { font-size: 0.85rem; color: var(--color-text-secondary); }
+    .value-diff {
+      text-align: center;
+      margin: var(--space-sm) 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-success);
+    }
+
+    /* ========== DETAILS / SUMMARY ========== */
+    .check-section details {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      margin-bottom: var(--space-sm);
+      overflow: hidden;
+    }
+    .check-section summary {
+      padding: var(--space-sm) var(--space-md);
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      padding-right: 3rem;
+    }
+    .check-section summary::-webkit-details-marker { display: none; }
+    .check-section summary::after {
+      content: '+';
+      position: absolute;
+      right: var(--space-md);
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.2rem;
+      color: var(--color-accent-amber);
+    }
+    .check-section details[open] summary::after { content: '\2212'; }
+    .check-section .answer {
+      padding: 0 var(--space-md) var(--space-md);
+      color: var(--color-text-secondary);
+      border-top: 1px solid #f0ede8;
+      padding-top: var(--space-sm);
+    }
+
+    /* ========== ASSIGNMENT ========== */
+    .worked-example {
+      background: #fff;
+      border: 2px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+    }
+    .worked-example h3 { margin-bottom: var(--space-sm); font-size: 1.1rem; }
+    .worked-example ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .worked-example li {
+      padding: var(--space-xs) 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f0ede8;
+    }
+    .worked-example li:last-child { border-bottom: none; }
+    .assignment-steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+    }
+    .assignment-steps > li {
+      counter-increment: step;
+      padding: var(--space-sm) 0;
+      padding-left: 3rem;
+      position: relative;
+      border-bottom: 1px solid #e0ddd8;
+    }
+    .assignment-steps > li:last-child { border-bottom: none; }
+    .assignment-steps > li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: var(--space-sm);
+      width: 2rem;
+      height: 2rem;
+      background: var(--color-accent-amber);
+      color: var(--color-bg-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .assignment-steps li ul {
+      margin-top: var(--space-xs);
+      padding-left: var(--space-md);
+      list-style: disc;
+    }
+    .assignment-steps li ul li {
+      padding-left: 0;
+      border-bottom: none;
+    }
+    .assignment-steps li ul li::before {
+      display: none;
+    }
+    .due-date {
+      background: rgba(212, 168, 67, 0.12);
+      border: 2px solid var(--color-accent-amber);
+      border-radius: 8px;
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-md) 0;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer-section { padding: var(--space-xl) var(--space-md) var(--space-lg); }
+    .takeaways {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto var(--space-lg);
+      max-width: var(--max-width-content);
+    }
+    .takeaways li {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .takeaways li:last-child { border-bottom: none; }
+    .next-steps {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: var(--space-md);
+      background: rgba(255,255,255,0.04);
+    }
+    .next-steps h3 { color: var(--color-accent-amber); margin-bottom: var(--space-xs); }
+    .course-info {
+      max-width: var(--max-width-content);
+      margin: var(--space-lg) auto 0;
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero .lead { font-size: 1.1rem; }
+      h2 { font-size: 1.7rem; }
+      .section { padding: var(--space-lg) var(--space-sm); }
+      .comparison-grid,
+      .fluid-grid,
+      .value-grid { grid-template-columns: 1fr; }
+      .oil-grid { grid-template-columns: 1fr; }
+      .flow-branch { grid-template-columns: 1fr; max-width: 280px; }
+      .comparison-card .big-number { font-size: 1.8rem; }
+      .takeaways li { font-size: 1.15rem; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.9rem; }
+      h2 { font-size: 1.45rem; }
+      body { font-size: 0.95rem; }
+      .section { padding: var(--space-md) var(--space-sm); }
+      .comparison-card .big-number { font-size: 1.5rem; }
+      .value-card .price { font-size: 1.5rem; }
+    }
+
+    /* ========== REDUCED MOTION ========== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+      .hero { background-attachment: scroll; }
+    }
+
+    /* ========== PRINT ========== */
+    @media print {
+      * { animation: none !important; transition: none !important; }
+      .progress-bar, .scroll-arrow { display: none; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      body {
+        font-size: 11pt;
+        max-width: 100%;
+        color: #000;
+        background: #fff;
+      }
+      .section {
+        page-break-before: always;
+        padding: 1rem 0;
+      }
+      .section:first-of-type { page-break-before: auto; }
+      .hero {
+        min-height: auto;
+        background: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 2rem 1rem;
+      }
+      img { max-width: 100%; height: auto; }
+      .comparison-card, .oil-card, .fluid-card, .value-card, .worked-example {
+        border: 2pt solid #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      details > summary ~ * { display: block !important; }
+      details:not([open]) > summary ~ * { display: block !important; }
+      details { break-inside: avoid; }
+      .section--dark {
+        background: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ====== SECTION 1: HERO ====== -->
+    <section class="hero" id="hero">
+      <h1>The 3,000-Mile Myth</h1>
+      <p class="lead">How an outdated rule costs American drivers hundreds every year.</p>
+      <div class="scroll-arrow" aria-hidden="true">&#8595;</div>
+    </section>
+
+    <section class="section" id="myth-details">
+      <div class="section-inner reveal">
+        <p>Dealership service drives &mdash; not the showroom floor &mdash; are the primary profit center at most auto dealers. That &ldquo;recommended&rdquo; maintenance schedule the service advisor hands you? It&rsquo;s often inflated beyond what the people who actually engineered your car say you need.</p>
+
+        <div class="comparison-grid">
+          <div class="comparison-card comparison-card--dealer">
+            <h3>Dealer Schedule</h3>
+            <span class="detail">Every 3,000 miles &middot; $45 conventional</span>
+            <span class="big-number">$203/yr</span>
+            <span class="detail">4.5 changes at 13,500 mi/yr</span>
+          </div>
+          <div class="comparison-card comparison-card--mfr">
+            <h3>Manufacturer Schedule</h3>
+            <span class="detail">Every 7,500 miles &middot; $65 synthetic</span>
+            <span class="big-number">$117/yr</span>
+            <span class="detail">1.8 changes at 13,500 mi/yr</span>
+          </div>
+        </div>
+
+        <div class="comparison-bottom">
+          <span class="savings">$86 saved per year &mdash; by reading one document.</span>
+          <p class="fine-print">Based on 13,500 miles/year (FHWA national average). Your mileage may vary &mdash; literally.</p>
+        </div>
+
+        <div class="callout">
+          <strong>Your owner&rsquo;s manual is the final authority.</strong> Not the sticker on your windshield. Not the service advisor.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 2: MANUFACTURER VS DEALER ====== -->
+    <section class="section" id="who-built">
+      <div class="section-inner reveal">
+        <h2>Who Built Your Car?</h2>
+        <p class="styled-subheading">The manufacturer wrote the maintenance schedule. The dealer wrote the upsell.</p>
+
+        <p>Manufacturers invest millions in testing engine tolerances and fluid longevity before publishing maintenance intervals. Every specification in your owner&rsquo;s manual exists because engineers validated it under real-world conditions &mdash; extreme heat, bitter cold, stop-and-go traffic, highway cruising.</p>
+
+        <p>Dealer &ldquo;recommended&rdquo; schedules are revenue-driven. The service department is often the highest-margin part of a dealership. When a service advisor suggests an oil change at 3,000 miles on a car engineered for 7,500-mile intervals, that recommendation is driven by the business model &mdash; not your engine&rsquo;s needs.</p>
+
+        <p>The owner&rsquo;s manual or manufacturer website is always the primary source of truth. When in doubt, trust the engineers who designed the machine.</p>
+
+        <div class="callout">
+          <strong>What you already know:</strong> You learned that tires degrade with mileage and tread depth &mdash; and that knowing when to replace them saves money and keeps you safe. Every fluid in your car works the same way. It degrades with use and time. Now you&rsquo;ll learn which fluids matter, when to service them, and how to tell if someone is trying to sell you something you don&rsquo;t need.
+        </div>
+
+        <div class="flowchart">
+          <div class="flow-box">Mechanic recommends a service</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box flow-box--accent">Check your owner&rsquo;s manual</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box">Is it listed at your current mileage?</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-branch">
+            <div>
+              <div class="flow-branch-label">Yes</div>
+              <div class="flow-box flow-box--success">Authorize it</div>
+            </div>
+            <div>
+              <div class="flow-branch-label">No</div>
+              <div class="flow-box flow-box--danger">Decline politely. You just saved money.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 3: ENGINE OIL ====== -->
+    <section class="section" id="oil">
+      <div class="section-inner reveal">
+        <h2>5W-30: What Those Numbers Actually Mean</h2>
+
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1615906655593-ad0386982a0f?auto=format&fit=crop&w=1200&q=80"
+            alt="Close-up of golden motor oil being poured"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
+
+        <p>Every bottle of motor oil has a viscosity rating like <strong>5W-30</strong>. Here&rsquo;s what it actually means.</p>
+
+        <p>The <strong>&ldquo;W&rdquo;</strong> indicates the oil&rsquo;s winter (cold-start) grade &mdash; it&rsquo;s a rating, not a unit of measurement. A <strong>5W</strong> flows more easily at startup in cold weather than a 10W. The second number (<strong>30</strong>) is the viscosity grade at normal operating temperature &mdash; higher means thicker protection at highway speed.</p>
+
+        <p>Think of the first number as <em>&ldquo;how easily does this pour on a freezing morning?&rdquo;</em> and the second as <em>&ldquo;how well does it protect when everything is hot and running hard?&rdquo;</em></p>
+
+        <div class="oil-grid">
+          <div class="oil-card">
+            <h3>Conventional</h3>
+            <div class="oil-row"><span class="oil-label">Cost per change</span><span class="oil-value">$35&ndash;45</span></div>
+            <div class="oil-row"><span class="oil-label">Change interval</span><span class="oil-value">3,000&ndash;5,000 mi</span></div>
+            <div class="oil-row"><span class="oil-label">Best for</span><span class="oil-value">Older vehicles, short commutes</span></div>
+            <div class="oil-row"><span class="oil-label">Annual cost*</span><span class="oil-value">~$135&ndash;203</span></div>
+          </div>
+          <div class="oil-card">
+            <h3>Synthetic Blend</h3>
+            <div class="oil-row"><span class="oil-label">Cost per change</span><span class="oil-value">$45&ndash;55</span></div>
+            <div class="oil-row"><span class="oil-label">Change interval</span><span class="oil-value">5,000&ndash;7,500 mi</span></div>
+            <div class="oil-row"><span class="oil-label">Best for</span><span class="oil-value">Moderate driving, light towing</span></div>
+            <div class="oil-row"><span class="oil-label">Annual cost*</span><span class="oil-value">~$99&ndash;149</span></div>
+          </div>
+          <div class="oil-card">
+            <h3>Full Synthetic</h3>
+            <div class="oil-row"><span class="oil-label">Cost per change</span><span class="oil-value">$55&ndash;75</span></div>
+            <div class="oil-row"><span class="oil-label">Change interval</span><span class="oil-value">7,500&ndash;10,000+ mi</span></div>
+            <div class="oil-row"><span class="oil-label">Best for</span><span class="oil-value">Most modern vehicles, extreme temps</span></div>
+            <div class="oil-row"><span class="oil-label">Annual cost*</span><span class="oil-value">~$74&ndash;117</span></div>
+          </div>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--color-text-secondary); text-align: center;">*Based on 13,500 miles/year (FHWA national average)</p>
+
+        <div class="callout">
+          <strong>Full synthetic costs more per change but lasts 2&ndash;3&times; longer.</strong> Over a year of driving, you&rsquo;ll likely spend less on synthetic than conventional. Do the math with your own car &mdash; it almost always works out.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 4: VITAL FLUIDS ====== -->
+    <section class="section" id="fluids">
+      <div class="section-inner--wide reveal">
+        <h2>The Other Fluids Keeping You Safe</h2>
+        <p class="styled-subheading">Your car runs on more than gasoline and engine oil.</p>
+
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=1200&q=80"
+            alt="Under-hood view of an engine bay showing fluid reservoirs and components"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
+
+        <p>Your car has four fluids beyond engine oil that each serve a critical function. You don&rsquo;t need to memorize every interval &mdash; you need to know what each fluid does, what warning signs to watch for, and where to look up the schedule for your specific vehicle.</p>
+
+        <div class="fluid-grid">
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-fluid-transmission);"></div>
+            <div class="fluid-card__body">
+              <h3>Transmission Fluid</h3>
+              <p>Lubricates gears for smooth shifting.</p>
+              <p class="warning">&#9888;&#65039; Warning: Slipping between gears, delayed or rough shifts.</p>
+              <p class="interval">60,000&ndash;100,000 mi &mdash; varies widely by manufacturer. Check your manual.</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-fluid-brake);"></div>
+            <div class="fluid-card__body">
+              <h3>Brake Fluid</h3>
+              <p>Transfers hydraulic force from your brake pedal to the calipers that stop your wheels.</p>
+              <p class="warning">&#9888;&#65039; Warning: Spongy brake pedal, brake pedal sinks closer to floor.</p>
+              <p class="interval">Varies &mdash; some manufacturers say every 2&ndash;3 years, others don&rsquo;t list it. Check your manual. If in doubt, ask for a moisture strip test &mdash; takes 30 seconds.</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-fluid-washer);"></div>
+            <div class="fluid-card__body">
+              <h3>Windshield Washer Fluid</h3>
+              <p>Cleans your windshield for visibility. Simple, but critical for safe driving.</p>
+              <p class="warning">&#9888;&#65039; Warning: Empty reservoir, streaky windshield, washer pump runs but nothing sprays.</p>
+              <p class="interval">Refill as needed &mdash; check monthly. Use winter-rated fluid in cold climates to prevent freezing.</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-fluid-coolant);"></div>
+            <div class="fluid-card__body">
+              <h3>Coolant / Antifreeze</h3>
+              <p>Regulates engine temperature year-round &mdash; prevents overheating AND freezing.</p>
+              <p class="warning">&#9888;&#65039; Warning: Temperature gauge climbing, sweet smell from engine bay, visible leak (bright green/orange puddle).</p>
+              <p class="interval">30,000&ndash;60,000 mi depending on coolant type. Check your manual.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <strong>A note on power steering fluid:</strong> Older vehicles and some trucks still use hydraulic power steering, which requires its own fluid. Most cars built after ~2010 use Electric Power Steering (EPS) and have no power steering fluid at all. If someone tries to sell you a power steering flush on a modern car, check under the hood first &mdash; you might not even have a reservoir.
+        </div>
+
+        <div class="defense-box">
+          <h3>Upsell Defense</h3>
+          <p>If a mechanic shows you dark fluid and recommends a flush, ask one question: <strong>&ldquo;What does the manufacturer recommend at my current mileage?&rdquo;</strong> If you&rsquo;re under the interval &mdash; decline. You just saved $80&ndash;150.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 5: RESALE VALUE ====== -->
+    <section class="section" id="resale">
+      <div class="section-inner reveal">
+        <h2>Receipts Are Worth Thousands</h2>
+        <p class="styled-subheading">A documented maintenance history is the single best investment in resale value.</p>
+
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1200&q=80"
+            alt="Clean, well-maintained car"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
+
+        <p>Buyers and dealers pay measurable premiums for vehicles with documented service histories. A complete maintenance record can add $1,000&ndash;$3,000+ to trade-in or private-sale value.</p>
+
+        <p>Tracking methods: a physical binder with receipts, apps like Carfax Car Care or Drivvo, or even a simple spreadsheet. The format doesn&rsquo;t matter &mdash; consistency does.</p>
+
+        <div class="value-grid">
+          <div class="value-card value-card--low">
+            <h3>Car A: No maintenance records</h3>
+            <span class="price">$8,200</span>
+            <p class="label">Trade-in value</p>
+          </div>
+          <div class="value-card value-card--high">
+            <h3>Car B: Complete service binder</h3>
+            <span class="price">$10,500</span>
+            <p class="label">Trade-in value</p>
+          </div>
+        </div>
+        <div class="value-diff">+$2,300</div>
+
+        <div class="callout">
+          <strong>Practical tip:</strong> Every time you get work done &mdash; oil change, tire rotation, fluid flush &mdash; photograph the receipt and save it to a folder on your phone. Future-you will appreciate present-you.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 6: CHECK YOURSELF ====== -->
+    <section class="section section--warm check-section" id="check">
+      <div class="section-inner reveal">
+        <h2>Check Yourself</h2>
+        <p class="styled-subheading">Before you build your schedule, make sure you&rsquo;ve got the concepts down.</p>
+
+        <details>
+          <summary>Your 2021 Civic&rsquo;s dealer says to change the oil every 5,000 miles. Honda&rsquo;s manual says every 7,500 miles with 0W-20 full synthetic. Who do you follow?</summary>
+          <div class="answer">
+            <p><strong>The manufacturer. Honda. Always.</strong> The dealer benefits from more frequent visits. Honda engineered the engine and tested the oil&rsquo;s performance over that interval.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>A mechanic says your brake fluid is dark and needs flushing at 20,000 miles. Your manual says every 3 years. Your car is 18 months old. What do you do?</summary>
+          <div class="answer">
+            <p><strong>Decline.</strong> You&rsquo;re well under the manufacturer&rsquo;s interval. If you&rsquo;re concerned, ask for a quick moisture strip test instead &mdash; it&rsquo;s fast and objective.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>5W-30: What does the &ldquo;5W&rdquo; tell you?</summary>
+          <div class="answer">
+            <p><strong>It&rsquo;s the oil&rsquo;s cold-start grade.</strong> A 5W flows more easily in cold temperatures than a 10W. The &ldquo;W&rdquo; stands for Winter &mdash; but remember, it&rsquo;s a rating, not a unit of measurement.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Your friend&rsquo;s 2022 Mazda CX-5 has no power steering fluid reservoir. Is something wrong?</summary>
+          <div class="answer">
+            <p><strong>Nope.</strong> Most modern cars use Electric Power Steering (EPS) &mdash; no fluid needed. If a shop tries to sell a &ldquo;power steering flush&rdquo; on a car with EPS, that&rsquo;s a red flag.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 7: ASSIGNMENT ====== -->
+    <section class="section section--warm" id="assignment">
+      <div class="section-inner reveal">
+        <h2>Your Assignment: Build It.</h2>
+        <p class="styled-subheading">Using your vehicle&rsquo;s owner&rsquo;s manual, create a personalized maintenance schedule.</p>
+
+        <div class="worked-example">
+          <h3>Worked Example &mdash; 2022 Toyota Camry (LE, 2.5L)</h3>
+          <ul>
+            <li>Manufacturer specifies: 0W-20 full synthetic, changed every 10,000 miles</li>
+            <li>You drive approximately 12,000 miles/year</li>
+            <li>That&rsquo;s about 1.2 oil changes per year</li>
+            <li>At ~$65/change at a local shop: &asymp; $78/year for oil changes</li>
+          </ul>
+        </div>
+
+        <ol class="assignment-steps">
+          <li>Open your Chromebook and find the digital owner&rsquo;s manual for your portfolio vehicle. Try: <em>[Year] [Make] [Model] owner&rsquo;s manual PDF</em> on Google, or check the manufacturer&rsquo;s website directly.</li>
+          <li>Navigate to the <strong>Scheduled Maintenance</strong> section (usually in the back third of the manual).</li>
+          <li>Find and record the manufacturer&rsquo;s recommended intervals for:
+            <ul>
+              <li>Engine oil change (include the specified oil type and viscosity)</li>
+              <li>Tire rotation (connect this to your tire research)</li>
+              <li>Coolant flush</li>
+              <li>Transmission fluid service</li>
+              <li>Brake fluid service (if listed &mdash; some manufacturers don&rsquo;t include it as scheduled)</li>
+              <li>Any other manufacturer-specified services</li>
+            </ul>
+          </li>
+          <li>Calculate the annual cost of following the manufacturer schedule. Use the worked example above as your model. For local pricing, search: <em>[service type] cost [your city]</em> or check pricing at local shops&rsquo; websites.</li>
+          <li>Insert the completed schedule into Phase 1 of your Vehicle Ownership Portfolio.</li>
+        </ol>
+
+        <p><em>Use the manufacturer&rsquo;s schedule. Not the dealer&rsquo;s. Not Jiffy Lube&rsquo;s. Not your uncle&rsquo;s. The manufacturer&rsquo;s.</em></p>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 8: FOOTER ====== -->
+    <footer class="section section--dark footer-section" id="footer">
+      <div class="section-inner--wide reveal">
+        <ol class="takeaways">
+          <li>The owner&rsquo;s manual is your single source of truth.</li>
+          <li>Full synthetic saves money over time &mdash; do the math for your car.</li>
+          <li>Document everything. Receipts become dollars at resale.</li>
+        </ol>
+
+        <div class="next-steps">
+          <h3>Next Steps</h3>
+          <p>Up next: <strong>Maintenance &amp; Service Quiz</strong> &mdash; covering oil types, fluid identification, manufacturer vs. dealer intervals, and owner&rsquo;s manual navigation.</p>
+        </div>
+
+        <div class="course-info">
+          Mr. McAteer &middot; Crescent Valley High School &middot; AUTOS.CON.007
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // Scroll reveal via Intersection Observer
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var reveals = document.querySelectorAll('.reveal');
+
+      if (prefersReducedMotion) {
+        reveals.forEach(function(el) { el.classList.add('visible'); });
+      } else {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -60px 0px'
+        });
+        reveals.forEach(function(el) { observer.observe(el); });
+      }
+
+      // Progress bar — throttled via requestAnimationFrame
+      var progressBar = document.querySelector('.progress-bar');
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            var scrollTop = window.scrollY;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

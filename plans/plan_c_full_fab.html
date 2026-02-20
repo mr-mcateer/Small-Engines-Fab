@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Plan C: Full Fabrication — CVHS Drift Trike Project</title>
+<style>
+  @page {
+    size: letter;
+    margin: 0.75in 0.85in;
+    @bottom-center { content: "CVHS Drift Trike — Plan C: Full Fabrication"; font-size: 8pt; color: #999; }
+    @bottom-right { content: "Page " counter(page) " of " counter(pages); font-size: 8pt; color: #999; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 10.5pt; line-height: 1.5; color: #1a1a1a; }
+  h1 { font-size: 28pt; font-weight: 800; color: #1a1a1a; margin-bottom: 2pt; letter-spacing: -0.5pt; }
+  h2 { font-size: 16pt; font-weight: 700; color: #16a34a; margin-top: 24pt; margin-bottom: 8pt; padding-bottom: 4pt; border-bottom: 2.5pt solid #16a34a; }
+  h3 { font-size: 12pt; font-weight: 700; color: #1a1a1a; margin-top: 16pt; margin-bottom: 6pt; }
+  h4 { font-size: 10.5pt; font-weight: 700; color: #444; margin-top: 12pt; margin-bottom: 4pt; }
+  p { margin-bottom: 8pt; }
+  .subtitle { font-size: 14pt; color: #555; font-weight: 400; margin-bottom: 4pt; }
+  .school { font-size: 11pt; color: #777; margin-bottom: 16pt; }
+  .hero-banner { background: #16a34a; color: white; padding: 14pt 18pt; border-radius: 6pt; margin: 16pt 0; }
+  .hero-banner h2 { color: white; border: none; margin: 0; padding: 0; font-size: 14pt; }
+  .hero-banner p { color: #bbf7d0; margin: 4pt 0 0 0; font-size: 10pt; }
+  .callout { background: #fef3c7; border-left: 4pt solid #f59e0b; padding: 10pt 14pt; margin: 12pt 0; border-radius: 0 4pt 4pt 0; }
+  .callout-red { background: #fee2e2; border-left: 4pt solid #dc2626; padding: 10pt 14pt; margin: 12pt 0; border-radius: 0 4pt 4pt 0; }
+  .callout-green { background: #dcfce7; border-left: 4pt solid #16a34a; padding: 10pt 14pt; margin: 12pt 0; border-radius: 0 4pt 4pt 0; }
+  .callout-blue { background: #dbeafe; border-left: 4pt solid #2563eb; padding: 10pt 14pt; margin: 12pt 0; border-radius: 0 4pt 4pt 0; }
+  .callout strong { display: block; margin-bottom: 2pt; }
+  table { width: 100%; border-collapse: collapse; margin: 10pt 0 14pt 0; font-size: 9.5pt; }
+  th { background: #f3f4f6; font-weight: 700; text-align: left; padding: 6pt 8pt; border: 1pt solid #d1d5db; }
+  td { padding: 5pt 8pt; border: 1pt solid #d1d5db; vertical-align: top; }
+  tr:nth-child(even) td { background: #f9fafb; }
+  .cost-table th { background: #16a34a; color: white; }
+  .gate-table th { background: #1e40af; color: white; }
+  .fab-table th { background: #7c3aed; color: white; }
+  .check { list-style: none; padding: 0; }
+  .check li { padding: 3pt 0 3pt 22pt; position: relative; }
+  .check li::before { content: "\2610"; position: absolute; left: 0; font-size: 12pt; }
+  .resource-box { background: #f0f9ff; border: 1pt solid #bae6fd; border-radius: 4pt; padding: 10pt 14pt; margin: 8pt 0; }
+  .resource-box a { color: #0369a1; text-decoration: none; font-weight: 600; }
+  .resource-box .label { font-size: 8pt; text-transform: uppercase; letter-spacing: 1pt; color: #0369a1; font-weight: 700; margin-bottom: 4pt; }
+  .two-col { display: flex; gap: 14pt; }
+  .two-col > div { flex: 1; }
+  .tag { display: inline-block; background: #16a34a; color: white; font-size: 8pt; font-weight: 700; padding: 2pt 8pt; border-radius: 10pt; text-transform: uppercase; letter-spacing: 0.5pt; }
+  .tag-blue { background: #1e40af; }
+  .tag-green { background: #16a34a; }
+  .tag-amber { background: #d97706; }
+  .tag-purple { background: #7c3aed; }
+  .divider { border: none; border-top: 1pt solid #e5e7eb; margin: 20pt 0; }
+  .page-break { page-break-before: always; }
+  a { color: #2563eb; text-decoration: underline; }
+  .footer-note { font-size: 8.5pt; color: #888; margin-top: 24pt; border-top: 1pt solid #ddd; padding-top: 8pt; }
+  .expectation { background: #faf5ff; border: 1pt solid #e9d5ff; border-radius: 4pt; padding: 10pt 14pt; margin: 8pt 0; }
+  .expectation .label { font-size: 8pt; text-transform: uppercase; letter-spacing: 1pt; color: #7c3aed; font-weight: 700; margin-bottom: 4pt; }
+  .tradeoff { display: flex; gap: 12pt; margin: 10pt 0; }
+  .tradeoff > div { flex: 1; padding: 10pt; border-radius: 4pt; }
+  .pro { background: #dcfce7; border: 1pt solid #86efac; }
+  .con { background: #fee2e2; border: 1pt solid #fca5a5; }
+  .pro strong, .con strong { display: block; margin-bottom: 4pt; font-size: 9pt; text-transform: uppercase; letter-spacing: 0.5pt; }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<h1>Plan C: Full Fabrication</h1>
+<div class="subtitle">CVHS Motorized Drift Trike Project</div>
+<div class="school">Crescent Valley High School — Small Engines + Fabrication<br>
+Students: Colton Hankey &amp; Atticus &nbsp;|&nbsp; Instructor: Mr. McAteer &nbsp;|&nbsp; Spring 2026</div>
+
+<div class="hero-banner">
+  <h2>Buy only what you can't make. Fabricate hubs, adapters, brackets — everything possible — on the lathe, mill, and CNC plasma.</h2>
+  <p>Estimated additional cost: $292–$365 &nbsp;|&nbsp; Maximum fabrication showcase &nbsp;|&nbsp; Demonstrates full shop capability &nbsp;|&nbsp; Cheapest option</p>
+</div>
+
+<div class="callout">
+  <strong>What this plan is about</strong>
+  Plan C is the full fabrication approach. You buy only the parts that genuinely cannot be made in a school shop — the axle, bearings, clutch, chain, wheels, and brake. Everything else — hubs, lock collars, sprocket hub, adapter plates, bearing mounts, engine mount plate, brake bracket — you fabricate yourself on the lathe, mill, and CNC plasma. This is the cheapest option and the ultimate demonstration of CVHS shop capabilities.
+</div>
+
+<h2>What You Already Have</h2>
+<table>
+  <tr><th>Item</th><th>Status</th></tr>
+  <tr><td>Predator 212cc Non-Hemi engine (model 69730) with Stage 1 mods</td><td>In shop</td></tr>
+  <tr><td>ARC 6695 billet flywheel + ARC 6254 billet rod</td><td>Purchased</td></tr>
+  <tr><td>1.25" sq tube 0.095" wall — 50 linear ft (structural)</td><td>Ordered — Ram Steelco, Salem (will call)</td></tr>
+  <tr><td>1.25" sq tube 0.063" wall — 48 linear ft (secondary)</td><td>Ordered — Ram Steelco, Salem (will call)</td></tr>
+  <tr><td>Donor steel bicycle frame (26" wheel)</td><td>Located — students pick up</td></tr>
+  <tr><td>Full metals lab: CNC plasma, knee mills, lathes, MIG welders</td><td>Available</td></tr>
+</table>
+
+<h2>What You Need to Buy</h2>
+
+<h3>MUST-BUY (Can't Fabricate These)</h3>
+<table class="cost-table">
+  <tr><th>#</th><th>Item</th><th>Source</th><th>Est. Cost</th></tr>
+  <tr><td>1</td><td><strong>1" x 40" keyed live steel axle</strong></td><td>Amazon / OMB</td><td>$30–40</td></tr>
+  <tr><td>2</td><td><strong>1" Pillow block bearings x2 (UCP205-16)</strong></td><td>Amazon</td><td>$25–30</td></tr>
+  <tr><td>3</td><td><strong>Centrifugal clutch 3/4" bore, 12T, #35 chain</strong></td><td>Amazon</td><td>$20–35</td></tr>
+  <tr><td>4</td><td><strong>#35 chain (5 ft) + master link</strong></td><td>Amazon</td><td>$12–15</td></tr>
+  <tr><td>5</td><td><strong>1/4" x 12" keystock</strong></td><td>Hardware store</td><td>$5</td></tr>
+  <tr><td>6</td><td><strong>ECILKUC 10x4.5-5 wheels (pair)</strong></td><td>Amazon</td><td>$60–80</td></tr>
+  <tr><td>7</td><td><strong>PVC pipe 6" Sched 40 (~4 ft)</strong></td><td>Home Depot</td><td>$20</td></tr>
+  <tr><td>8</td><td><strong>Mechanical disc brake kit</strong></td><td>Amazon</td><td>$30–40</td></tr>
+  <tr><td>9</td><td><strong>Twist throttle kit + kill switch</strong></td><td>Amazon</td><td>$15–20</td></tr>
+  <tr><td>10</td><td><strong>Tether / deadman kill switch</strong></td><td>Amazon</td><td>$10–15</td></tr>
+</table>
+
+<h3>FABRICATE IN-HOUSE</h3>
+<table class="fab-table">
+  <tr><th>Item</th><th>Method</th><th>Material / Notes</th></tr>
+  <tr><td><strong>Axle hubs x3</strong></td><td>LATHE</td><td>Turn from 1.5–2" round stock, bore to 1", cut keyway</td></tr>
+  <tr><td><strong>Hub adapter plates</strong></td><td>CNC PLASMA + MILL</td><td>1/4" flat plate</td></tr>
+  <tr><td><strong>Sprocket hub</strong></td><td>LATHE + MILL</td><td>Round stock, keyway + bolt holes</td></tr>
+  <tr><td><strong>Bearing mount plates</strong></td><td>CNC PLASMA</td><td>1/4" plate, face on mill</td></tr>
+  <tr><td><strong>Engine mount plate</strong></td><td>CNC PLASMA + MILL</td><td>1/4" plate</td></tr>
+  <tr><td><strong>Brake caliper bracket</strong></td><td>MILL or CNC PLASMA</td><td>1/4" plate</td></tr>
+  <tr><td><strong>Seat frame</strong></td><td>WELD</td><td>0.063" square tube, plywood + padding</td></tr>
+  <tr><td><strong>CVHS nameplate</strong></td><td>CNC PLASMA</td><td>1/8" plate</td></tr>
+  <tr><td><strong>Lock collars x4</strong></td><td>LATHE</td><td>Round stock, tap for set screw</td></tr>
+</table>
+
+<h3>RAW MATERIALS</h3>
+<table class="cost-table">
+  <tr><th>#</th><th>Item</th><th>Source</th><th>Est. Cost</th></tr>
+  <tr><td>11</td><td><strong>Steel flat stock/plate + round stock for lathe work</strong></td><td>Shop stock / Ram Steelco</td><td>$25–35</td></tr>
+  <tr><td>12</td><td><strong>Bolt assortment</strong></td><td>Hardware store</td><td>$20</td></tr>
+  <tr><td>13</td><td><strong>Spray primer + paint</strong></td><td>Hardware store</td><td>$20</td></tr>
+  <tr><td></td><td colspan="2"><strong>PLAN C TOTAL (additional purchases)</strong></td><td><strong>$292–365</strong></td></tr>
+</table>
+
+<div class="tradeoff">
+  <div class="pro"><strong>Advantages</strong>
+    Cheapest option by $100–170<br>
+    Maximum hands-on fabrication learning<br>
+    True "built from scratch" bragging rights<br>
+    Best demonstration of shop capabilities<br>
+    Great for portfolio / program showcase
+  </div>
+  <div class="con"><strong>Tradeoffs</strong>
+    Significant lathe and mill time<br>
+    Hubs and lock collars require precision<br>
+    Higher risk of rework if tolerances are off<br>
+    Longest timeline<br>
+    Axle alignment more challenging without kit parts
+  </div>
+</div>
+
+<div class="callout-red">
+  <strong>Plan C requires the most precision work.</strong>
+  If a hub is bored off-center by even 0.010", the wheel will wobble. If a keyway is too loose, the hub spins on the axle under load. This is real machining — the same tolerances a professional shop would hold. That's what makes it impressive.
+</div>
+
+<div class="page-break"></div>
+
+<!-- ENGINE BUILD -->
+<h2>Phase 1 — Engine Build</h2>
+<p><span class="tag">Small Engines Class</span> &nbsp; Installing billet flywheel + billet rod, governor removal</p>
+
+<div class="callout-red">
+  <strong>Safety: Why Billet Matters Even for a Slow Trike</strong>
+  Once the governor is removed, nothing limits RPM except the throttle. The stock cast flywheel can shatter above ~5,500 RPM — that's an explosion of metal shrapnel. The ARC 6695 billet flywheel is machined from a solid forged aluminum block and rated to 10,000+ RPM. The ARC 6254 billet rod prevents connecting rod failure. These are <em>safety parts</em>, not performance parts. We're installing them even though we plan to cruise at 3,000–4,500 RPM.
+</div>
+
+<h3>What You're Installing</h3>
+<table>
+  <tr><th>Part</th><th>Part Number</th><th>Purpose</th></tr>
+  <tr><td>Billet aluminum flywheel</td><td>ARC 6695 (Non-Hemi specific)</td><td>Replaces cast flywheel — safe to 10,000+ RPM</td></tr>
+  <tr><td>Billet connecting rod</td><td>ARC 6254</td><td>Replaces cast rod — aircraft-grade aluminum, ARP bolts</td></tr>
+  <tr><td>Side cover gasket</td><td>From kit</td><td>Required when opening the crankcase</td></tr>
+  <tr><td>Spark plug</td><td>Autolite 3910X</td><td>Proper heat range</td></tr>
+</table>
+
+<h3>What You're NOT Installing</h3>
+<p>The performance cam and heavy valve springs from the kit stay in the box. Stock cam and springs are fine for a slow drift trike. Less to go wrong.</p>
+
+<h3>Procedure Summary</h3>
+<ol>
+  <li>Drain oil, remove external components (air filter, exhaust, shroud, recoil starter)</li>
+  <li>Remove ignition coil (note air gap), then remove stock flywheel with puller</li>
+  <li>Remove side cover — access the governor and connecting rod</li>
+  <li><strong>Remove governor</strong> gear, shaft, and arm. Plug shaft hole. Clean ALL debris from crankcase.</li>
+  <li><strong>Install ARC 6254 billet rod</strong> — oil bearing surfaces, torque rod bolts to kit spec. <em>Second person verifies torque.</em></li>
+  <li>Reassemble side cover with new gasket (star pattern, 8–10 ft-lbs)</li>
+  <li><strong>Install ARC 6695 billet flywheel</strong> — align key, torque nut to 60–65 ft-lbs. <em>Second person verifies torque.</em></li>
+  <li>Set ignition coil air gap: 0.010"–0.014" (business card method or feeler gauge)</li>
+  <li>Reinstall everything, fill fresh 10W-30 oil, install new spark plug</li>
+  <li>Pull through by hand — verify no binding</li>
+</ol>
+
+<p><em>See the full step-by-step Engine Build Procedure document for the detailed version with torque specs and verification log.</em></p>
+
+<div class="resource-box">
+  <div class="label">Watch Before You Start</div>
+  <strong><a href="https://www.youtube.com/results?search_query=predator+212+non+hemi+governor+removal+billet+flywheel">YouTube: "Predator 212 Non-Hemi Governor Removal + Billet Flywheel"</a></strong> — Search for videos by <strong>Red Beards Garage</strong> and similar channels. Watch the full governor removal process before touching the engine.<br><br>
+  <strong><a href="https://gokartnerds.com/predator-212-governor-removal/">Go Kart Nerds: Step-by-Step Governor Removal Guide</a></strong> — Written walkthrough with photos.<br><br>
+  <strong><a href="https://gokartnerds.com/complete-guide-for-performance-mods-on-predator-212/">Go Kart Nerds: Complete Predator 212 Performance Mod Guide</a></strong> — Understand all the stages so you know where your build sits.<br><br>
+  <strong><a href="https://support.ombwarehouse.com/hc/en-us/articles/115004586888-Predator-212cc-Governor-Removal">OMB Warehouse: Official Governor Removal Instructions</a></strong> — The kit manufacturer's own guide.
+</div>
+
+<div class="expectation">
+  <div class="label">Student Documentation Required</div>
+  <strong>Before engine work:</strong> Photograph the engine from 4 angles (baseline reference).<br>
+  <strong>During:</strong> Photo of governor removed + clean crankcase, photo of billet rod installed, photo of billet flywheel installed.<br>
+  <strong>After:</strong> Complete the two-person verification log with torque values and signatures.<br>
+  <strong>Deliverable:</strong> Completed verification log sheet, signed by both students and Mr. McAteer.
+</div>
+
+<div class="page-break"></div>
+
+<!-- FRAME -->
+<h2>Phase 2 — Frame Fabrication</h2>
+<p><span class="tag">Metals / Fabrication Class</span> &nbsp; Design, cut, weld, inspect</p>
+
+<h3>Key Dimensions</h3>
+<table>
+  <tr><th>Parameter</th><th>Target</th><th>Why</th></tr>
+  <tr><td>Wheelbase</td><td>52–56"</td><td>Long enough for stability, short enough for responsive drifting</td></tr>
+  <tr><td>Rear track width</td><td>30–34"</td><td>Wide = stable, prevents tipping during slides</td></tr>
+  <tr><td>Seat height</td><td>10–14" from ground</td><td>Low center of gravity for drifting</td></tr>
+  <tr><td>Ground clearance</td><td>3–4" minimum</td><td>Clears paved surfaces without scraping</td></tr>
+  <tr><td>Front wheel</td><td>26" bicycle wheel</td><td>From donor frame — provides steering and grip</td></tr>
+  <tr><td>Rear wheels</td><td>10" go-kart wheels with PVC sleeves</td><td>ECILKUC wheels — PVC provides low-friction drift surface</td></tr>
+</table>
+
+<h3>Material Usage</h3>
+<table>
+  <tr><th>Material</th><th>Color Code</th><th>Use For</th></tr>
+  <tr><td>0.095" wall (50 ft available)</td><td><span style="color:#dc2626;font-weight:bold;">RED mark</span></td><td>Main frame rails, rear axle cross-members, engine mount, bicycle junction, gussets</td></tr>
+  <tr><td>0.063" wall (48 ft available)</td><td><span style="color:#2563eb;font-weight:bold;">BLUE mark</span></td><td>Cross-braces, seat frame, foot pegs, chain guard frame, cosmetic panels</td></tr>
+</table>
+
+<div class="callout">
+  <strong>Color-code your tubes BEFORE cutting.</strong> Mark the end of every 0.095" tube with a red paint marker and every 0.063" tube with blue. This prevents accidentally using thin-wall tube in a structural location. One wrong tube in the wrong spot could mean a frame failure.
+</div>
+
+<h3>Build Sequence</h3>
+<ol>
+  <li><strong>Prepare donor bicycle:</strong> Cut behind seat tube. Keep: head tube, fork, front wheel, handlebars, front brake. Remove everything else.</li>
+  <li><strong>Design and cut list:</strong> Sketch the frame (3 views). Map ALL cuts onto stock lengths before cutting anything. Two people verify each measurement.</li>
+  <li><strong>Cut all tubes:</strong> Band saw or chop saw. Deburr every cut. Label every piece.</li>
+  <li><strong>Weld rear frame on flat table:</strong> Tack, check square (diagonals must match within 1/8"), full weld. Use 0.095" for main rails and cross-members.</li>
+  <li><strong>Join bicycle front to rear frame:</strong> This is the highest-stress joint. Align front wheel centered and vertical. Tack, verify, weld, ADD GUSSETS (CNC plasma cut from 1/4" plate).</li>
+  <li><strong>Engine mount sub-frame:</strong> Match Predator 212 bolt pattern. Crankshaft height must align with axle sprocket height.</li>
+  <li><strong>Axle bearing mount plates:</strong> CNC plasma cut from 1/4" plate, face on mill. Slot holes for chain tension adjustment.</li>
+  <li><strong>Secondary structure:</strong> Seat frame, foot pegs, chain guard frame (0.063" tube).</li>
+  <li><strong>Weld inspection:</strong> Mr. McAteer inspects all structural welds before anything is mounted.</li>
+  <li><strong>Finish:</strong> Grind, clean, prime, paint in school colors.</li>
+</ol>
+
+<div class="resource-box">
+  <div class="label">Watch Before You Weld</div>
+  <strong><a href="https://www.youtube.com/results?search_query=drift+trike+frame+build+welding+square+tube">YouTube: "Drift Trike Frame Build Welding"</a></strong> — Watch several builds to see different approaches to the bicycle-to-frame junction.<br><br>
+  <strong><a href="https://www.youtube.com/results?search_query=cut+weld+build+drift+trike">YouTube: Cut Weld Build — Drift Trike Series</a></strong> — Time-lapse style build showing the full fabrication process.<br><br>
+  <strong><a href="https://www.instructables.com/How-I-built-a-Drift-Trike-a-step-by-step-guide/">Instructables: Complete Drift Trike Build Guide (16 steps with photos)</a></strong> — Detailed written + photo walkthrough of a similar bicycle-front-end drift trike build.<br><br>
+  <strong><a href="https://www.youtube.com/results?search_query=MIG+welding+thin+wall+square+tube+tips">YouTube: "MIG Welding Thin Wall Square Tube"</a></strong> — Critical technique reference. Your 0.063" tube WILL burn through if your settings are too hot.
+</div>
+
+<div class="expectation">
+  <div class="label">Student Documentation Required</div>
+  <strong>Before cutting:</strong> Dimensioned 3-view sketch (top, side, rear). Cut list mapped onto stock lengths.<br>
+  <strong>During:</strong> Photo of each major weld joint. Diagonal measurement log (to prove frame is square).<br>
+  <strong>After:</strong> Completed measurement log with actual vs. design values. Photos of finished frame before paint.<br>
+  <strong>Deliverable:</strong> Design sketch, cut list, measurement log, weld inspection sign-off from Mr. McAteer.
+</div>
+
+<h3>CNC Plasma Opportunities (Plan C — The Ultimate Shop Showcase)</h3>
+<p>Plan C is the ultimate shop showcase — every discipline in the metals lab is represented. Lathe turning, mill work, CNC plasma cutting, and MIG welding all come together in a single project. No other plan demonstrates the full breadth of CVHS shop capabilities like this one.</p>
+<ul>
+  <li><strong>CVHS nameplate / logo</strong> — CNC plasma cut from 1/8" or 3/16" steel plate, weld to rear frame</li>
+  <li><strong>"Small Engines + Fabrication"</strong> text plate for side panels</li>
+  <li><strong>Gusset plates</strong> with school logo or decorative perforation patterns</li>
+  <li><strong>Engine mount plate</strong> — CNC plasma cut to exact Predator 212 bolt pattern, finish on mill</li>
+  <li><strong>Bearing mount plates</strong> — CNC plasma profiled, faced on mill for flat mounting surface</li>
+  <li><strong>Hub adapter plates</strong> — CNC plasma cut, precision drilled on mill for wheel bolt patterns</li>
+  <li><strong>Brake caliper mounting bracket</strong> — precision-cut for exact alignment</li>
+  <li><strong>Decorative side panels</strong> — perforated patterns that let you see the tube frame underneath</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- DRIVETRAIN FABRICATION -->
+<h2>Phase 3 — Drivetrain Fabrication &amp; Assembly</h2>
+<p><span class="tag-purple">Plan C: Full Fabrication</span> &nbsp; Lathe, mill, CNC plasma, assemble</p>
+
+<p>This is where Plan C separates itself from every other option. Instead of unboxing a kit, you are <em>making</em> the drivetrain components from raw stock. Every hub, every collar, every adapter plate comes off your machines.</p>
+
+<h3>Fabrication Project 1: Hub Fabrication on the Lathe</h3>
+<p>You need three hubs: two for the rear wheels and one spare / brake disc hub. Each hub must slip onto the 1" keyed axle with a snug fit, accept a keyway to transmit torque, and bolt to the wheel or adapter plate.</p>
+
+<h4>Procedure</h4>
+<ol>
+  <li>Start with 1.5–2" diameter round steel stock, cut to ~2.5" length on the band saw</li>
+  <li>Chuck in the 3-jaw lathe, face both ends square</li>
+  <li>Turn the OD to final dimension (match your wheel/adapter bolt circle requirements)</li>
+  <li>Center drill, then progressively bore the ID to 1.000" — measure with telescoping gauge and micrometer at every step</li>
+  <li>Check bore with the actual axle — it should slide in with finger pressure but zero wobble</li>
+  <li>Cut the keyway on the mill using a broach or end mill in the milling vise</li>
+  <li>Drill bolt holes on the mill (bolt circle for wheel or adapter plate mounting)</li>
+  <li>Deburr all edges, test fit on axle with key</li>
+</ol>
+
+<div class="callout-green">
+  <strong>This is real machinist work.</strong>
+  Boring a 1.000" hole concentric to the OD of a hub is the core skill of lathe work. If the bore is off-center by 0.010", the wheel wobbles at every RPM. Take your time, measure constantly, and sneak up on the final dimension. This is the same work a professional machine shop does every day.
+</div>
+
+<h3>Fabrication Project 2: Lock Collar Fabrication</h3>
+<p>You need four lock collars to hold hubs and bearings in position on the axle. These are simple but must be precise.</p>
+
+<h4>Procedure</h4>
+<ol>
+  <li>Start with 1.5" round stock, cut to ~0.75" lengths</li>
+  <li>Chuck in lathe, face both ends</li>
+  <li>Turn OD to ~1.25" (or match your design)</li>
+  <li>Bore ID to 1.000" (same fit as hubs — snug on axle)</li>
+  <li>Drill and tap one radial hole for a set screw (typically 1/4"-20 or 5/16"-18)</li>
+  <li>Deburr and test fit on axle</li>
+</ol>
+
+<h3>Fabrication Project 3: Sprocket Hub</h3>
+<p>The sprocket hub is the most complex fabricated part. It must key to the 1" axle AND accept the bolt pattern of the 60T rear sprocket. This is a lathe + mill combo project.</p>
+
+<h4>Procedure</h4>
+<ol>
+  <li>Start with 2" round stock, cut to ~1.5" length</li>
+  <li>Lathe: face, turn OD, bore to 1.000"</li>
+  <li>Mill: cut keyway for axle key</li>
+  <li>Measure the bolt pattern on the 60T sprocket — mark and drill matching bolt holes on the mill</li>
+  <li>Tap bolt holes or drill clearance holes for through-bolts with nylock nuts</li>
+  <li>Test fit: sprocket must bolt on flat with no wobble, hub must key to axle with zero play</li>
+</ol>
+
+<div class="callout">
+  <strong>Measure the sprocket BEFORE you drill.</strong>
+  Bolt circle diameter and hole count vary by manufacturer. Lay the sprocket on the hub blank and mark through the existing holes. Drill one hole, pin it, then drill the opposite hole. Check alignment before drilling the rest.
+</div>
+
+<h3>Fabrication Project 4: Hub Adapter Plates</h3>
+<p>The adapter plates connect the wheel bolt pattern to the hub bolt pattern. These are flat 1/4" plates.</p>
+
+<h4>Procedure</h4>
+<ol>
+  <li>Measure the wheel bolt pattern (bolt circle diameter, number of holes, hole size)</li>
+  <li>Measure the hub bolt pattern you created</li>
+  <li>Design the adapter plate in CAD or by hand — two concentric bolt circles on a round plate</li>
+  <li>CNC plasma cut the outer profile</li>
+  <li>Face one side on the mill for a flat mounting surface</li>
+  <li>Drill all bolt holes on the mill using a DRO or layout dye + center punch</li>
+  <li>Test fit: bolt to hub, bolt to wheel, check for runout</li>
+</ol>
+
+<h3>Final Drivetrain Assembly Sequence</h3>
+<ol>
+  <li>Slide components onto the 1" keyed axle in order: lock collar, hub, wheel, lock collar, sprocket hub, lock collar, hub, wheel, lock collar</li>
+  <li>Mount pillow block bearings (UCP205-16) to frame bearing mount plates (bolts, not welded)</li>
+  <li>Thread axle through both bearings</li>
+  <li>Spin axle by hand — must rotate freely with zero binding</li>
+  <li>Install centrifugal clutch on engine crankshaft (3/4" bore, keyway + set screw + bolt)</li>
+  <li>Install #35 chain between clutch sprocket (12T) and axle sprocket (60T)</li>
+  <li>Set chain tension: 1/2"–3/4" deflection at mid-span</li>
+  <li>Verify chain alignment: sight down from drive sprocket to driven — must be straight</li>
+  <li>Install chain guard (fabricate from flat stock)</li>
+  <li>Install PVC drift sleeves over rear tires (deflate tire, slide PVC on, reinflate)</li>
+</ol>
+
+<div class="resource-box">
+  <div class="label">Watch Before Fabrication</div>
+  <strong><a href="https://www.youtube.com/results?search_query=turning+a+hub+on+the+lathe+from+round+stock">YouTube: "Turning a Hub on the Lathe"</a></strong> — Watch how machinists turn hubs from round stock, bore to size, and hold concentricity.<br><br>
+  <strong><a href="https://www.youtube.com/results?search_query=cutting+a+keyway+on+a+mill+broach">YouTube: "Cutting a Keyway on a Mill"</a></strong> — Multiple methods: broaching, end mill slotting, and shaping. Pick the method that matches your tooling.<br><br>
+  <strong><a href="https://www.youtube.com/results?search_query=go+kart+hub+fabrication+from+scratch+lathe">YouTube: "Go Kart Hub Fabrication from Scratch"</a></strong> — Full build videos showing hub turning, boring, and keyway cutting for go-kart axles.<br><br>
+  <strong><a href="https://www.youtube.com/results?search_query=lathe+boring+to+size+1+inch">YouTube: "Lathe Boring to Size"</a></strong> — Technique for sneaking up on a precise bore diameter.<br><br>
+  <strong><a href="https://spidercarts.com/go-kart-rear-axle-setup/">SpiderCarts: Go-Kart Rear Axle Setup Guide</a></strong> — Excellent written guide on live axle fundamentals — understand the system you're building.<br><br>
+  <strong><a href="https://www.diygokarts.com/kart-plans/plans-rear-drive-system.html">DIY Go Karts: Rear Drive System Plans</a></strong> — Reference plans for rear drive systems, sprocket placement, and bearing layout.
+</div>
+
+<div class="expectation">
+  <div class="label">Student Documentation Required</div>
+  <strong>Lathe operation log:</strong> Speeds, feeds, and tool offsets for hub turning. Record RPM, DOC, and feed rate for each operation.<br>
+  <strong>Hub dimensional inspection:</strong> Bore diameter (measured with telescoping gauge + micrometer), keyway width and depth, concentricity check (indicate on axle, spin, measure runout with dial indicator).<br>
+  <strong>Photo documentation:</strong> Photograph each fabricated component with measurement verification — calipers/micrometer visible in photo showing critical dimensions.<br>
+  <strong>During assembly:</strong> Photograph the axle assembly before sliding into bearings. Measure and record chain tension.<br>
+  <strong>After:</strong> Verify axle spins freely (video clip is ideal). Verify chain alignment with a straight-edge.<br>
+  <strong>Deliverable:</strong> Lathe operation log, dimensional inspection report for all hubs/collars, photos of completed drivetrain from both sides, chain tension measurement.
+</div>
+
+<div class="page-break"></div>
+
+<!-- SAFETY -->
+<h2>Phase 4 — Brakes, Controls &amp; Safety Systems</h2>
+<p><span class="tag" style="background:#dc2626;">Non-Negotiable — All Items Required</span></p>
+
+<h3>Controls Setup</h3>
+<table>
+  <tr><th>Control</th><th>Location</th><th>Source</th></tr>
+  <tr><td>7/8" twist throttle</td><td>Right handgrip</td><td>Amazon kit (~$15–20)</td></tr>
+  <tr><td>Front brake lever</td><td>Left hand</td><td>From donor bicycle</td></tr>
+  <tr><td>Rear brake lever</td><td>Right hand or foot pedal</td><td>With brake kit or bicycle lever</td></tr>
+  <tr><td>Kill switch button</td><td>Left handlebar</td><td>With throttle kit or separate (~$5)</td></tr>
+  <tr><td>Tether / deadman switch</td><td>Clip to rider's wrist, mount on frame</td><td>Amazon (~$10–15)</td></tr>
+</table>
+
+<h3>Safety Checklist — Must Be Verified Before ANY Riding</h3>
+<ul class="check">
+  <li>Kill switch (handlebar): start engine, press switch, engine dies instantly</li>
+  <li>Tether (deadman): start engine, pull tether, engine dies instantly</li>
+  <li>Throttle return: twist open, release, snaps closed on its own</li>
+  <li>Front brake: squeeze lever, front wheel locked, cannot spin</li>
+  <li>Rear brake: activate, rear wheels locked, cannot spin</li>
+  <li>Chain guard: fully covers chain run, no exposed links</li>
+  <li>All bolts checked with torque wrench (engine, axle, bearings, wheels, seat)</li>
+  <li>Oil level checked on dipstick</li>
+  <li>Fuel system: no leaks at tank, line, or carburetor</li>
+  <li>No loose wires, cables, or clothing-snag hazards</li>
+</ul>
+
+<div class="callout-red">
+  <strong>The tether kill switch is the single most important safety feature.</strong>
+  If the rider falls off, the cord pulls out and grounds the ignition coil — engine dies instantly. Without it, a riderless trike keeps going. This is mandatory for a school environment. Budget $10–15 and install it before the first engine test.
+</div>
+
+<div class="resource-box">
+  <div class="label">Watch</div>
+  <strong><a href="https://www.youtube.com/results?search_query=go+kart+kill+switch+tether+deadman+install+wiring">YouTube: "Go Kart Kill Switch + Tether Wiring"</a></strong> — How to wire both the handlebar kill switch and tether in parallel to ground the ignition coil.<br><br>
+  <strong><a href="https://www.youtube.com/results?search_query=go+kart+twist+throttle+install+predator+212">YouTube: "Twist Throttle Install Predator 212"</a></strong> — Routing the cable, setting up the return spring, connecting to the carburetor.
+</div>
+
+<div class="page-break"></div>
+
+<!-- SAFETY GATES -->
+<h2>Safety Gates — Hard Stops</h2>
+<p>The project does not advance past a gate until Mr. McAteer signs off. No exceptions.</p>
+
+<table class="gate-table">
+  <tr><th>Gate</th><th>Must Be Complete</th><th>Sign-Off</th></tr>
+  <tr><td><strong>0 — Design Review</strong></td><td>Dimensioned sketch (3 views), cut list mapped onto stock, parts ordered with confirmation numbers</td><td>&#9744; Mr. McAteer</td></tr>
+  <tr><td><strong>1 — Engine Build</strong></td><td>Governor removed, crankcase clean. Billet rod torqued + verified by 2 people. Billet flywheel torqued + verified by 2 people. Oil filled. Photo documentation complete.</td><td>&#9744; Mr. McAteer</td></tr>
+  <tr><td><strong>2 — Engine Running</strong></td><td>Engine starts and idles. No leaks after 5 min. Kill switch tested. Throttle return tested. Break-in complete (30 min). Oil changed post-break-in.</td><td>&#9744; Mr. McAteer</td></tr>
+  <tr><td><strong>3 — Frame Complete</strong></td><td>All welds inspected (no porosity, cracks, undercut). Frame flat + square (diagonals within 1/8"). Gussets at bicycle junction. Painted/primed.</td><td>&#9744; Mr. McAteer</td></tr>
+  <tr><td><strong>4 — Drivetrain</strong></td><td>Axle spins freely. Wheels secure. Clutch installed. Chain tension correct. Chain alignment verified. Chain guard installed. Engine mounted (all 4 bolts).</td><td>&#9744; Mr. McAteer</td></tr>
+  <tr><td><strong>5 — Safety Systems</strong></td><td>Front + rear brakes tested. Kill switch tested on complete trike. Tether tested. Throttle return tested. ALL bolts torque-checked. PPE ready. Fire extinguisher staged.</td><td>&#9744; Mr. McAteer</td></tr>
+</table>
+
+<h3>First Ride Protocol (After Gate 5)</h3>
+<ol>
+  <li>Walking speed only — idle and roll, no throttle</li>
+  <li>Test brakes at walking speed</li>
+  <li>Test kill switch while rolling</li>
+  <li>Test tether while rolling (walk alongside, step away)</li>
+  <li>If everything works: slow laps, 5–10 MPH, no drifting</li>
+  <li>After 10 clean minutes: gentle drift attempts</li>
+  <li><strong>Never ride alone. Mr. McAteer present + fire extinguisher staged at all times.</strong></li>
+</ol>
+
+<div class="page-break"></div>
+
+<!-- TIMELINE -->
+<h2>Timeline</h2>
+<table>
+  <tr><th>Week</th><th>Phase</th><th>Key Activity</th><th>Gate</th></tr>
+  <tr><td>1–2</td><td>Design</td><td>Sketch, dimension, cut list, order parts, plan fabrication operations</td><td>Gate 0</td></tr>
+  <tr><td>2–3</td><td>Engine</td><td>Billet install, governor removal, bench test, break-in</td><td>Gate 1, Gate 2</td></tr>
+  <tr><td>3–5</td><td>Frame</td><td>Cut, weld, inspect, CNC gussets + nameplate, paint</td><td>Gate 3</td></tr>
+  <tr><td>4–7</td><td>Drivetrain Fab</td><td>Lathe: hubs, collars, sprocket hub. Mill: keyways, bolt holes. CNC plasma: plates</td><td>—</td></tr>
+  <tr><td>7–8</td><td>Drivetrain Assembly</td><td>Axle assembly, chain, clutch, bearings, wheels</td><td>Gate 4</td></tr>
+  <tr><td>8–9</td><td>Integration</td><td>Brakes, throttle, kill switch, tether, final assembly</td><td>Gate 5</td></tr>
+  <tr><td>9–10</td><td>Testing</td><td>First ride protocol, tuning, refinement</td><td>—</td></tr>
+  <tr><td>10–11</td><td>Finish</td><td>CVHS branding, documentation, presentation</td><td>—</td></tr>
+</table>
+
+<h2>Documentation &amp; Deliverables Summary</h2>
+<table>
+  <tr><th>Deliverable</th><th>When</th><th>Format</th></tr>
+  <tr><td>3-view dimensioned design sketch</td><td>Gate 0</td><td>Hand-drawn or CAD</td></tr>
+  <tr><td>Cut list mapped onto stock</td><td>Gate 0</td><td>Written table</td></tr>
+  <tr><td>Engine verification log (torques, signatures)</td><td>Gate 1</td><td>Printed form, signed</td></tr>
+  <tr><td>Photo log of entire build</td><td>Ongoing</td><td>Phone photos, organized by phase</td></tr>
+  <tr><td>Frame measurement log (diagonals, spacing)</td><td>Gate 3</td><td>Printed form</td></tr>
+  <tr><td>Lathe operation log: speeds, feeds, tool offsets for hub turning</td><td>Phase 3</td><td>Written log</td></tr>
+  <tr><td>Hub dimensional inspection: bore diameter, keyway width/depth, concentricity check</td><td>Phase 3</td><td>Inspection report with measurements</td></tr>
+  <tr><td>Photo documentation of each fabricated component with measurement verification</td><td>Phase 3</td><td>Photos with calipers/micrometer visible</td></tr>
+  <tr><td>Pre-ride safety checklist (signed)</td><td>Gate 5 + every ride</td><td>Printed form, signed</td></tr>
+  <tr><td>Gear ratio calculation</td><td>Phase 3</td><td>Written, show work</td></tr>
+  <tr><td>"Lessons Learned" write-up</td><td>Week 10–11</td><td>1 page, typed or written</td></tr>
+  <tr><td>Final presentation</td><td>Week 11</td><td>To class or school</td></tr>
+</table>
+
+<h2>Reference Links</h2>
+<div class="resource-box">
+  <div class="label">Vendors</div>
+  <a href="https://www.amazon.com">Amazon — Axle, Bearings, Clutch, Brake Kit, Throttle Kit, Tether, Wheels</a><br>
+  <a href="https://www.ombwarehouse.com">OMB Warehouse — Axles, Bearings, Governor Removal Kits</a><br>
+  <a href="https://www.gopowersports.com">GoPowerSports — Engine Parts, Sprockets, Clutches</a><br>
+  <a href="https://www.amazon.com">Amazon — ECILKUC Wheels, Chain, Hardware</a>
+</div>
+<div class="resource-box">
+  <div class="label">Tutorials &amp; Guides</div>
+  <a href="https://gokartnerds.com/complete-guide-for-performance-mods-on-predator-212/">Go Kart Nerds: Complete Predator 212 Mod Guide</a><br>
+  <a href="https://gokartnerds.com/predator-212-governor-removal/">Go Kart Nerds: Governor Removal Step-by-Step</a><br>
+  <a href="https://support.ombwarehouse.com/hc/en-us/articles/115004586888-Predator-212cc-Governor-Removal">OMB Warehouse: Governor Removal Official Instructions</a><br>
+  <a href="https://www.instructables.com/How-I-built-a-Drift-Trike-a-step-by-step-guide/">Instructables: Drift Trike Build — 16 Steps with Photos</a><br>
+  <a href="https://spidercarts.com/go-kart-rear-axle-setup/">SpiderCarts: Live Axle Setup Fundamentals</a><br>
+  <a href="https://www.diygokarts.com/kart-plans/plans-rear-drive-system.html">DIY Go Karts: Rear Drive System Plans</a>
+</div>
+<div class="resource-box">
+  <div class="label">Fabrication &amp; Machining Reference</div>
+  <a href="https://www.youtube.com/results?search_query=turning+a+hub+on+the+lathe+from+round+stock">YouTube: Turning a Hub on the Lathe</a><br>
+  <a href="https://www.youtube.com/results?search_query=cutting+a+keyway+on+a+mill+broach">YouTube: Cutting a Keyway on a Mill</a><br>
+  <a href="https://www.youtube.com/results?search_query=go+kart+hub+fabrication+from+scratch+lathe">YouTube: Go Kart Hub Fabrication from Scratch</a><br>
+  <a href="https://www.youtube.com/results?search_query=lathe+boring+to+size+1+inch">YouTube: Lathe Boring to Size</a><br>
+  <a href="https://www.youtube.com/results?search_query=turning+lock+collar+lathe+set+screw">YouTube: Turning Lock Collars on the Lathe</a>
+</div>
+
+<hr class="divider">
+<p class="footer-note">
+  <strong>Crescent Valley High School</strong> — Small Engines + Fabrication Collaboration<br>
+  Plan C: Full Fabrication — February 2026<br>
+  Prepared for Colton Hankey &amp; Atticus by Mr. McAteer
+</p>
+
+</body>
+</html>

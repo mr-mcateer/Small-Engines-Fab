@@ -1,0 +1,272 @@
+{
+  "Q1": {
+    "question": "What is the primary function of the recoil starter on a small engine?",
+    "correct_comment": "Correct! What happens when you pull the starter cord? You're physically spinning the flywheel and crankshaft to get the first combustion cycle going.",
+    "wrong_comments": {
+      "Regulates engine speed": "That's the governor. The recoil starter is the pull cord \u2014 it physically spins the crankshaft to get the engine turning for the first time.",
+      "Cools the cylinder": "Cooling is handled by the shroud and fins. Think about what you grab and pull to start the engine.",
+      "Lubricates the crankshaft": "The oil slinger handles lubrication. The recoil starter is the pull-start mechanism \u2014 it cranks the engine."
+    }
+  },
+  "Q2": {
+    "question": "What component covers the top of the engine and directs airflow for cooling?",
+    "correct_comment": "Correct! Picture the engine from above. What's the big plastic/metal cover that sits over everything and has vents? It channels air from the flywheel fan across the cooling fins.",
+    "wrong_comments": {
+      "Crankcase": "The crankcase is the BOTTOM housing that holds the crankshaft and camshaft. Think about what covers the TOP and channels airflow.",
+      "Valve cover": "The valve cover is small and only covers the rocker arm area. The shroud is the large cover that directs cooling air over the entire engine.",
+      "Muffler": "The muffler handles exhaust gases and noise. The shroud is the cover on top that works with the flywheel fan to cool the engine."
+    }
+  },
+  "Q3": {
+    "question": "What does the fuel tank store?",
+    "correct_comment": "Correct! The Predator 212 is a gasoline engine with a spark plug. Oil goes in the crankcase. This engine is air-cooled (no coolant). Hydraulic fluid is for hydraulic systems, not engines.",
+    "wrong_comments": {
+      "Engine oil": "Engine oil goes in the CRANKCASE through the oil fill cap. The fuel tank is a separate container that holds gasoline for combustion.",
+      "Coolant": "This engine is AIR-COOLED \u2014 no coolant needed! The shroud and cooling fins handle heat dissipation. The fuel tank stores gasoline.",
+      "Hydraulic fluid": "Hydraulic fluid is for hydraulic systems (like log splitters or presses), not for the engine itself. The fuel tank stores gasoline."
+    }
+  },
+  "Q4": {
+    "question": "What is the purpose of the air filter on a small engine?",
+    "correct_comment": "Correct! Follow the air path: outside air \u2192 air filter \u2192 carburetor \u2192 intake valve \u2192 combustion chamber. The filter is the first line of defense on the intake side.",
+    "wrong_comments": {
+      "Filters the exhaust gases": "Exhaust goes OUT through the muffler. The air filter works on the INTAKE side \u2014 it cleans air BEFORE it enters the carburetor.",
+      "Cleans the engine oil": "Some engines have a separate oil filter, but the air filter only cleans incoming air. Follow the air path: outside \u2192 filter \u2192 carb \u2192 cylinder.",
+      "Cools the incoming air": "Air cooling comes from the shroud and fins. The air filter's only job is trapping dirt and debris before air reaches the carb."
+    }
+  },
+  "Q5": {
+    "question": "The spark plug is responsible for:",
+    "correct_comment": "Correct! Follow the ignition circuit: magneto on flywheel \u2192 ignition coil \u2192 spark plug wire \u2192 spark plug \u2192 spark across the gap \u2192 ignites the mixture.",
+    "wrong_comments": {
+      "Pumping fuel into the cylinder": "Fuel delivery is the carburetor's job. The spark plug only creates the electrical spark needed for ignition.",
+      "Opening the exhaust valve": "Valves are opened mechanically by the camshaft and rocker arms. The spark plug sits in the head and just creates a spark.",
+      "Compressing the piston rings": "Piston rings are compressed by the cylinder wall \u2014 that's a mechanical fit. Follow the ignition circuit: coil \u2192 wire \u2192 plug \u2192 spark."
+    }
+  },
+  "Q6": {
+    "question": "What does the muffler do?",
+    "correct_comment": "Correct! Think about what comes OUT of the engine after combustion. Burnt gases exit through the exhaust port \u2192 muffler. It quiets the noise and points gases away safely.",
+    "wrong_comments": {
+      "Increases engine horsepower": "Stock mufflers actually create back-pressure that slightly reduces HP. The muffler's primary job is noise reduction and directing exhaust safely.",
+      "Filters incoming air": "That's the air filter on the intake side. The muffler is on the EXHAUST side \u2014 it handles gases leaving the engine.",
+      "Stores excess fuel": "The fuel tank stores fuel. The muffler only handles exhaust gases that have already been combusted."
+    }
+  },
+  "Q7": {
+    "question": "The carburetor's job is to:",
+    "correct_comment": "Correct! The carburetor sits between the air filter and the intake valve. Its job is mixing \u2014 air and fuel in the right proportion (~14.7:1 by weight for gasoline).",
+    "wrong_comments": {
+      "Ignite the fuel": "Ignition is the spark plug's job. The carburetor only MIXES air and fuel \u2014 it doesn't ignite anything.",
+      "Compress the air-fuel mixture": "Compression happens in the cylinder as the piston moves up. The carb just mixes air and fuel before they enter the cylinder.",
+      "Lubricate the piston": "Lubrication comes from the oil system (oil slinger). The carburetor only deals with air and fuel mixing."
+    }
+  },
+  "Q8": {
+    "question": "What is located under the valve cover?",
+    "correct_comment": "Correct! Remember pulling the valve cover off during teardown? Right underneath were the rocker arms sitting on top of the valve stems, with springs wrapped around them.",
+    "wrong_comments": {
+      "Piston and connecting rod": "The piston and connecting rod are inside the cylinder and crankcase \u2014 much deeper in the engine. The valve cover is on top of the head.",
+      "Crankshaft and camshaft": "These are in the crankcase (bottom of the engine). The valve cover is on the cylinder HEAD and reveals the valvetrain components.",
+      "Oil slinger and governor": "These are in the crankcase (bottom of the engine). Under the valve cover on TOP you find the rocker arms and valve springs."
+    }
+  },
+  "Q9": {
+    "question": "What do the rocker arms do?",
+    "correct_comment": "Correct! Rocker arms are the mechanical link between the camshaft (below) and the valves (above). Cam lobe pushes up \u2192 pushrod \u2192 rocker arm pivots \u2192 valve opens.",
+    "wrong_comments": {
+      "Connect the piston to the crankshaft": "That's the connecting rod's job. Rocker arms are up in the head, transferring cam motion to the valves.",
+      "Seal the combustion chamber": "The head gasket and piston rings handle sealing. Rocker arms are part of the valve train \u2014 they open and close the valves.",
+      "Regulate engine speed": "That's the governor's job. Rocker arms only control valve movement by transferring camshaft motion."
+    }
+  },
+  "Q10": {
+    "question": "The cylinder head is sealed to the cylinder by a:",
+    "correct_comment": "Correct! What sits BETWEEN the cylinder head and the cylinder block? A gasket \u2014 it seals the combustion chamber so no compression leaks out.",
+    "wrong_comments": {
+      "Piston ring": "Piston rings seal the piston to the cylinder WALL (inside). The head gasket seals the head to the cylinder BLOCK (on top).",
+      "Valve spring": "Valve springs close the valves. The head gasket is the flat seal between the cylinder head and the block.",
+      "Crankcase cover": "The crankcase cover seals the bottom of the engine. The head gasket seals the TOP \u2014 between head and cylinder."
+    }
+  },
+  "Q11": {
+    "question": "How many valves does the Predator 212 have?",
+    "correct_comment": "Correct! Single-cylinder OHV engine = one intake valve (lets fresh air-fuel in) and one exhaust valve (lets burnt gases out). Two valves total.",
+    "wrong_comments": {
+      "1 (intake only)": "You need a way for exhaust to get OUT too. The Predator 212 has TWO valves \u2014 one intake and one exhaust.",
+      "4 (two intake, two exhaust)": "Four-valve designs exist in high-performance engines, but the Predator 212 is a simple single-cylinder with just 2 valves.",
+      "3 (two intake, one exhaust)": "Three-valve designs are rare. The Predator 212 keeps it simple: one intake valve + one exhaust valve = 2 total."
+    }
+  },
+  "Q12": {
+    "question": "Carbon deposits inside the combustion chamber are caused by:",
+    "correct_comment": "Correct! Carbon is the residue from fuel and oil that didn't completely burn. Over time it builds up on the piston crown, valves, and chamber walls.",
+    "wrong_comments": {
+      "Too much airflow through the carburetor": "Too much air makes the engine run LEAN, which actually produces less carbon. Carbon comes from incomplete combustion of fuel and oil.",
+      "Water in the fuel tank": "Water in fuel causes running problems and corrosion, not carbon deposits. Carbon is unburned fuel and oil residue.",
+      "A loose spark plug": "A loose spark plug causes compression loss and misfires. Carbon deposits come from the gradual buildup of incompletely burned fuel and oil."
+    }
+  },
+  "Q13": {
+    "question": "The cylinder (jug) is the part of the engine where:",
+    "correct_comment": "Correct! The cylinder is the round bore \u2014 the tube where the piston slides up and down. It's the main working chamber of the engine.",
+    "wrong_comments": {
+      "Fuel is stored before combustion": "Fuel is stored in the fuel tank. The cylinder is where the piston moves up and down \u2014 it's the main working bore.",
+      "The camshaft is housed": "The camshaft lives in the crankcase (bottom of the engine). The cylinder is the bore above where the piston operates.",
+      "The recoil starter attaches": "The recoil starter mounts to the shroud/top of the engine. The cylinder is the internal bore where the piston moves."
+    }
+  },
+  "Q14": {
+    "question": "What is the purpose of piston rings?",
+    "correct_comment": "Correct! The piston is slightly smaller than the cylinder bore. The rings expand outward to seal that gap \u2014 keeping compression above and oil below.",
+    "wrong_comments": {
+      "Connect the piston to the crankshaft": "That's the wrist pin and connecting rod. Piston rings seal the gap between the piston and cylinder wall.",
+      "Hold the wrist pin in place": "Wrist pin retaining clips hold the wrist pin. Piston rings are completely separate \u2014 they seal against the cylinder wall.",
+      "Open and close the valves": "Valves are controlled by the camshaft and rocker arms. Piston rings seal the piston-to-cylinder gap."
+    }
+  },
+  "Q15": {
+    "question": "The wrist pin (piston pin) connects the:",
+    "correct_comment": "Correct! Think about the mechanical chain: piston \u2192 [wrist pin] \u2192 connecting rod \u2192 crankshaft. The wrist pin is the pivot point between piston and rod.",
+    "wrong_comments": {
+      "Connecting rod to the crankshaft": "The rod journal on the crankshaft connects to the big end of the rod. The WRIST pin connects the piston to the small end of the rod.",
+      "Camshaft to the crankshaft": "Timing gears connect camshaft and crankshaft. The wrist pin links the piston to the connecting rod.",
+      "Valve to the rocker arm": "The valve stem sits directly in the rocker arm. The wrist pin is in the piston assembly \u2014 connecting piston to connecting rod."
+    }
+  },
+  "Q16": {
+    "question": "What does \"bore condition\" refer to when inspecting a cylinder?",
+    "correct_comment": "Correct! \"Bore\" = the inside of the cylinder. \"Condition\" = is the surface smooth, scratched, scored, or worn? You're checking the cylinder wall quality.",
+    "wrong_comments": {
+      "The size of the exhaust port": "\"Bore\" refers to the cylinder interior, not the exhaust port. You're inspecting the wall surface for scoring, wear, or glazing.",
+      "The depth of the combustion chamber": "Combustion chamber volume is a different measurement. \"Bore condition\" means the quality of the inner cylinder wall surface.",
+      "The number of piston rings installed": "Ring count is a design spec. \"Bore condition\" = the state of the cylinder wall surface \u2014 smooth, scratched, scored, or worn."
+    }
+  },
+  "Q17": {
+    "question": "The crankshaft converts:",
+    "correct_comment": "Correct! Picture the piston going up and down. What shape converts linear motion to rotation? A crank \u2014 just like a bicycle pedal converts your up-down leg motion into wheel rotation.",
+    "wrong_comments": {
+      "Rotational motion into up-and-down motion": "You've got it backwards! The piston goes up and down, and the crankshaft converts that INTO rotation. Think: bicycle pedal.",
+      "Fuel into electricity": "The engine converts fuel to mechanical energy, not electricity. The crankshaft specifically converts linear piston motion into rotation.",
+      "Air pressure into vacuum": "The crankshaft doesn't deal with air pressure. It converts the piston's up-and-down motion into useful rotational motion."
+    }
+  },
+  "Q18": {
+    "question": "The connecting rod links the:",
+    "correct_comment": "Correct! Follow the power chain: combustion pushes piston down \u2192 connecting rod transfers that force \u2192 crankshaft rotates. The rod links piston to crank.",
+    "wrong_comments": {
+      "Crankshaft to the camshaft": "Timing gears connect crankshaft to camshaft. The connecting rod links the PISTON to the CRANKSHAFT.",
+      "Valve to the rocker arm": "The valve stem sits in the rocker arm directly. The connecting rod is deep inside the engine linking piston to crankshaft.",
+      "Flywheel to the starter": "The starter engages the flywheel through a cup/pawl system. The connecting rod links piston to crankshaft."
+    }
+  },
+  "Q19": {
+    "question": "What does the camshaft do?",
+    "correct_comment": "Correct! The camshaft has lobes (bumps) that push against the valve train at precise times. Each lobe controls when a valve opens and for how long.",
+    "wrong_comments": {
+      "Spins the flywheel": "The crankshaft spins the flywheel directly. The camshaft's job is controlling valve timing \u2014 when the intake and exhaust valves open and close.",
+      "Pumps oil through the engine": "The oil slinger handles lubrication in the Predator 212. The camshaft controls valve opening and closing timing.",
+      "Ignites the air-fuel mixture": "Ignition is the spark plug's job. The camshaft mechanically controls when the valves open and close."
+    }
+  },
+  "Q20": {
+    "question": "Timing marks on the crankshaft and camshaft gears ensure that:",
+    "correct_comment": "Correct! The crankshaft and camshaft must be synchronized. If timing is off, a valve could be open when the piston comes up \u2014 catastrophic. The timing marks align them correctly.",
+    "wrong_comments": {
+      "The engine runs at the correct RPM": "RPM is controlled by the governor and throttle. Timing marks synchronize the crankshaft and camshaft so valves open at the right time.",
+      "The oil pump delivers the right pressure": "The Predator 212 uses splash lubrication (oil slinger), not a pump. Timing marks ensure VALVE timing is synchronized with piston position.",
+      "The spark plug fires at maximum compression": "Spark timing is controlled by the flywheel magneto position. Timing marks on the GEARS ensure the VALVES are synchronized with piston position."
+    }
+  },
+  "Q21": {
+    "question": "The crankcase houses which of the following components?",
+    "correct_comment": "Correct! The crankcase is the lower half of the engine block. What lives INSIDE the bottom? The rotating parts: crankshaft, camshaft, connecting rod.",
+    "wrong_comments": {
+      "Piston, cylinder, and spark plug": "The piston and cylinder are ABOVE the crankcase, and the spark plug is in the head. The crankcase houses the crankshaft, camshaft, and connecting rod.",
+      "Carburetor, air filter, and fuel tank": "All EXTERNAL components mounted on the outside. The crankcase is the internal lower housing with the crankshaft, camshaft, and connecting rod.",
+      "Valve cover, rocker arms, and valves": "These are in the UPPER part (the head area). The crankcase is the LOWER housing with the crankshaft, camshaft, and connecting rod."
+    }
+  },
+  "Q22": {
+    "question": "What is the function of the governor on a small engine?",
+    "correct_comment": "Correct! The governor is a speed-limiting system. When the engine speeds up, the governor reduces throttle. When it bogs down, the governor opens the throttle. It maintains steady RPM.",
+    "wrong_comments": {
+      "Controls the ignition timing": "Ignition timing is set by the flywheel magneto position. The governor controls ENGINE SPEED by automatically adjusting the throttle.",
+      "Pumps oil to the bearings": "The Predator 212 uses an oil slinger (splash lubrication), not a pump. The governor regulates engine speed.",
+      "Engages the recoil starter": "The recoil starter is a manual pull mechanism. The governor is an automatic speed regulator that adjusts throttle based on load."
+    }
+  },
+  "Q23": {
+    "question": "The oil slinger in the Predator 212 lubricates the engine by:",
+    "correct_comment": "Correct! The Predator 212 uses splash lubrication, not a pressurized oil pump. A paddle on the camshaft gear dips into the oil sump and flings oil everywhere.",
+    "wrong_comments": {
+      "Pumping oil under high pressure through galleries": "That's a pressurized oil system (used in cars). The Predator 212 is simpler \u2014 a slinger SPLASHES oil from the sump.",
+      "Dripping oil from the valve cover onto the piston": "Oil doesn't drip down from above. The slinger at the BOTTOM spins and flings oil upward from the sump.",
+      "Mixing oil directly into the fuel": "That's a TWO-STROKE engine method. The Predator 212 is FOUR-STROKE \u2014 oil stays in the crankcase, splashed by the slinger."
+    }
+  },
+  "Q24": {
+    "question": "The flywheel's primary functions include:",
+    "correct_comment": "Correct! The flywheel is a heavy wheel on the crankshaft. Its mass stores kinetic energy AND it has magnets that spin past the ignition coil to generate spark.",
+    "wrong_comments": {
+      "Cooling the engine and filtering air": "The flywheel fan helps with cooling, but its PRIMARY functions are energy storage and ignition generation. Air filtering is the air filter's job.",
+      "Compressing the fuel mixture": "The piston compresses the mixture in the cylinder. The flywheel stores rotational energy and generates the magnetic field for spark.",
+      "Connecting the carburetor to the intake valve": "The intake manifold connects carb to valve. The flywheel is on the crankshaft \u2014 it stores energy and generates ignition pulses."
+    }
+  },
+  "Q25": {
+    "question": "The PTO (Power Take-Off) side of the engine is where:",
+    "correct_comment": "Correct! PTO = Power Take-Off. It's where power LEAVES the engine. The output shaft sticks out from this side to connect to whatever the engine drives.",
+    "wrong_comments": {
+      "The recoil starter is mounted": "The recoil starter is on the FLYWHEEL side (opposite). PTO = Power Take-Off = where the output shaft exits.",
+      "The air filter is located": "The air filter is on the carburetor side. PTO side is where the output shaft exits \u2014 where power leaves the engine.",
+      "The muffler attaches": "The muffler bolts to the exhaust port on the cylinder. PTO side is where the output shaft exits to drive equipment."
+    }
+  },
+  "Q26": {
+    "question": "What are the four strokes in a four-stroke engine cycle, in order?",
+    "correct_comment": "Correct! Suck, Squeeze, Bang, Blow \u2014 the mechanic's shorthand. Intake (suck), Compression (squeeze), Power (bang), Exhaust (blow).",
+    "wrong_comments": {
+      "Compression, Intake, Exhaust, Power": "Wrong order. You must take in the mixture FIRST (Intake), then Compress, then Power, then Exhaust. Suck, Squeeze, Bang, Blow.",
+      "Power, Exhaust, Intake, Compression": "Starts mid-cycle. Correct order: Intake \u2192 Compression \u2192 Power \u2192 Exhaust. Suck, Squeeze, Bang, Blow.",
+      "Intake, Power, Compression, Exhaust": "Can't have Power before Compression! The mixture must be compressed FIRST. Correct: Intake \u2192 Compression \u2192 Power \u2192 Exhaust."
+    }
+  },
+  "Q27": {
+    "question": "During the compression stroke, what is happening?",
+    "correct_comment": "Correct! Compression = squeeze. Both valves MUST be closed (sealed chamber), and the piston moves UP to compress the mixture.",
+    "wrong_comments": {
+      "The intake valve is open and fuel is entering the cylinder": "That's the INTAKE stroke. During COMPRESSION, both valves are CLOSED so the mixture is sealed in and can be squeezed.",
+      "The exhaust valve is open and gases are leaving the cylinder": "That's the EXHAUST stroke. During compression, both valves are closed and the piston pushes upward.",
+      "The spark plug fires and the piston moves downward": "That's the POWER stroke. Compression comes BEFORE power \u2014 piston moves UP with both valves closed."
+    }
+  },
+  "Q28": {
+    "question": "Valve springs are responsible for:",
+    "correct_comment": "Correct! The camshaft OPENS the valve (pushes it). But what CLOSES it? The spring! It pulls the valve back to its seat when the cam lobe rotates away.",
+    "wrong_comments": {
+      "Opening the valves during the intake stroke": "The CAMSHAFT opens the valves via rocker arms. Springs do the OPPOSITE \u2014 they CLOSE the valves after the cam releases them.",
+      "Sealing the cylinder head to the block": "That's the head gasket. Valve springs wrap around valve stems and provide closing force.",
+      "Connecting the rocker arms to the push rods": "The pushrod sits in a socket in the rocker arm. Valve springs are on the valves themselves, providing closing force."
+    }
+  },
+  "Q29": {
+    "question": "The Predator 212 is classified as what type of engine?",
+    "correct_comment": "Correct! Count the cylinders (1), count the strokes (4), how is it cooled (air \u2014 fins + shroud), where are the valves (overhead = in the head).",
+    "wrong_comments": {
+      "Two-cylinder, two-stroke, liquid-cooled": "Wrong on all counts. The Predator 212 has ONE cylinder, FOUR strokes, and is AIR-cooled.",
+      "Single-cylinder, two-stroke, air-cooled": "Close \u2014 but it's FOUR-stroke, not two-stroke. A two-stroke fires every revolution; this fires every OTHER revolution.",
+      "V-twin, four-stroke, liquid-cooled": "ONE cylinder (not V-twin) and AIR-cooled (not liquid). It is four-stroke and OHV though."
+    }
+  },
+  "Q30": {
+    "question": "What does OHV (Overhead Valve) mean?",
+    "correct_comment": "Correct! OHV = Overhead Valve. Valves are OVERHEAD (in the head), but the camshaft stays DOWN in the block. Cam pushes up through tappets and pushrods to reach the valves above.",
+    "wrong_comments": {
+      "The camshaft is located above the valves in the cylinder head": "That's OHC (Overhead CAM) or DOHC. In OHV, the VALVES are overhead but the CAMSHAFT stays in the block.",
+      "The valves are located on the side of the cylinder block": "That's a flathead or L-head design. OHV = Overhead Valve \u2014 valves are UP in the cylinder HEAD.",
+      "The engine has no valves and uses ports instead": "That's a two-stroke with port-style intake/exhaust. The Predator 212 is four-stroke OHV \u2014 valves in the head, cam in the block."
+    }
+  }
+}
