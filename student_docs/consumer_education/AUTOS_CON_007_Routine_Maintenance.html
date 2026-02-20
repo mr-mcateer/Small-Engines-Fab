@@ -622,9 +622,68 @@
         print-color-adjust: exact;
       }
     }
+
+    /* ========== LESSON NAV ========== */
+    .lesson-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(26, 26, 26, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(212, 168, 67, 0.3);
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+    }
+    .lesson-nav a {
+      color: var(--color-accent-amber);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .lesson-nav a:hover { opacity: 0.7; }
+    .lesson-nav__prev, .lesson-nav__next {
+      min-width: 100px;
+    }
+    .lesson-nav__next { text-align: right; }
+    .lesson-nav__center {
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .lesson-nav__prev--hidden, .lesson-nav__next--hidden {
+      visibility: hidden;
+    }
+    .module-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent-amber);
+      border: 1px solid var(--color-accent-amber);
+      border-radius: 4px;
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero { padding-top: calc(var(--space-xl) + 2.5rem); }
+    .progress-bar { top: 2.5rem; }
   </style>
 </head>
 <body>
+
+  <nav class="lesson-nav" aria-label="Lesson navigation">
+    <div class="lesson-nav__prev"><a href="AUTOS_CON_006_Tires_and_Safety.html">&larr; Module 6</a></div>
+    <div class="lesson-nav__center">Module 7 of 16</div>
+    <div class="lesson-nav__next"><a href="AUTOS_CON_008_Finding_a_Mechanic.html">Module 8 &rarr;</a></div>
+  </nav>
+
 
   <div class="progress-bar" aria-hidden="true"></div>
 
@@ -632,6 +691,7 @@
 
     <!-- ====== SECTION 1: HERO ====== -->
     <section class="hero" id="hero">
+      <div class="module-badge">Module 7 of 16</div>
       <h1>The 3,000-Mile Myth</h1>
       <p class="lead">How an outdated rule costs American drivers hundreds every year.</p>
       <div class="scroll-arrow" aria-hidden="true">&#8595;</div>
@@ -681,6 +741,10 @@
 
         <div class="callout">
           <strong>What you already know:</strong> You learned that tires degrade with mileage and tread depth &mdash; and that knowing when to replace them saves money and keeps you safe. Every fluid in your car works the same way. It degrades with use and time. Now you&rsquo;ll learn which fluids matter, when to service them, and how to tell if someone is trying to sell you something you don&rsquo;t need.
+        </div>
+
+        <div class="note-box">
+          <strong>Check for a &ldquo;severe service&rdquo; schedule.</strong> Many owner&rsquo;s manuals have two maintenance schedules: normal and severe. Severe conditions include frequent short trips (under 10 miles), dusty or gravel roads, extreme heat or cold, towing, and stop-and-go traffic. If most of your driving fits these categories, follow the severe schedule &mdash; it typically means shorter intervals between services.
         </div>
 
         <div class="flowchart">
@@ -945,7 +1009,13 @@
 
         <div class="next-steps">
           <h3>Next Steps</h3>
-          <p>Up next: <strong>Maintenance &amp; Service Quiz</strong> &mdash; covering oil types, fluid identification, manufacturer vs. dealer intervals, and owner&rsquo;s manual navigation.</p>
+          <p>Up next: finding a mechanic you can trust &mdash; what to look for, what to avoid, and how to read a repair estimate.</p>
+        </div>
+
+
+        <div style="display: flex; justify-content: space-between; max-width: var(--max-width-content); margin: var(--space-md) auto 0; padding-top: var(--space-md); border-top: 1px solid rgba(255,255,255,0.1);">
+          <a href="AUTOS_CON_006_Tires_and_Safety.html" style="color: var(--color-accent-amber); text-decoration: none;">&larr; Module 6: Tires &amp; Safety</a>
+          <a href="AUTOS_CON_008_Finding_a_Mechanic.html" style="color: var(--color-accent-amber); text-decoration: none;">Module 8: Finding a Mechanic &rarr;</a>
         </div>
 
         <div class="course-info">

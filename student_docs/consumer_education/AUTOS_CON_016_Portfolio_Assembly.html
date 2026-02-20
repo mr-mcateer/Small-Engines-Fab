@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You're Required to Buy It. You Should Understand It. — AUTOS.CON.004</title>
+  <title>Your Owner&rsquo;s Manual for Owning a Car &mdash; AUTOS.CON.016</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -118,7 +118,7 @@
       color: var(--color-text-inverse);
       background:
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1400&h=800&q=80') center/cover no-repeat;
       background-attachment: fixed;
       padding: var(--space-lg) var(--space-md);
       position: relative;
@@ -515,6 +515,40 @@
       text-align: center;
     }
 
+    /* ========== PORTFOLIO PAGE GRID ========== */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .portfolio-page-card {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+      text-align: left;
+    }
+    .portfolio-page-card .page-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent-amber);
+      margin-bottom: var(--space-xs);
+      display: block;
+    }
+    .portfolio-page-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: var(--space-xs);
+    }
+    .portfolio-page-card p {
+      font-size: 0.88rem;
+      color: var(--color-text-secondary);
+      margin: 0;
+    }
+
     /* ========== FOOTER ========== */
     .footer-section { padding: var(--space-xl) var(--space-md) var(--space-lg); }
     .takeaways {
@@ -557,6 +591,7 @@
       .fluid-grid,
       .value-grid { grid-template-columns: 1fr; }
       .oil-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
       .flow-branch { grid-template-columns: 1fr; max-width: 280px; }
       .comparison-card .big-number { font-size: 1.8rem; }
       .takeaways li { font-size: 1.15rem; }
@@ -568,6 +603,7 @@
       .section { padding: var(--space-md) var(--space-sm); }
       .comparison-card .big-number { font-size: 1.5rem; }
       .value-card .price { font-size: 1.5rem; }
+      .portfolio-grid { grid-template-columns: 1fr; }
     }
 
     /* ========== REDUCED MOTION ========== */
@@ -679,9 +715,9 @@
 <body>
 
   <nav class="lesson-nav" aria-label="Lesson navigation">
-    <div class="lesson-nav__prev"><a href="AUTOS_CON_003_The_Finance_Office.html">&larr; Module 3</a></div>
-    <div class="lesson-nav__center">Module 4 of 16</div>
-    <div class="lesson-nav__next"><a href="AUTOS_CON_005_Total_Cost_of_Ownership.html">Module 5 &rarr;</a></div>
+    <div class="lesson-nav__prev"><a href="AUTOS_CON_015_Electric_and_Alternative.html">&larr; Module 15</a></div>
+    <div class="lesson-nav__center">Module 16 of 16</div>
+    <div class="lesson-nav__next lesson-nav__next--hidden"><span>&nbsp;</span></div>
   </nav>
 
 
@@ -691,186 +727,219 @@
 
     <!-- ====== SECTION 1: HERO ====== -->
     <section class="hero" id="hero">
-      <div class="module-badge">Module 4 of 16</div>
-      <h1>You&rsquo;re Required to Buy It. You Should Understand It.</h1>
-      <p class="lead">Auto insurance is mandatory. Understanding it is optional &mdash; and that&rsquo;s where most people lose money.</p>
+      <div class="module-badge">Module 16 of 16</div>
+      <h1>Your Owner&rsquo;s Manual for Owning a Car</h1>
+      <p class="lead">Sixteen modules. One document. Everything you need to make smart decisions about the most expensive thing you&rsquo;ll buy before a house.</p>
       <div class="scroll-arrow" aria-hidden="true">&#8595;</div>
     </section>
 
-    <!-- ====== SECTION 2: OPENER — THE LAW SAYS YOU MUST ====== -->
+    <!-- ====== SECTION 2: OPENER ====== -->
     <section class="section" id="opener">
       <div class="section-inner reveal">
-        <h2>The Law Says You Must</h2>
-        <p class="styled-subheading">Insurance isn&rsquo;t optional. But understanding it is &mdash; and that&rsquo;s the problem.</p>
+        <h2>You Built Something Most Adults Wish They Had</h2>
+        <p class="styled-subheading">Sixteen modules. Hundreds of decisions. One portfolio that puts you ahead of 90% of first-time buyers.</p>
 
-        <p>Oregon requires every driver to carry liability insurance. The state minimum is 25/50/20 &mdash; that&rsquo;s $25,000 for bodily injury per person, $50,000 per accident, and $20,000 for property damage. Those numbers sound big until you realize a single trip to the ER can cost $50,000+, and a new truck bumper runs $5,000. Minimums are a floor, not a recommendation.</p>
+        <p>Over the past fifteen modules, you&rsquo;ve done something remarkable: you&rsquo;ve built a complete, researched, personalized guide to owning a vehicle. You <a href="AUTOS_CON_001_Your_First_Car.html" style="color: var(--color-accent-blue);">picked a car and set a budget</a>. You <a href="AUTOS_CON_003_The_Finance_Office.html" style="color: var(--color-accent-blue);">survived the finance office</a>. You calculated <a href="AUTOS_CON_005_Total_Cost_of_Ownership.html" style="color: var(--color-accent-blue);">what it really costs</a>. You learned how to <a href="AUTOS_CON_006_Tires_and_Safety.html" style="color: var(--color-accent-blue);">read tires</a>, <a href="AUTOS_CON_007_Routine_Maintenance.html" style="color: var(--color-accent-blue);">schedule maintenance</a>, <a href="AUTOS_CON_008_Finding_a_Mechanic.html" style="color: var(--color-accent-blue);">find honest mechanics</a>, and <a href="AUTOS_CON_009_Pre_Purchase_Inspection.html" style="color: var(--color-accent-blue);">inspect a used car before buying it</a>. You studied <a href="AUTOS_CON_011_Warranties_and_Recalls.html" style="color: var(--color-accent-blue);">warranties</a>, practiced <a href="AUTOS_CON_012_Negotiation.html" style="color: var(--color-accent-blue);">negotiation</a>, committed to <a href="AUTOS_CON_013_Your_Driving_Record.html" style="color: var(--color-accent-blue);">safe driving</a>, and planned <a href="AUTOS_CON_014_When_to_Sell.html" style="color: var(--color-accent-blue);">years into the future</a>.</p>
 
-        <p>Get caught driving without insurance in Oregon and you&rsquo;re looking at a license suspension, fines, and an SR-22 filing requirement &mdash; which is basically a flag on your record that tells the state your insurance company is watching you. That SR-22 stays with you for three years and makes your premiums significantly more expensive.</p>
+        <p>Most adults stumble through these decisions one at a time, often learning the hard way &mdash; through overpaying, skipping maintenance, or signing something they didn&rsquo;t fully understand. You did the work before any money changed hands. That&rsquo;s the entire point.</p>
 
-        <p>Here&rsquo;s the reframe: you&rsquo;re not throwing money away. You&rsquo;re buying protection against a financial disaster that could follow you for decades. A single at-fault accident without insurance can result in a lawsuit, wage garnishment, and a wrecked credit score before you&rsquo;re 20 years old.</p>
+        <p>Now you assemble everything into a single document &mdash; your Vehicle Ownership Portfolio &mdash; that you can actually use after graduation. This isn&rsquo;t a binder that gets recycled at the end of the semester. It&rsquo;s a reference you&rsquo;ll pull out the day you start shopping for real.</p>
 
         <figure>
           <img
             class="section-image"
-            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80"
-            alt="Close-up of car keys and insurance documents on a desk"
+            src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=1200&q=80"
+            alt="Organized documents and a notebook spread out on a clean desk, representing careful planning and preparation"
             width="1200" height="600" loading="lazy"
           >
         </figure>
       </div>
     </section>
 
-    <!-- ====== SECTION 3: COVERAGE TYPES ====== -->
-    <section class="section section--warm" id="coverage-types">
+    <!-- ====== SECTION 3: PORTFOLIO STRUCTURE ====== -->
+    <section class="section section--warm" id="structure">
       <div class="section-inner--wide reveal">
-        <h2>What the Coverage Types Actually Mean</h2>
-        <p class="styled-subheading">Four types of coverage. Each one protects something different.</p>
+        <h2>Your Portfolio: 15 Pages, One Complete Guide</h2>
+        <p class="styled-subheading">Each page builds on the last. Together, they cover every major decision you&rsquo;ll face as a vehicle owner.</p>
 
-        <div class="fluid-grid">
-          <div class="fluid-card">
-            <div class="fluid-card__accent" style="background: var(--color-fluid-brake);"></div>
-            <div class="fluid-card__body">
-              <h3>Liability</h3>
-              <p>Pays for damage <strong>you cause</strong> to <strong>other people and their property</strong>. This is the coverage Oregon requires. It does NOT cover your car &mdash; only theirs. If you rear-end someone, liability pays for their bumper, their medical bills, and their lawyer. Your car? That&rsquo;s on you.</p>
-              <p class="interval">Required by law &middot; 25/50/20 minimum in OR</p>
-            </div>
+        <div class="portfolio-grid">
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 1 &middot; Module 1</span>
+            <h3>My Vehicle</h3>
+            <p>The car you chose, why you chose it, and how it compares to the alternatives you considered.</p>
           </div>
-          <div class="fluid-card">
-            <div class="fluid-card__accent" style="background: var(--color-fluid-washer);"></div>
-            <div class="fluid-card__body">
-              <h3>Collision</h3>
-              <p>Pays to fix <strong>your car</strong> after an accident, regardless of who was at fault. You hit a pole? Collision. Someone hits you and drives off? Collision. This is technically optional &mdash; but if you have a car loan, your lender will require it.</p>
-              <p class="interval">Optional &middot; Required by lenders</p>
-            </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 2 &middot; Module 2</span>
+            <h3>Price Breakdown</h3>
+            <p>Window sticker decoded &mdash; MSRP, invoice, destination, and what the dealer actually paid.</p>
           </div>
-          <div class="fluid-card">
-            <div class="fluid-card__accent" style="background: var(--color-fluid-coolant);"></div>
-            <div class="fluid-card__body">
-              <h3>Comprehensive</h3>
-              <p>Pays for damage to <strong>your car</strong> from everything <em>except</em> collisions: theft, hail, fire, hitting a deer, falling tree branches, vandalism, a shopping cart rolling into your door. If it wasn&rsquo;t a crash, it&rsquo;s comprehensive.</p>
-              <p class="interval">Optional &middot; Required by lenders</p>
-            </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 3 &middot; Module 3</span>
+            <h3>Financing Plan</h3>
+            <p>Loan terms, interest calculations, and the total cost of borrowing over the life of the loan.</p>
           </div>
-          <div class="fluid-card">
-            <div class="fluid-card__accent" style="background: var(--color-fluid-transmission);"></div>
-            <div class="fluid-card__body">
-              <h3>Uninsured/Underinsured Motorist (UM/UIM)</h3>
-              <p>Pays for <strong>your injuries</strong> when the other driver has no insurance or not enough to cover your costs. Oregon requires UM/UIM coverage matching your liability limits &mdash; 25/50 minimum. This is your backup plan for other people&rsquo;s bad decisions.</p>
-              <p class="interval">Required in OR &middot; Must match liability limits</p>
-            </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 4 &middot; Module 4</span>
+            <h3>Insurance Plan</h3>
+            <p>Coverage types, deductible choices, and the policy that balances protection with affordability.</p>
+          </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 5 &middot; Module 5</span>
+            <h3>TCO Summary</h3>
+            <p>Total cost of ownership &mdash; every dollar the car will cost you over five years, not just the sticker price.</p>
+          </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 6 &middot; Module 6</span>
+            <h3>Tire Specifications</h3>
+            <p>What&rsquo;s on the sidewall, what your car needs, and how to buy replacements without overpaying.</p>
+          </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 7 &middot; Module 7</span>
+            <h3>Maintenance Schedule</h3>
+            <p>The manufacturer&rsquo;s recommended service intervals &mdash; oil, filters, brakes, fluids, belts &mdash; mapped to your vehicle.</p>
+          </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 8 &middot; Module 8</span>
+            <h3>My Service Team</h3>
+            <p>The shops and mechanics you&rsquo;d trust with your car, vetted by reviews, certifications, and pricing.</p>
+          </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 9 &middot; Module 9</span>
+            <h3>Pre-Purchase Checklist</h3>
+            <p>The step-by-step inspection you&rsquo;ll run before handing over any money &mdash; dealer or private party.</p>
+          </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 10 &middot; Module 10</span>
+            <h3>Emergency Preparedness</h3>
+            <p>What&rsquo;s in your emergency kit, what to do at the scene, and who to call when things go wrong.</p>
+          </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 11 &middot; Module 11</span>
+            <h3>Warranty &amp; Recalls</h3>
+            <p>What&rsquo;s covered, what&rsquo;s not, how to check for open recalls, and how to protect your coverage.</p>
+          </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 12 &middot; Module 12</span>
+            <h3>Negotiation Plan</h3>
+            <p>Your strategy for the dealership &mdash; target price, walk-away number, and responses to common tactics.</p>
+          </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 13 &middot; Module 13</span>
+            <h3>Safe Driving Commitment</h3>
+            <p>The habits and commitments that keep you, your passengers, and everyone else on the road safe.</p>
+          </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 14 &middot; Module 14</span>
+            <h3>Long-Term Plan</h3>
+            <p>Maintenance budgeting, depreciation projections, and your timeline for eventual replacement.</p>
+          </div>
+          <div class="portfolio-page-card">
+            <span class="page-number">Page 15 &middot; Module 15</span>
+            <h3>Future Vehicle Tech</h3>
+            <p>EVs, hybrids, autonomous features, and how the next decade of transportation affects your choices.</p>
           </div>
         </div>
 
         <div class="note-box">
-          <strong>Oregon also requires Personal Injury Protection (PIP).</strong> PIP covers your own medical expenses, lost wages, and essential services after an accident &mdash; regardless of who was at fault. Oregon&rsquo;s minimum is $15,000. Unlike liability (which pays for the other person), PIP pays for you. Most policies include it automatically, but know it&rsquo;s there and what it covers.
-        </div>
-
-        <div class="callout">
-          <strong>The simple version:</strong> Liability = their stuff. Collision = your car in a crash. Comprehensive = your car from everything else. UM/UIM = you, when they don&rsquo;t have insurance. PIP = your medical bills, no matter who caused it.
+          <strong>Page order matters.</strong> The portfolio follows the natural sequence of vehicle ownership: choose a car, understand the price, figure out how to pay for it, protect it with insurance, calculate the real cost, then learn to maintain it, service it, inspect it, prepare for emergencies, understand your warranty, negotiate the deal, drive it safely, plan for the long haul, and look ahead. Each page builds on the ones before it.
         </div>
       </div>
     </section>
 
-    <!-- ====== SECTION 4: THE DEDUCTIBLE TRADE-OFF ====== -->
-    <section class="section section--dark" id="deductibles">
+    <!-- ====== SECTION 4: QUALITY STANDARDS ====== -->
+    <section class="section section--dark" id="quality">
       <div class="section-inner reveal">
-        <h2>The Deductible Trade-Off</h2>
-        <p class="styled-subheading">Lower deductible = higher premium. Higher deductible = lower premium. The math matters.</p>
+        <h2>What Makes a Strong Portfolio</h2>
+        <p class="styled-subheading">The difference between a completed assignment and a document worth keeping.</p>
 
-        <p>Your deductible is the amount you pay out of pocket before insurance kicks in. If you have a $1,000 deductible and your repair costs $4,000, you pay $1,000 and insurance covers $3,000. Choosing your deductible is a bet on how likely you are to file a claim.</p>
+        <p>A strong portfolio page doesn&rsquo;t just fill in blanks. It demonstrates that you actually understand the material and can apply it to your specific situation. Here&rsquo;s what separates good work from great work:</p>
 
-        <div class="comparison-grid">
-          <div class="comparison-card comparison-card--dealer">
-            <h3>$250 Deductible</h3>
-            <span class="big-number">~$140/mo</span>
-            <span class="detail">Lower out-of-pocket if you file a claim</span>
-            <span class="detail">$1,680/year in premiums</span>
-          </div>
-          <div class="comparison-card comparison-card--mfr">
-            <h3>$1,000 Deductible</h3>
-            <span class="big-number">~$105/mo</span>
-            <span class="detail">Higher out-of-pocket if you file a claim</span>
-            <span class="detail">$1,260/year in premiums</span>
-          </div>
-        </div>
+        <p><strong>Accurate data with sources.</strong> Every number &mdash; every price, every interest rate, every insurance quote &mdash; should come from a real source you can name. &ldquo;I found this on KBB&rdquo; is a source. &ldquo;I guessed&rdquo; is not.</p>
 
-        <div class="comparison-bottom">
-          <span class="savings">$420 saved per year with the higher deductible</span>
-          <p class="fine-print">But you pay $750 more out of pocket if you file a claim</p>
-        </div>
+        <p><strong>Clear formatting.</strong> Someone picking up your portfolio for the first time should be able to find any piece of information in under 30 seconds. Use headings, labels, and consistent structure.</p>
+
+        <p><strong>Personal analysis.</strong> The worked examples in each module showed you how to think through the math. Your portfolio should show your own thinking &mdash; your income, your insurance quotes, your maintenance costs &mdash; not a copy of the example.</p>
+
+        <p><strong>Cross-module connections.</strong> The best portfolios don&rsquo;t treat each page as an island. Your insurance cost from Module 4 shows up in your TCO calculation in Module 5. Your maintenance schedule from Module 7 informs your long-term budget in Module 14. When the pages talk to each other, the portfolio becomes genuinely useful.</p>
 
         <div class="callout callout--dark">
-          <strong>The decision rule:</strong> If you can afford to cover $1,000 in an emergency, the higher deductible saves money over time. If you can&rsquo;t, the lower deductible is insurance for your insurance. Either way, know the trade-off before you choose.
+          <strong>The real test:</strong> Could you hand this portfolio to a parent, an older sibling, or a friend who&rsquo;s about to buy their first car &mdash; and would it actually help them? If the answer is yes, you&rsquo;ve done the work right.
         </div>
       </div>
     </section>
 
-    <!-- ====== SECTION 5: WHY YOUNG DRIVERS PAY MORE ====== -->
-    <section class="section" id="young-drivers">
-      <div class="section-inner--wide reveal">
-        <h2>Why Young Drivers Pay More</h2>
-        <p class="styled-subheading">Age is the single biggest factor in what you pay. Here&rsquo;s why &mdash; and what you can control.</p>
+    <!-- ====== SECTION 5: PEER REVIEW ====== -->
+    <section class="section" id="peer-review">
+      <div class="section-inner reveal">
+        <h2>Peer Review: A Second Set of Eyes</h2>
+        <p class="styled-subheading">Good work gets better when someone else reads it honestly.</p>
 
-        <p>Insurance companies price risk. Statistically, drivers aged 16&ndash;19 are involved in more accidents per mile driven than any other age group. That&rsquo;s not an opinion &mdash; it&rsquo;s actuarial data built from millions of claims. The result: a 17-year-old in Oregon pays roughly $3,500&ndash;$5,000 per year for their own policy. Added to a parent&rsquo;s policy, that drops to roughly $1,500&ndash;$2,500 per year &mdash; still significant, but much more manageable.</p>
+        <p>You&rsquo;ve been staring at your own portfolio all semester. You know what you meant to write. A peer reviewer sees what you actually wrote &mdash; and that&rsquo;s exactly the perspective you need before submitting.</p>
+
+        <p>Exchange your complete portfolio with a classmate. Use the review checklist below to evaluate their work, and they&rsquo;ll do the same for yours.</p>
 
         <figure>
           <img
             class="section-image"
-            src="https://images.unsplash.com/photo-1549317661-bd32c8ce0afa?auto=format&fit=crop&w=1200&q=80"
-            alt="Young driver behind the wheel of a car, hands on the steering wheel"
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80"
+            alt="Two students collaborating and reviewing documents together at a table"
             width="1200" height="600" loading="lazy"
           >
         </figure>
+
+        <div class="worked-example">
+          <h3>Peer Review Checklist</h3>
+          <ul>
+            <li>Are all 15 portfolio pages present and in order?</li>
+            <li>Does the data look accurate? (Check at least 3 numbers against real sources)</li>
+            <li>Is the formatting consistent and easy to navigate?</li>
+            <li>Does the analysis show genuine understanding, or does it read like copied examples?</li>
+            <li>Do the numbers connect across pages? (e.g., insurance in Page 4 matches TCO in Page 5)</li>
+            <li>Are sources cited for prices, rates, and specifications?</li>
+            <li>Would this portfolio actually be useful to someone buying a car?</li>
+          </ul>
+        </div>
+
+        <div class="defense-box">
+          <h3>How to Give Constructive Feedback</h3>
+          <p>Your job as a reviewer isn&rsquo;t to say &ldquo;looks good&rdquo; or &ldquo;needs work.&rdquo; It&rsquo;s to be specific and helpful. <strong>Name the page. Name the issue. Suggest a fix.</strong></p>
+          <p>Instead of: <em>&ldquo;Your insurance section is confusing.&rdquo;</em></p>
+          <p>Try: <em>&ldquo;On Page 4, I can&rsquo;t tell which deductible you chose or why. Adding one sentence explaining your reasoning would make it clear.&rdquo;</em></p>
+          <p>Be honest. Be kind. Be specific. Your classmate will do better work because you took the review seriously &mdash; and so will you when you read their feedback on yours.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 6: FINAL REFLECTION ====== -->
+    <section class="section section--warm" id="reflection">
+      <div class="section-inner reveal">
+        <h2>Final Reflection</h2>
+        <p class="styled-subheading">Look back at what you&rsquo;ve learned. Look forward at how you&rsquo;ll use it.</p>
+
+        <p>The last page of your portfolio is a one-page written reflection. This isn&rsquo;t a summary of the modules &mdash; it&rsquo;s your honest assessment of how this course changed the way you think about one of the biggest financial decisions you&rsquo;ll make.</p>
+
+        <p>Your reflection should address three questions:</p>
 
         <div class="oil-grid">
           <div class="oil-card">
-            <h3>Costs More</h3>
-            <div class="oil-row"><span class="oil-label">Age under 25</span><span class="oil-value">+50&ndash;200%</span></div>
-            <div class="oil-row"><span class="oil-label">Sports car or high-HP vehicle</span><span class="oil-value">+15&ndash;40%</span></div>
-            <div class="oil-row"><span class="oil-label">At-fault accident on record</span><span class="oil-value">+25&ndash;50%</span></div>
-            <div class="oil-row"><span class="oil-label">Speeding ticket</span><span class="oil-value">+10&ndash;30%</span></div>
+            <h3>The Surprise</h3>
+            <div class="oil-row"><span class="oil-label">Prompt</span><span class="oil-value">What was the most surprising thing you learned?</span></div>
+            <div class="oil-row"><span class="oil-label">Why it matters</span><span class="oil-value">Surprises mean you learned something you didn&rsquo;t know you needed</span></div>
           </div>
           <div class="oil-card">
-            <h3>Costs Less</h3>
-            <div class="oil-row"><span class="oil-label">On parent&rsquo;s policy</span><span class="oil-value">&minus;40&ndash;60%</span></div>
-            <div class="oil-row"><span class="oil-label">Good student discount</span><span class="oil-value">&minus;5&ndash;15%</span></div>
-            <div class="oil-row"><span class="oil-label">Clean driving record</span><span class="oil-value">&minus;10&ndash;20%</span></div>
-            <div class="oil-row"><span class="oil-label">Higher deductible</span><span class="oil-value">&minus;15&ndash;30%</span></div>
+            <h3>The Change</h3>
+            <div class="oil-row"><span class="oil-label">Prompt</span><span class="oil-value">How will this change how you approach buying a car?</span></div>
+            <div class="oil-row"><span class="oil-label">Why it matters</span><span class="oil-value">Knowledge only matters if it changes behavior</span></div>
           </div>
           <div class="oil-card">
-            <h3>Doesn&rsquo;t Matter (But They Ask)</h3>
-            <div class="oil-row"><span class="oil-label">Car color</span><span class="oil-value">No effect</span></div>
-            <div class="oil-row"><span class="oil-label">Political bumper stickers</span><span class="oil-value">No effect</span></div>
-            <div class="oil-row"><span class="oil-label">Music system value</span><span class="oil-value">No effect</span></div>
-            <div class="oil-row"><span class="oil-label">How &ldquo;careful&rdquo; you say you are</span><span class="oil-value">No effect</span></div>
+            <h3>The Keeper</h3>
+            <div class="oil-row"><span class="oil-label">Prompt</span><span class="oil-value">What single piece of information in your portfolio is most valuable?</span></div>
+            <div class="oil-row"><span class="oil-label">Why it matters</span><span class="oil-value">Forces you to prioritize &mdash; what do you grab first in a real purchase?</span></div>
           </div>
-        </div>
-
-        <div class="note-box">
-          <strong>Credit score matters in most states.</strong> Insurance companies in 47 states (including Oregon) can use your credit-based insurance score to set premiums. A lower credit score often means a higher premium &mdash; one more reason your financial habits in your late teens matter more than you think.
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== SECTION 6: HOW TO SAVE ====== -->
-    <section class="section section--warm" id="savings">
-      <div class="section-inner reveal">
-        <h2>How to Save on Insurance</h2>
-        <p class="styled-subheading">You can&rsquo;t change your age. But you can control almost everything else.</p>
-
-        <div class="defense-box">
-          <h3>Your Premium Defense Playbook</h3>
-          <p><strong>Stay on your parent&rsquo;s policy as long as possible.</strong> This is the single biggest discount available to you. Being added to an existing policy is dramatically cheaper than starting your own.</p>
-          <p><strong>Earn the good student discount.</strong> Most insurers offer 5&ndash;15% off for maintaining a GPA of 3.0 or higher. Bring your transcript or report card &mdash; it&rsquo;s free money.</p>
-          <p><strong>Take a defensive driving course.</strong> Oregon-approved courses can knock another 5&ndash;10% off your premium, and you&rsquo;ll be a better driver in the process.</p>
-          <p><strong>Bundle policies.</strong> If your family bundles auto with homeowner&rsquo;s or renter&rsquo;s insurance, the multi-policy discount typically saves 5&ndash;15%.</p>
-          <p><strong>Raise your deductible &mdash; if you can cover the cost.</strong> Moving from $500 to $1,000 can save 15&ndash;30% on collision and comprehensive premiums.</p>
-          <p><strong>Shop around.</strong> Get quotes from at least three companies. Rates vary dramatically &mdash; the same driver can see quotes that differ by $1,000+ per year between companies.</p>
-          <p><strong>Ask about telematics programs.</strong> Programs like Snapshot, Drive Safe &amp; Save, or similar usage-based options track your driving habits and can offer discounts for safe driving. Read the fine print &mdash; some can also raise your rate if your driving is poor.</p>
         </div>
 
         <div class="callout">
-          <strong>Stack the discounts.</strong> A young driver on a parent&rsquo;s policy with good student + defensive driving + bundling + higher deductible can realistically save 40&ndash;50% compared to a standalone policy with default settings. That&rsquo;s potentially $1,500&ndash;$2,000 per year back in your pocket.
+          <strong>Write it like you&rsquo;re talking to yourself one year from now</strong> &mdash; the version of you who&rsquo;s actually standing on a dealer lot or scrolling through listings on a Saturday morning. What do you need to remember? What would you tell yourself to do differently than you would have before this course?
         </div>
       </div>
     </section>
@@ -879,40 +948,40 @@
     <section class="section section--warm check-section" id="check">
       <div class="section-inner reveal">
         <h2>Check Yourself</h2>
-        <p class="styled-subheading">Make sure you&rsquo;ve got the concepts before you move on.</p>
+        <p class="styled-subheading">Final reflection questions that pull from everything you&rsquo;ve learned.</p>
 
         <details>
-          <summary>You rear-end someone at a stop light. Which coverage pays for the damage to their car?</summary>
+          <summary>You find your dream car listed at $18,000. Walk through every step you&rsquo;d take before signing anything &mdash; from first seeing the listing to driving it home.</summary>
           <div class="answer">
-            <p><strong>Liability.</strong> Your liability coverage pays for damage you cause to other people and their property. It does not cover your own vehicle &mdash; only theirs. This is the coverage Oregon requires you to carry.</p>
+            <p><strong>The full sequence:</strong> Check the price on KBB and Edmunds to see if it&rsquo;s fair (Module 2). Run the financing math &mdash; can you afford the payment under the 20/4/10 rule (Module 3)? Get insurance quotes for that specific vehicle (Module 4). Calculate the total cost of ownership, including fuel, maintenance, and depreciation (Module 5). Check tire condition and specifications (Module 6). Review the maintenance history and upcoming service needs (Module 7). Get a pre-purchase inspection from an independent mechanic (Module 9). Check for open recalls (Module 11). If it passes all of that, negotiate using your target price and walk-away number (Module 12). Then buy it, maintain it, and drive it safely (Modules 13 &amp; 14).</p>
           </div>
         </details>
 
         <details>
-          <summary>A tree falls on your car during a storm. Which coverage applies?</summary>
+          <summary>Your friend says, &ldquo;I don&rsquo;t need to budget for car costs &mdash; I&rsquo;m just going to buy a cheap car with cash.&rdquo; What would you tell them?</summary>
           <div class="answer">
-            <p><strong>Comprehensive.</strong> Falling objects, weather damage, theft, fire, animal strikes, and vandalism are all covered under comprehensive &mdash; not collision. Collision only applies when your car hits (or is hit by) another vehicle or object while driving.</p>
+            <p><strong>Buying with cash is smart, but &ldquo;cheap&rdquo; doesn&rsquo;t mean &ldquo;no ongoing costs.&rdquo;</strong> Insurance is legally required. Fuel is constant. Maintenance doesn&rsquo;t stop because you didn&rsquo;t make a monthly payment &mdash; in fact, cheaper cars often need more maintenance. A $3,000 car that needs $2,000 in repairs the first year costs you $5,000. The TCO calculation from Module 5 exists specifically for this reason: the purchase price is just the beginning.</p>
           </div>
         </details>
 
         <details>
-          <summary>Your friend says they only carry liability because it&rsquo;s cheapest. They drive a $15,000 car with a loan. What&rsquo;s wrong with this plan?</summary>
+          <summary>Why does the portfolio put Insurance (Page 4) before Total Cost of Ownership (Page 5)?</summary>
           <div class="answer">
-            <p><strong>Their lender almost certainly requires collision and comprehensive coverage.</strong> If they&rsquo;re only carrying liability, they&rsquo;re likely violating their loan agreement. Worse: if the car is totaled, they still owe the full loan balance with no insurance payout to cover it. They&rsquo;d be making payments on a car that no longer exists.</p>
+            <p><strong>Because insurance is a required input for TCO.</strong> You can&rsquo;t calculate the total cost of owning a vehicle without knowing what you&rsquo;ll pay for insurance each month. The portfolio is sequenced so that each page provides data the next page needs. Price feeds into financing. Financing and insurance feed into TCO. Maintenance and tires feed into the long-term plan. This is how real financial planning works &mdash; one decision informs the next.</p>
           </div>
         </details>
 
         <details>
-          <summary>You&rsquo;re comparing two policies: one at $120/month with a $500 deductible, another at $95/month with a $1,000 deductible. Over 2 years with no claims, which costs less total?</summary>
+          <summary>If you could only keep three pages from your portfolio, which three would be most useful when actually buying a car &mdash; and why?</summary>
           <div class="answer">
-            <p><strong>The $95/month policy.</strong> $95 &times; 24 months = $2,280. $120 &times; 24 months = $2,880. The lower-premium policy saves you $600 over two claim-free years. The trade-off: if you do file a claim, you&rsquo;ll pay $500 more out of pocket with the higher deductible. But over two years of no claims, the savings far outweigh the risk.</p>
+            <p><strong>Strong answers vary, but here&rsquo;s one defensible set:</strong> The TCO Summary (Page 5) because it tells you the real cost, not just the sticker price. The Pre-Purchase Checklist (Page 9) because it protects you from buying a problem. The Negotiation Plan (Page 12) because it gives you a strategy for the most high-pressure moment of the process. Other valid picks include Insurance Plan or Financing Plan &mdash; the point is that you can articulate <em>why</em> each page matters, not just list them.</p>
           </div>
         </details>
 
         <details>
-          <summary>Someone without insurance hits your car. Who pays?</summary>
+          <summary>What&rsquo;s the difference between completing the modules and having a portfolio that&rsquo;s actually useful?</summary>
           <div class="answer">
-            <p><strong>Your Uninsured/Underinsured Motorist (UM/UIM) coverage.</strong> This is exactly why Oregon requires it. UM/UIM protects you when the other driver has no insurance or doesn&rsquo;t have enough to cover your injuries and damages. Without it, you&rsquo;d be left paying your own medical bills out of pocket &mdash; or suing someone who likely can&rsquo;t pay.</p>
+            <p><strong>Completing modules means you did the work. A useful portfolio means the work applies to your real life.</strong> If your portfolio has generic example numbers instead of your actual income, your actual insurance quotes, and your actual vehicle choice, it&rsquo;s a school assignment. If it has your real data, real sources, and real analysis, it&rsquo;s a tool you can use. The difference is personalization &mdash; every number should be yours, every decision should be explained in your words, and every page should reflect your situation.</p>
           </div>
         </details>
       </div>
@@ -921,39 +990,43 @@
     <!-- ====== SECTION 8: ASSIGNMENT ====== -->
     <section class="section section--warm" id="assignment">
       <div class="section-inner reveal">
-        <h2>Your Assignment: Build Your Insurance Plan</h2>
-        <p class="styled-subheading">Use your Portfolio vehicle to build a realistic insurance plan.</p>
-
-        <div class="worked-example">
-          <h3>Worked Example &mdash; Insurance Plan for a Portfolio Vehicle</h3>
-          <ul>
-            <li>Vehicle: 2022 Honda Civic Sport &middot; 17-year-old driver &middot; Corvallis, OR</li>
-            <li>Liability: 50/100/50 ($50K per person / $100K per accident / $50K property)</li>
-            <li>Collision: $1,000 deductible</li>
-            <li>Comprehensive: $1,000 deductible</li>
-            <li>UM/UIM: 50/100 (matching liability)</li>
-            <li>Discounts: on parent&rsquo;s policy + good student (3.2 GPA)</li>
-            <li>Estimated annual premium: ~$2,200</li>
-            <li>Monthly cost: ~$183</li>
-          </ul>
-        </div>
+        <h2>Final Assignment: Submit Your Vehicle Ownership Portfolio</h2>
+        <p class="styled-subheading">This is your capstone. Make it count.</p>
 
         <ol class="assignment-steps">
-          <li>Using your Portfolio vehicle from Module 1, get an insurance quote estimate. Use an online estimator (such as Progressive, GEICO, or State Farm&rsquo;s website) or ask a parent/guardian to request a quote to add the vehicle to their policy.</li>
-          <li>Record your coverage levels:
+          <li><strong>Assemble all 15 portfolio pages</strong> in order (Pages 1&ndash;15, following the structure listed above). Each page should be clearly labeled and formatted consistently.</li>
+          <li><strong>Review for cross-page accuracy.</strong> Check that your numbers are consistent:
             <ul>
-              <li>Liability limits (bodily injury per person / per accident / property damage)</li>
-              <li>Collision deductible</li>
-              <li>Comprehensive deductible</li>
-              <li>UM/UIM limits</li>
+              <li>Does your insurance cost in Page 4 match what you used in your TCO on Page 5?</li>
+              <li>Does your maintenance schedule in Page 7 align with the long-term budget in Page 14?</li>
+              <li>Does your vehicle choice in Page 1 carry through every subsequent page?</li>
             </ul>
           </li>
-          <li>Record the estimated monthly premium and calculate the annual cost.</li>
-          <li>Calculate two scenarios: your current coverage with a $500 deductible and with a $1,000 deductible for both collision and comprehensive. Which option saves more over 3 years of claim-free driving? Show the math.</li>
-          <li>Submit your insurance plan to Canvas. This becomes <strong>Page 4 of your Vehicle Ownership Portfolio &mdash; Insurance Plan</strong> (coverage levels, estimated premium, deductible comparison).</li>
+          <li><strong>Complete the peer review.</strong> Exchange portfolios with a classmate, fill out the review checklist, and provide written feedback. Include your reviewer&rsquo;s feedback in your final submission.</li>
+          <li><strong>Write your final reflection</strong> (one full page). Address the three prompts: the surprise, the change, and the keeper.</li>
+          <li><strong>Compile everything into one document:</strong>
+            <ul>
+              <li>Title page with your name, vehicle, and course info</li>
+              <li>15 portfolio pages in order</li>
+              <li>Peer review comments received</li>
+              <li>Your final reflection</li>
+            </ul>
+          </li>
+          <li><strong>Submit to Canvas</strong> as a single PDF or document file. This is your capstone submission for the Consumer Education unit.</li>
         </ol>
 
-        <p><em>There are no wrong answers here &mdash; only uninformed ones. The goal is to understand what you&rsquo;re buying and why, so when you&rsquo;re signing a real policy, you know exactly what every line means.</em></p>
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80"
+            alt="A completed bound document next to a set of car keys, representing a finished plan ready for the real world"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
+
+        <div class="callout">
+          <strong>This portfolio is yours to keep.</strong> After grading, save a copy somewhere you can find it. When the day comes that you&rsquo;re actually buying a vehicle, you&rsquo;ll have a document that most adults never had &mdash; a researched, personalized, complete guide built by someone who took the time to learn before spending.
+        </div>
       </div>
     </section>
 
@@ -961,24 +1034,23 @@
     <footer class="section section--dark footer-section" id="footer">
       <div class="section-inner--wide reveal">
         <ol class="takeaways">
-          <li>Liability pays for their stuff. Collision and comprehensive pay for yours. Know the difference.</li>
-          <li>Your deductible is a trade-off between monthly cost and out-of-pocket risk &mdash; choose based on what you can afford in an emergency.</li>
-          <li>Young drivers pay more, but stacking discounts (parent&rsquo;s policy, good student, higher deductible, shopping around) can cut costs by 40&ndash;50%.</li>
+          <li>The real cost of a vehicle is never just the price on the sticker &mdash; it&rsquo;s financing, insurance, maintenance, fuel, and depreciation combined.</li>
+          <li>Every smart decision starts with knowing your numbers, checking your sources, and refusing to rush.</li>
+          <li>You now own something most first-time buyers never have: a complete plan, built on research, before a single dollar changes hands.</li>
         </ol>
 
         <div class="next-steps">
-          <h3>Next Steps</h3>
-          <p>Up next: the total cost of ownership &mdash; because the car payment is the smallest part.</p>
+          <h3>You&rsquo;re Ready</h3>
+          <p>There is no next module. There&rsquo;s just the real world &mdash; and you&rsquo;re walking into it more prepared than most people twice your age. Keep your portfolio. Use it. Update it when your situation changes. The best financial decisions aren&rsquo;t made in the moment &mdash; they&rsquo;re made long before, by people who did the work ahead of time. That&rsquo;s you now.</p>
         </div>
 
 
-        <div style="display: flex; justify-content: space-between; max-width: var(--max-width-content); margin: var(--space-md) auto 0; padding-top: var(--space-md); border-top: 1px solid rgba(255,255,255,0.1);">
-          <a href="AUTOS_CON_003_The_Finance_Office.html" style="color: var(--color-accent-amber); text-decoration: none;">&larr; Module 3: Finance Office</a>
-          <a href="AUTOS_CON_005_Total_Cost_of_Ownership.html" style="color: var(--color-accent-amber); text-decoration: none;">Module 5: Total Cost &rarr;</a>
+        <div style="display: flex; justify-content: flex-start; max-width: var(--max-width-content); margin: var(--space-md) auto 0; padding-top: var(--space-md); border-top: 1px solid rgba(255,255,255,0.1);">
+          <a href="AUTOS_CON_015_Electric_and_Alternative.html" style="color: var(--color-accent-amber); text-decoration: none;">&larr; Module 15: EVs &amp; Alternative</a>
         </div>
 
         <div class="course-info">
-          Mr. McAteer &middot; Crescent Valley High School &middot; AUTOS.CON.004
+          Mr. McAteer &middot; Crescent Valley High School &middot; AUTOS.CON.016
         </div>
       </div>
     </footer>

@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What the Seller Won&rsquo;t Tell You — AUTOS.CON.009</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========== CSS VARIABLES ========== */
+    :root {
+      --color-bg-dark: #1a1a1a;
+      --color-bg-light: #faf9f6;
+      --color-bg-warm-gray: #f2f0ec;
+      --color-accent-amber: #d4a843;
+      --color-accent-blue: #4a6fa5;
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555555;
+      --color-text-inverse: #faf9f6;
+      --color-success: #3a7d44;
+      --color-danger: #c0392b;
+      --color-fluid-transmission: #c0392b;
+      --color-fluid-brake: #d4a843;
+      --color-fluid-washer: #4a90d9;
+      --color-fluid-coolant: #27ae60;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      --space-section: 8rem;
+      --max-width-content: 780px;
+      --max-width-wide: 1100px;
+      --transition-reveal: opacity 0.6s ease, transform 0.6s ease;
+      --transition-hover: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+      background: var(--color-bg-light);
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 {
+      font-family: 'DM Serif Display', serif;
+      line-height: 1.2;
+      margin-top: 0;
+    }
+    h2 { font-size: 2.2rem; margin-bottom: var(--space-xs); }
+    h3 { font-size: 1.35rem; }
+    p { margin: 0 0 var(--space-sm); }
+    a { color: var(--color-accent-blue); }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ========== PROGRESS BAR ========== */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: var(--color-accent-amber);
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* ========== SCROLL REVEAL ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition-reveal);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== LAYOUT ========== */
+    .section { padding: var(--space-section) var(--space-md); }
+    .section-inner {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+    .section-inner--wide {
+      max-width: var(--max-width-wide);
+      margin: 0 auto;
+    }
+    .section--warm { background: var(--color-bg-warm-gray); }
+    .section--dark {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+    }
+    .styled-subheading {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-md);
+    }
+    .section--dark .styled-subheading { color: #bbb; }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--color-text-inverse);
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=1400&h=800&q=80') center/cover no-repeat;
+      background-attachment: fixed;
+      padding: var(--space-lg) var(--space-md);
+      position: relative;
+    }
+    .hero-fallback {
+      background: linear-gradient(135deg, var(--color-bg-dark) 0%, #2c2c2c 50%, var(--color-accent-amber) 150%);
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: var(--space-xs);
+      letter-spacing: -0.02em;
+    }
+    .hero .lead {
+      font-size: 1.3rem;
+      font-style: italic;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto var(--space-lg);
+    }
+    .scroll-arrow {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.8rem;
+      opacity: 0.7;
+      animation: bounce 2s ease infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* ========== COMPARISON CARDS ========== */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .comparison-card {
+      padding: var(--space-md);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+    }
+    .comparison-card--dealer {
+      border: 2px solid var(--color-danger);
+    }
+    .comparison-card--mfr {
+      border: 2px solid var(--color-success);
+    }
+    .comparison-card h3 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+    .comparison-card--dealer h3 { color: var(--color-danger); }
+    .comparison-card--mfr h3 { color: var(--color-success); }
+    .comparison-card .big-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.4rem;
+      font-weight: 700;
+      display: block;
+      margin: var(--space-xs) 0;
+    }
+    .comparison-card .detail {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .comparison-bottom {
+      text-align: center;
+      margin: var(--space-md) 0 var(--space-xs);
+    }
+    .comparison-bottom .savings {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-success);
+    }
+    .comparison-bottom .fine-print {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-top: var(--space-xs);
+    }
+
+    /* ========== CALLOUT BOX ========== */
+    .callout {
+      border-left: 4px solid var(--color-accent-amber);
+      background: rgba(212, 168, 67, 0.08);
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-md) 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 1rem;
+    }
+    .callout--dark {
+      background: rgba(212, 168, 67, 0.12);
+    }
+    .callout strong { color: var(--color-accent-amber); }
+
+    /* ========== FLOWCHART ========== */
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: var(--space-md) 0;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .flow-box {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 8px;
+      text-align: center;
+      max-width: 360px;
+      width: 100%;
+      font-weight: 600;
+    }
+    .flow-box--accent { background: var(--color-accent-amber); color: var(--color-bg-dark); }
+    .flow-box--success { background: var(--color-success); }
+    .flow-box--danger { background: var(--color-danger); }
+    .flow-arrow {
+      font-size: 1.5rem;
+      color: var(--color-text-secondary);
+      line-height: 1;
+      padding: var(--space-xs) 0;
+    }
+    .flow-branch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      max-width: 360px;
+      width: 100%;
+    }
+    .flow-branch-label {
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-xs);
+    }
+
+    /* ========== SECTION IMAGE ========== */
+    .section-image {
+      border-radius: 8px;
+      margin: var(--space-md) 0;
+      width: 100%;
+    }
+
+    /* ========== OIL TYPE CARDS ========== */
+    .oil-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .oil-card {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+      text-align: center;
+    }
+    .oil-card h3 {
+      margin-bottom: var(--space-sm);
+      font-size: 1.15rem;
+    }
+    .oil-card .oil-row {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid #f0ede8;
+      font-size: 0.9rem;
+    }
+    .oil-card .oil-row:last-child { border-bottom: none; }
+    .oil-card .oil-label {
+      color: var(--color-text-secondary);
+      text-align: left;
+    }
+    .oil-card .oil-value {
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      text-align: right;
+      font-size: 0.85rem;
+    }
+
+    /* ========== FLUID CARDS ========== */
+    .fluid-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .fluid-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e0ddd8;
+    }
+    .fluid-card__accent {
+      height: 6px;
+    }
+    .fluid-card__body {
+      padding: var(--space-md);
+    }
+    .fluid-card h3 { margin-bottom: var(--space-xs); font-size: 1.15rem; }
+    .fluid-card p { font-size: 0.95rem; margin-bottom: var(--space-xs); }
+    .fluid-card .warning {
+      color: var(--color-danger);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .fluid-card .interval {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ========== NOTE BOX ========== */
+    .note-box {
+      background: var(--color-bg-warm-gray);
+      border: 1px solid #e0ddd8;
+      border-radius: 6px;
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      margin: var(--space-md) 0;
+    }
+
+    /* ========== UPSELL DEFENSE ========== */
+    .defense-box {
+      border: 2px solid var(--color-accent-amber);
+      border-radius: 8px;
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+      background: rgba(212, 168, 67, 0.06);
+    }
+    .defense-box h3 {
+      color: var(--color-accent-amber);
+      margin-bottom: var(--space-xs);
+      font-family: 'Source Sans 3', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+    }
+
+    /* ========== VALUE COMPARISON ========== */
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+      text-align: center;
+    }
+    .value-card {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+    }
+    .value-card h3 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-xs);
+    }
+    .value-card .price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .value-card--low .price { color: var(--color-danger); }
+    .value-card--high .price { color: var(--color-success); }
+    .value-card .label { font-size: 0.85rem; color: var(--color-text-secondary); }
+    .value-diff {
+      text-align: center;
+      margin: var(--space-sm) 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-success);
+    }
+
+    /* ========== DETAILS / SUMMARY ========== */
+    .check-section details {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      margin-bottom: var(--space-sm);
+      overflow: hidden;
+    }
+    .check-section summary {
+      padding: var(--space-sm) var(--space-md);
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      padding-right: 3rem;
+    }
+    .check-section summary::-webkit-details-marker { display: none; }
+    .check-section summary::after {
+      content: '+';
+      position: absolute;
+      right: var(--space-md);
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.2rem;
+      color: var(--color-accent-amber);
+    }
+    .check-section details[open] summary::after { content: '\2212'; }
+    .check-section .answer {
+      padding: 0 var(--space-md) var(--space-md);
+      color: var(--color-text-secondary);
+      border-top: 1px solid #f0ede8;
+      padding-top: var(--space-sm);
+    }
+
+    /* ========== ASSIGNMENT ========== */
+    .worked-example {
+      background: #fff;
+      border: 2px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+    }
+    .worked-example h3 { margin-bottom: var(--space-sm); font-size: 1.1rem; }
+    .worked-example ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .worked-example li {
+      padding: var(--space-xs) 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f0ede8;
+    }
+    .worked-example li:last-child { border-bottom: none; }
+    .assignment-steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+    }
+    .assignment-steps > li {
+      counter-increment: step;
+      padding: var(--space-sm) 0;
+      padding-left: 3rem;
+      position: relative;
+      border-bottom: 1px solid #e0ddd8;
+    }
+    .assignment-steps > li:last-child { border-bottom: none; }
+    .assignment-steps > li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: var(--space-sm);
+      width: 2rem;
+      height: 2rem;
+      background: var(--color-accent-amber);
+      color: var(--color-bg-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .assignment-steps li ul {
+      margin-top: var(--space-xs);
+      padding-left: var(--space-md);
+      list-style: disc;
+    }
+    .assignment-steps li ul li {
+      padding-left: 0;
+      border-bottom: none;
+    }
+    .assignment-steps li ul li::before {
+      display: none;
+    }
+    .due-date {
+      background: rgba(212, 168, 67, 0.12);
+      border: 2px solid var(--color-accent-amber);
+      border-radius: 8px;
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-md) 0;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer-section { padding: var(--space-xl) var(--space-md) var(--space-lg); }
+    .takeaways {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto var(--space-lg);
+      max-width: var(--max-width-content);
+    }
+    .takeaways li {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .takeaways li:last-child { border-bottom: none; }
+    .next-steps {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: var(--space-md);
+      background: rgba(255,255,255,0.04);
+    }
+    .next-steps h3 { color: var(--color-accent-amber); margin-bottom: var(--space-xs); }
+    .course-info {
+      max-width: var(--max-width-content);
+      margin: var(--space-lg) auto 0;
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero .lead { font-size: 1.1rem; }
+      h2 { font-size: 1.7rem; }
+      .section { padding: var(--space-lg) var(--space-sm); }
+      .comparison-grid,
+      .fluid-grid,
+      .value-grid { grid-template-columns: 1fr; }
+      .oil-grid { grid-template-columns: 1fr; }
+      .flow-branch { grid-template-columns: 1fr; max-width: 280px; }
+      .comparison-card .big-number { font-size: 1.8rem; }
+      .takeaways li { font-size: 1.15rem; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.9rem; }
+      h2 { font-size: 1.45rem; }
+      body { font-size: 0.95rem; }
+      .section { padding: var(--space-md) var(--space-sm); }
+      .comparison-card .big-number { font-size: 1.5rem; }
+      .value-card .price { font-size: 1.5rem; }
+    }
+
+    /* ========== REDUCED MOTION ========== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+      .hero { background-attachment: scroll; }
+    }
+
+    /* ========== PRINT ========== */
+    @media print {
+      * { animation: none !important; transition: none !important; }
+      .progress-bar, .scroll-arrow { display: none; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      body {
+        font-size: 11pt;
+        max-width: 100%;
+        color: #000;
+        background: #fff;
+      }
+      .section {
+        page-break-before: always;
+        padding: 1rem 0;
+      }
+      .section:first-of-type { page-break-before: auto; }
+      .hero {
+        min-height: auto;
+        background: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 2rem 1rem;
+      }
+      img { max-width: 100%; height: auto; }
+      .comparison-card, .oil-card, .fluid-card, .value-card, .worked-example {
+        border: 2pt solid #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      details > summary ~ * { display: block !important; }
+      details:not([open]) > summary ~ * { display: block !important; }
+      details { break-inside: avoid; }
+      .section--dark {
+        background: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* ========== LESSON NAV ========== */
+    .lesson-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(26, 26, 26, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(212, 168, 67, 0.3);
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+    }
+    .lesson-nav a {
+      color: var(--color-accent-amber);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .lesson-nav a:hover { opacity: 0.7; }
+    .lesson-nav__prev, .lesson-nav__next {
+      min-width: 100px;
+    }
+    .lesson-nav__next { text-align: right; }
+    .lesson-nav__center {
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .lesson-nav__prev--hidden, .lesson-nav__next--hidden {
+      visibility: hidden;
+    }
+    .module-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent-amber);
+      border: 1px solid var(--color-accent-amber);
+      border-radius: 4px;
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero { padding-top: calc(var(--space-xl) + 2.5rem); }
+    .progress-bar { top: 2.5rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="lesson-nav" aria-label="Lesson navigation">
+    <div class="lesson-nav__prev"><a href="AUTOS_CON_008_Finding_a_Mechanic.html">&larr; Module 8</a></div>
+    <div class="lesson-nav__center">Module 9 of 16</div>
+    <div class="lesson-nav__next"><a href="AUTOS_CON_010_Roadside_Emergencies.html">Module 10 &rarr;</a></div>
+  </nav>
+
+
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ====== SECTION 1: HERO ====== -->
+    <section class="hero" id="hero">
+      <div class="module-badge">Module 9 of 16</div>
+      <h1>What the Seller Won&rsquo;t Tell You</h1>
+      <p class="lead">Every used car has a story. Your job is to read it before you buy it.</p>
+      <div class="scroll-arrow" aria-hidden="true">&#8595;</div>
+    </section>
+
+    <!-- ====== SECTION 2: OPENER ====== -->
+    <section class="section" id="opener">
+      <div class="section-inner reveal">
+        <p>The seller knows everything about the car. You know nothing. That&rsquo;s the default power dynamic in every used car transaction &mdash; and it&rsquo;s the reason most buyers end up overpaying for someone else&rsquo;s problem. The seller knows about the accident. The seller knows about the noise that only happens when it&rsquo;s cold. The seller knows the check engine light was cleared two hours before you arrived.</p>
+
+        <p>Your only defense is information. A pre-purchase inspection &mdash; typically $100&ndash;200 at the <a href="AUTOS_CON_008_Finding_a_Mechanic.html" style="color: var(--color-accent-blue);">independent mechanic you found in Module 8</a> &mdash; is the cheapest insurance you will ever buy on a vehicle. It transforms you from a hopeful buyer into an informed negotiator. And here&rsquo;s the real power: once you know what&rsquo;s actually wrong, you can walk away. Walk-away power is the strongest card you hold in any negotiation &mdash; and in <a href="AUTOS_CON_012_Negotiation.html" style="color: var(--color-accent-blue);">Module 12</a>, you&rsquo;ll learn exactly how to use it.</p>
+
+        <p>This module teaches you how to inspect a vehicle yourself, what to look for on a test drive, how to read a vehicle history report, and when to hand it off to a professional. You won&rsquo;t catch everything &mdash; but you&rsquo;ll catch enough to avoid the worst mistakes.</p>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 3: VISUAL INSPECTION ====== -->
+    <section class="section section--dark" id="visual">
+      <div class="section-inner--wide reveal">
+        <h2>The Visual Inspection</h2>
+        <p class="styled-subheading">What you can check with your own eyes, hands, and nose &mdash; before the key ever turns.</p>
+
+        <div class="oil-grid">
+          <div class="oil-card" style="background: var(--color-bg-dark); color: var(--color-text-inverse); border-color: rgba(255,255,255,0.15);">
+            <h3>Exterior</h3>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Panel gaps</span><span class="oil-value">Uneven = body repair</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Paint mismatch</span><span class="oil-value">Different shade = repainted panel</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Rust bubbles</span><span class="oil-value">Under paint = spreading corrosion</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Tire wear</span><span class="oil-value">Uneven = alignment or suspension issue</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Glass</span><span class="oil-value">Chips and cracks = replacement cost</span></div>
+          </div>
+          <div class="oil-card" style="background: var(--color-bg-dark); color: var(--color-text-inverse); border-color: rgba(255,255,255,0.15);">
+            <h3>Interior</h3>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Seat wear</span><span class="oil-value">Driver&rsquo;s seat shows true mileage</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Dash lights</span><span class="oil-value">Key on, all should light then clear</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Mildew smell</span><span class="oil-value">Water leak or flood history</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Burning smell</span><span class="oil-value">Electrical problem or oil leak</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Every button</span><span class="oil-value">Test windows, locks, A/C, radio, lights</span></div>
+          </div>
+          <div class="oil-card" style="background: var(--color-bg-dark); color: var(--color-text-inverse); border-color: rgba(255,255,255,0.15);">
+            <h3>Engine Bay</h3>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Oil dipstick</span><span class="oil-value">Dark &amp; gritty = neglected changes</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Coolant</span><span class="oil-value">Milky = possible head gasket failure</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Leaks</span><span class="oil-value">Wet spots or stains underneath</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Belt condition</span><span class="oil-value">Cracks or fraying = due for replacement</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Battery</span><span class="oil-value">Corrosion on terminals = aging electrical</span></div>
+          </div>
+        </div>
+
+        <div class="callout callout--dark">
+          <strong>Use your nose.</strong> Your eyes can be fooled by a fresh detail and a coat of wax. But smells are much harder to hide. Mildew means water has been getting in &mdash; possibly from a flood. A burning or sweet chemical smell could point to an oil leak dripping onto hot exhaust or a failing coolant system. If something smells wrong, something probably is wrong.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 4: TEST DRIVE ====== -->
+    <section class="section" id="test-drive">
+      <div class="section-inner reveal">
+        <h2>The Test Drive Checklist</h2>
+        <p class="styled-subheading">A 15-minute drive can save you thousands &mdash; if you know what to listen for.</p>
+
+        <p>Start with a <strong>cold start</strong>. Arrive before the seller has warmed the car up. A cold engine reveals problems that disappear once everything heats up &mdash; knocks, rattles, rough idle, and exhaust smoke all show themselves in the first 30 seconds. Blue smoke on startup means oil is burning. White smoke that lingers means coolant is getting into the combustion chamber. Either one is a major red flag.</p>
+
+        <div class="fluid-grid">
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-accent-amber);"></div>
+            <div class="fluid-card__body">
+              <h3>Steering &amp; Handling</h3>
+              <p>Does the car pull to one side? That&rsquo;s an alignment issue at minimum, suspension damage at worst. The steering wheel should sit centered when driving straight. Any vibration through the wheel could indicate warped rotors, worn tie rods, or tire balance problems.</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-accent-blue);"></div>
+            <div class="fluid-card__body">
+              <h3>Brakes</h3>
+              <p>Apply the brakes firmly &mdash; the car should stop straight without pulsing, grinding, or pulling. A soft pedal that sinks to the floor means air in the brake lines or worn pads. Grinding means metal-on-metal &mdash; the pads are gone.</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-fluid-coolant);"></div>
+            <div class="fluid-card__body">
+              <h3>Transmission</h3>
+              <p>For automatics: shifts should be smooth and barely noticeable. Hesitation, hard shifts, or slipping between gears points to transmission problems &mdash; one of the most expensive repairs on any vehicle. Test all gears, including reverse.</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-fluid-transmission);"></div>
+            <div class="fluid-card__body">
+              <h3>Highway Speeds</h3>
+              <p>Get up to highway speed. Vibrations at 55&ndash;70 mph often mean wheel balance issues, worn CV joints, or drivetrain problems. Test A/C and heater at highway speed. Roll down all windows and listen for wind noise from bad door seals.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="defense-box">
+          <h3>Non-Negotiable Rule</h3>
+          <p><strong>ALWAYS test drive the car.</strong> If the seller says the car &ldquo;runs great but you can&rsquo;t drive it today&rdquo; &mdash; walk away. If they insist on a short route around the block &mdash; insist on a real drive that includes stops, turns, and highway speed. A seller who won&rsquo;t let you properly test the car is a seller who knows what the test drive would reveal.</p>
+        </div>
+
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1449965408869-ebd13bc0c322?auto=format&fit=crop&w=1200&q=80"
+            alt="View from inside a car during a test drive on an open road"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 5: VEHICLE HISTORY ====== -->
+    <section class="section section--dark" id="history">
+      <div class="section-inner--wide reveal">
+        <h2>Vehicle History Reports</h2>
+        <p class="styled-subheading">The car&rsquo;s paper trail tells you what the seller conveniently forgot to mention.</p>
+
+        <p>Every used vehicle has a history that follows its VIN (Vehicle Identification Number). Services like Carfax and AutoCheck compile data from insurance companies, repair shops, DMVs, and auction houses into a single report. These reports aren&rsquo;t perfect &mdash; not every repair or accident gets reported &mdash; but they catch a lot.</p>
+
+        <div class="comparison-grid">
+          <div class="comparison-card comparison-card--mfr">
+            <h3>Clean History</h3>
+            <span class="big-number">&#10003;</span>
+            <span class="detail">Clean title &middot; 2 owners</span>
+            <span class="detail">Regular service records &middot; No accidents reported</span>
+            <span class="detail">Consistent odometer readings</span>
+          </div>
+          <div class="comparison-card comparison-card--dealer">
+            <h3>Red Flag History</h3>
+            <span class="big-number">&#10007;</span>
+            <span class="detail">Salvage title &middot; 5 owners in 3 years</span>
+            <span class="detail">Accident reported &middot; Airbag deployment</span>
+            <span class="detail">Odometer discrepancy at last registration</span>
+          </div>
+        </div>
+
+        <div class="comparison-bottom">
+          <span class="savings">Same year. Same model. Completely different stories.</span>
+        </div>
+
+        <div class="oil-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="oil-card" style="background: var(--color-bg-dark); color: var(--color-text-inverse); border-color: rgba(255,255,255,0.15);">
+            <h3>What to Check</h3>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Title status</span><span class="oil-value">Clean, salvage, flood, or lemon</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Accident history</span><span class="oil-value">How many, how severe</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Odometer</span><span class="oil-value">Any rollback or discrepancy</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Number of owners</span><span class="oil-value">Many owners quickly = problem car</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Service records</span><span class="oil-value">Regular maintenance = cared for</span></div>
+          </div>
+          <div class="oil-card" style="background: var(--color-bg-dark); color: var(--color-text-inverse); border-color: rgba(255,255,255,0.15);">
+            <h3>Free Resources</h3>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">NHTSA recall check</span><span class="oil-value">nhtsa.gov &mdash; free, by VIN</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">NICB VINCheck</span><span class="oil-value">Theft &amp; total loss &mdash; free</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Carfax/AutoCheck</span><span class="oil-value">$25&ndash;50 per report (or bundled)</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Dealer listings</span><span class="oil-value">Many include free Carfax</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.1);"><span class="oil-label">Ask the seller</span><span class="oil-value">Request maintenance receipts</span></div>
+          </div>
+        </div>
+
+        <div class="callout callout--dark">
+          <strong>Title status is everything.</strong> A &ldquo;salvage&rdquo; title means the car was declared a total loss by an insurance company and then rebuilt. A &ldquo;flood&rdquo; title means it was submerged. These cars can be made to look fine and drive fine &mdash; for a while. But corrosion, electrical gremlins, and hidden structural damage will surface eventually. Unless you are a professional, avoid salvage and flood titles entirely.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 6: PROFESSIONAL INSPECTION ====== -->
+    <section class="section" id="professional">
+      <div class="section-inner reveal">
+        <h2>The Professional Inspection</h2>
+        <p class="styled-subheading">What a trained mechanic finds that you never will.</p>
+
+        <p>You can learn a lot with a walk-around and a test drive, but a professional mechanic with a lift, diagnostic tools, and experience will find things you simply can&rsquo;t. A pre-purchase inspection (PPI) typically costs $100&ndash;200 and takes about an hour. What you get in return is a comprehensive picture of what&rsquo;s healthy, what&rsquo;s worn, and what&rsquo;s about to fail.</p>
+
+        <div class="fluid-grid">
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-accent-amber);"></div>
+            <div class="fluid-card__body">
+              <h3>Engine Diagnostics</h3>
+              <p>Compression test reveals cylinder health. Leak-down test identifies where air escapes &mdash; valves, rings, or head gasket. OBD-II scanner pulls stored and pending trouble codes the seller may have cleared.</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-accent-blue);"></div>
+            <div class="fluid-card__body">
+              <h3>Undercarriage &amp; Frame</h3>
+              <p>On a lift, the mechanic checks for frame damage, welded repairs, rust-through, exhaust leaks, and fluid seepage. Frame damage from a previous accident can make the car unsafe even if it looks fine from above.</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-fluid-coolant);"></div>
+            <div class="fluid-card__body">
+              <h3>Suspension &amp; Steering</h3>
+              <p>Ball joints, tie rod ends, control arm bushings, struts, and shocks are all inspected. Worn suspension components affect handling, tire wear, and safety &mdash; and they&rsquo;re expensive to replace.</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-fluid-transmission);"></div>
+            <div class="fluid-card__body">
+              <h3>Fluids &amp; Brakes</h3>
+              <p>Transmission fluid condition reveals internal wear. Brake pad thickness is measured in millimeters. Brake rotor condition is checked. Coolant is tested for contamination. Every fluid tells a story about how the car was maintained.</p>
+            </div>
+          </div>
+        </div>
+
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80"
+            alt="Mechanic working underneath a car on a hydraulic lift in a shop"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
+
+        <div class="note-box">
+          <strong>Take it to YOUR mechanic, not the seller&rsquo;s.</strong> The seller&rsquo;s &ldquo;guy&rdquo; has a financial relationship with the seller. You need an independent mechanic who has no stake in whether you buy the car. Call ahead, tell them you need a pre-purchase inspection, and ask what they include. Most shops are happy to do this &mdash; it&rsquo;s easy, steady work for them.
+        </div>
+
+        <div class="defense-box">
+          <h3>The $150 That Saves You $5,000</h3>
+          <p>A PPI might uncover $3,000 in needed repairs. Now you have three options: <strong>walk away</strong>, <strong>negotiate the price down</strong> by the repair cost, or <strong>ask the seller to fix it</strong> before closing. Without the inspection, you would have discovered those problems after you already owned the car &mdash; with no leverage and no recourse. The inspection pays for itself every single time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 7: CHECK YOURSELF ====== -->
+    <section class="section section--warm check-section" id="check">
+      <div class="section-inner reveal">
+        <h2>Check Yourself</h2>
+        <p class="styled-subheading">Can you spot the warning signs before you sign?</p>
+
+        <details>
+          <summary>You arrive to see a car and the seller already has it running and warmed up. What should you think?</summary>
+          <div class="answer">
+            <p><strong>Be suspicious.</strong> A warm engine hides cold-start problems &mdash; knocks, rough idle, exhaust smoke, and slow cranking all disappear once the engine is at operating temperature. A seller who &ldquo;just happened&rdquo; to warm it up may be hiding something. Ask to come back another time and start it cold, or note that you weren&rsquo;t able to verify cold-start behavior.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>A Carfax report shows the car has had 4 owners in 5 years. The seller says it&rsquo;s &ldquo;just because people upgrade.&rdquo; Should you be concerned?</summary>
+          <div class="answer">
+            <p><strong>Yes.</strong> Frequent ownership changes are a classic red flag. One person trading up is normal. Four owners in five years suggests each owner discovered a problem and moved on. It could be a persistent mechanical issue, an electrical gremlin, or just a deeply unreliable vehicle. Combine this with a thorough PPI and proceed with extreme caution &mdash; or walk away.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>During a test drive, the car drives fine but you notice a sweet, syrupy smell coming through the vents. What could this indicate?</summary>
+          <div class="answer">
+            <p><strong>Coolant leak.</strong> That sweet smell is antifreeze (ethylene glycol). If it&rsquo;s coming through the vents, the heater core is likely leaking &mdash; which means coolant is entering the passenger cabin. A heater core replacement can cost $500&ndash;1,500 depending on the vehicle because it&rsquo;s buried deep in the dashboard. This is exactly the kind of thing a PPI would catch by checking coolant levels and pressurizing the system.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>The seller offers to knock $500 off the price if you skip the pre-purchase inspection. They say the car &ldquo;just passed inspection last month.&rdquo; What do you do?</summary>
+          <div class="answer">
+            <p><strong>Get the inspection anyway.</strong> A $500 discount is a tiny fraction of the potential repair cost if there&rsquo;s a hidden problem. A state safety inspection and a pre-purchase inspection are completely different things &mdash; state inspections check basic safety items, not the overall mechanical condition of the vehicle. A seller who discourages inspection is a seller who knows what an inspection would find. Spend the $150 and get the facts.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>You find a car online listed at a great price. The vehicle history report shows a &ldquo;salvage&rdquo; title. The listing says &ldquo;professionally rebuilt.&rdquo; Is this a good deal?</summary>
+          <div class="answer">
+            <p><strong>Almost certainly not &mdash; especially for a first-time buyer.</strong> A salvage title means the insurance company determined the repair cost exceeded the car&rsquo;s value. Even if it&rsquo;s been rebuilt, you face: difficulty getting full insurance coverage, significantly lower resale value, unknown quality of repairs, and potential hidden structural or electrical damage. The low price is not a deal &mdash; it&rsquo;s a reflection of all these risks built in.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 8: ASSIGNMENT ====== -->
+    <section class="section section--warm" id="assignment">
+      <div class="section-inner reveal">
+        <h2>Your Assignment: Build a Pre-Purchase Inspection Checklist</h2>
+        <p class="styled-subheading">Create a reusable tool you&rsquo;ll actually take with you when you go look at a car.</p>
+
+        <div class="worked-example">
+          <h3>Example &mdash; Checklist Section: Engine Bay</h3>
+          <ul>
+            <li>Oil dipstick: check level and color (golden = good, black/gritty = overdue)</li>
+            <li>Coolant reservoir: check level, look for milky color (head gasket warning)</li>
+            <li>Belts: look for cracks, fraying, glazing</li>
+            <li>Hoses: squeeze them &mdash; should be firm, not spongy or cracked</li>
+            <li>Leak check: look under the car for fresh drips or stains on the ground</li>
+            <li>Battery terminals: heavy corrosion = electrical system stress</li>
+          </ul>
+        </div>
+
+        <ol class="assignment-steps">
+          <li>Create a printable checklist organized into four sections: <strong>Visual Inspection</strong> (exterior, interior, engine bay), <strong>Test Drive</strong> (cold start, steering, brakes, transmission, highway), <strong>Questions to Ask the Seller</strong>, and <strong>Vehicle History Verification</strong>.</li>
+          <li>Under <strong>Visual Inspection</strong>, list at least 10 specific items to check. For each item, include what to look for and what a bad result means.
+            <ul>
+              <li>Example: &ldquo;Panel gaps &mdash; check for uneven spacing between body panels &mdash; indicates previous collision repair&rdquo;</li>
+            </ul>
+          </li>
+          <li>Under <strong>Test Drive</strong>, list at least 8 items to evaluate. Include instructions for what to do (not just what to look for).
+            <ul>
+              <li>Example: &ldquo;Brake test at 35 mph &mdash; apply brakes firmly &mdash; should stop straight with no pulsing or grinding&rdquo;</li>
+            </ul>
+          </li>
+          <li>Under <strong>Questions to Ask the Seller</strong>, write at least 5 questions that help verify the car&rsquo;s condition and history.
+            <ul>
+              <li>Example: &ldquo;Why are you selling it?&rdquo; &ldquo;Do you have maintenance records?&rdquo; &ldquo;Has it ever been in an accident?&rdquo;</li>
+            </ul>
+          </li>
+          <li>Under <strong>Vehicle History Verification</strong>, list the specific items you would check on a Carfax or AutoCheck report and the free VIN tools you would use.</li>
+          <li>Format it so you could actually print it and bring it with you. This should be a <strong>reusable tool</strong>, not a one-time assignment. Submit to Canvas. This becomes <strong>Page 9 of your Vehicle Ownership Portfolio.</strong></li>
+        </ol>
+
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=1200&q=80"
+            alt="Person holding a clipboard with a checklist while looking at a used car"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
+
+        <p><em>Think of this as building your own inspection toolkit. A good checklist prevents you from getting excited about a car and forgetting to check the basics. Print it, laminate it, keep it in your glovebox. Every car you ever look at gets the same checklist.</em></p>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 9: FOOTER ====== -->
+    <footer class="section section--dark footer-section" id="footer">
+      <div class="section-inner--wide reveal">
+        <ol class="takeaways">
+          <li>A $150 pre-purchase inspection is the cheapest insurance you will ever buy on a vehicle.</li>
+          <li>Your nose, your eyes, and a cold start will reveal more than any sales pitch ever will.</li>
+          <li>Walk-away power comes from information &mdash; the more you know, the better you negotiate.</li>
+        </ol>
+
+        <div class="next-steps">
+          <h3>Next Steps</h3>
+          <p>Up next: what to do when something goes wrong on the road.</p>
+        </div>
+
+
+        <div style="display: flex; justify-content: space-between; max-width: var(--max-width-content); margin: var(--space-md) auto 0; padding-top: var(--space-md); border-top: 1px solid rgba(255,255,255,0.1);">
+          <a href="AUTOS_CON_008_Finding_a_Mechanic.html" style="color: var(--color-accent-amber); text-decoration: none;">&larr; Module 8: Finding a Mechanic</a>
+          <a href="AUTOS_CON_010_Roadside_Emergencies.html" style="color: var(--color-accent-amber); text-decoration: none;">Module 10: Roadside Emergencies &rarr;</a>
+        </div>
+
+        <div class="course-info">
+          Mr. McAteer &middot; Crescent Valley High School &middot; AUTOS.CON.009
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // Scroll reveal via Intersection Observer
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var reveals = document.querySelectorAll('.reveal');
+
+      if (prefersReducedMotion) {
+        reveals.forEach(function(el) { el.classList.add('visible'); });
+      } else {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -60px 0px'
+        });
+        reveals.forEach(function(el) { observer.observe(el); });
+      }
+
+      // Progress bar — throttled via requestAnimationFrame
+      var progressBar = document.querySelector('.progress-bar');
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            var scrollTop = window.scrollY;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

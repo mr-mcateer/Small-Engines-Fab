@@ -622,9 +622,68 @@
         print-color-adjust: exact;
       }
     }
+
+    /* ========== LESSON NAV ========== */
+    .lesson-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(26, 26, 26, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(212, 168, 67, 0.3);
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+    }
+    .lesson-nav a {
+      color: var(--color-accent-amber);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .lesson-nav a:hover { opacity: 0.7; }
+    .lesson-nav__prev, .lesson-nav__next {
+      min-width: 100px;
+    }
+    .lesson-nav__next { text-align: right; }
+    .lesson-nav__center {
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .lesson-nav__prev--hidden, .lesson-nav__next--hidden {
+      visibility: hidden;
+    }
+    .module-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent-amber);
+      border: 1px solid var(--color-accent-amber);
+      border-radius: 4px;
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero { padding-top: calc(var(--space-xl) + 2.5rem); }
+    .progress-bar { top: 2.5rem; }
   </style>
 </head>
 <body>
+
+  <nav class="lesson-nav" aria-label="Lesson navigation">
+    <div class="lesson-nav__prev lesson-nav__prev--hidden"><span>&nbsp;</span></div>
+    <div class="lesson-nav__center">Module 1 of 16</div>
+    <div class="lesson-nav__next"><a href="AUTOS_CON_002_Reading_the_Window.html">Module 2 &rarr;</a></div>
+  </nav>
+
 
   <div class="progress-bar" aria-hidden="true"></div>
 
@@ -632,6 +691,7 @@
 
     <!-- ====== SECTION 1: HERO ====== -->
     <section class="hero" id="hero">
+      <div class="module-badge">Module 1 of 16</div>
       <h1>Your First Car Is Probably a Bad Deal</h1>
       <p class="lead">What no one tells you before you start shopping.</p>
       <div class="scroll-arrow" aria-hidden="true">&#8595;</div>
@@ -681,7 +741,7 @@
         </div>
 
         <div class="callout callout--dark">
-          <strong>The 20/4/10 rule:</strong> 20% down payment. 4-year maximum loan. Total vehicle costs (payment + insurance + fuel) under 10% of your monthly gross income. This isn&rsquo;t a suggestion &mdash; it&rsquo;s the line between a car you can enjoy and a car that owns you.
+          <strong>The 20/4/10 rule:</strong> 20% down payment. 4-year maximum loan. Total vehicle costs (payment + insurance + fuel) under 10% of your monthly gross income (that&rsquo;s your total pay before taxes and deductions &mdash; not your take-home pay). This isn&rsquo;t a suggestion &mdash; it&rsquo;s the line between a car you can enjoy and a car that owns you.
         </div>
       </div>
     </section>
@@ -864,7 +924,7 @@
         </div>
 
         <ol class="assignment-steps">
-          <li>Choose a vehicle you might realistically purchase as your first car. Use KBB or Edmunds to find <strong>3 candidates</strong> in your price range.</li>
+          <li>Choose a vehicle you might realistically purchase as your first car. Use <a href="https://www.kbb.com/" target="_blank" rel="noopener">KBB</a> or <a href="https://www.edmunds.com/" target="_blank" rel="noopener">Edmunds</a> to find <strong>3 candidates</strong> in your price range.</li>
           <li>For each candidate, record: year, make, model, trim, mileage, and average market price.</li>
           <li>Compare the three on:
             <ul>
@@ -894,6 +954,11 @@
         <div class="next-steps">
           <h3>Next Steps</h3>
           <p>Up next: what every line on a vehicle&rsquo;s window sticker actually means &mdash; and how to use it.</p>
+        </div>
+
+
+        <div style="display: flex; justify-content: flex-end; max-width: var(--max-width-content); margin: var(--space-md) auto 0; padding-top: var(--space-md); border-top: 1px solid rgba(255,255,255,0.1);">
+          <a href="AUTOS_CON_002_Reading_the_Window.html" style="color: var(--color-accent-amber); text-decoration: none;">Module 2: Window Sticker &rarr;</a>
         </div>
 
         <div class="course-info">

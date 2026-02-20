@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Most Expensive Room in the Dealership — AUTOS.CON.003</title>
+  <title>The Word &ldquo;No&rdquo; Is Worth Thousands — AUTOS.CON.012</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -118,7 +118,7 @@
       color: var(--color-text-inverse);
       background:
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&h=800&q=80') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1400&h=800&q=80') center/cover no-repeat;
       background-attachment: fixed;
       padding: var(--space-lg) var(--space-md);
       position: relative;
@@ -515,6 +515,74 @@
       text-align: center;
     }
 
+    /* ========== DIALOG CARDS ========== */
+    .dialog-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-md) 0;
+    }
+    .dialog-list li {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-sm) var(--space-md);
+      margin-bottom: var(--space-sm);
+      position: relative;
+      padding-left: 3.5rem;
+    }
+    .dialog-list li::before {
+      content: '\201C';
+      position: absolute;
+      left: var(--space-sm);
+      top: 0.4rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.4rem;
+      color: var(--color-accent-amber);
+      line-height: 1;
+    }
+    .dialog-list .script-text {
+      font-weight: 600;
+      display: block;
+      margin-bottom: var(--space-xs);
+    }
+    .dialog-list .script-why {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+    }
+
+    /* ========== PHASE CARDS ========== */
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .phase-card {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+    }
+    .phase-card h3 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent-amber);
+      margin-bottom: var(--space-sm);
+    }
+    .phase-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .phase-card li {
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid #f0ede8;
+      font-size: 0.95rem;
+    }
+    .phase-card li:last-child { border-bottom: none; }
+
     /* ========== FOOTER ========== */
     .footer-section { padding: var(--space-xl) var(--space-md) var(--space-lg); }
     .takeaways {
@@ -557,6 +625,7 @@
       .fluid-grid,
       .value-grid { grid-template-columns: 1fr; }
       .oil-grid { grid-template-columns: 1fr; }
+      .phase-grid { grid-template-columns: 1fr; }
       .flow-branch { grid-template-columns: 1fr; max-width: 280px; }
       .comparison-card .big-number { font-size: 1.8rem; }
       .takeaways li { font-size: 1.15rem; }
@@ -679,9 +748,9 @@
 <body>
 
   <nav class="lesson-nav" aria-label="Lesson navigation">
-    <div class="lesson-nav__prev"><a href="AUTOS_CON_002_Reading_the_Window.html">&larr; Module 2</a></div>
-    <div class="lesson-nav__center">Module 3 of 16</div>
-    <div class="lesson-nav__next"><a href="AUTOS_CON_004_Insurance_Decoded.html">Module 4 &rarr;</a></div>
+    <div class="lesson-nav__prev"><a href="AUTOS_CON_011_Warranties_and_Recalls.html">&larr; Module 11</a></div>
+    <div class="lesson-nav__center">Module 12 of 16</div>
+    <div class="lesson-nav__next"><a href="AUTOS_CON_013_Your_Driving_Record.html">Module 13 &rarr;</a></div>
   </nav>
 
 
@@ -691,194 +760,199 @@
 
     <!-- ====== SECTION 1: HERO ====== -->
     <section class="hero" id="hero">
-      <div class="module-badge">Module 3 of 16</div>
-      <h1>The Most Expensive Room in the Dealership</h1>
-      <p class="lead">The finance office is where deals get expensive. Here&rsquo;s how to walk through it informed.</p>
+      <div class="module-badge">Module 12 of 16</div>
+      <h1>The Word &ldquo;No&rdquo; Is Worth Thousands</h1>
+      <p class="lead">You don&rsquo;t have to be aggressive. You just have to be prepared.</p>
       <div class="scroll-arrow" aria-hidden="true">&#8595;</div>
     </section>
 
-    <!-- ====== SECTION 2: OPENER — THE F&I OFFICE ====== -->
-    <section class="section" id="fi-office">
+    <!-- ====== SECTION 2: OPENER — THE ASYMMETRY ====== -->
+    <section class="section" id="opener">
       <div class="section-inner reveal">
-        <h2>Where the Real Money Is Made</h2>
-        <p class="styled-subheading">You negotiated the price. Now they&rsquo;re about to renegotiate the deal.</p>
+        <p>The salesperson across the desk from you negotiates car deals every single day. They know the playbook, the psychology, and every trick in the book. You? You&rsquo;ll buy maybe five cars in your entire life. That asymmetry is why preparation matters more than personality. You don&rsquo;t need to be aggressive, loud, or clever. You just need to know your numbers before you walk in the door.</p>
 
-        <p>In <a href="AUTOS_CON_001_Your_First_Car.html" style="color: var(--color-accent-blue);">Module 1</a>, you set your budget with the 20/4/10 rule. In <a href="AUTOS_CON_002_Reading_the_Window.html" style="color: var(--color-accent-blue);">Module 2</a>, you decoded the sticker. Now it&rsquo;s time to learn the room where most of the dealer&rsquo;s profit actually gets made.</p>
-
-        <p>You negotiated the price. You feel good. Then they walk you to the Finance and Insurance (F&amp;I) office &mdash; a small room with a desk, a computer, and a person whose job is to add thousands to your deal. The F&amp;I manager is paid on commission for every product they sell you. This is not a neutral advisor &mdash; this is a salesperson. The average dealership makes $1,000&ndash;$3,000 per vehicle in F&amp;I products alone.</p>
+        <p>Here&rsquo;s the good news: you already have those numbers. You know your <a href="AUTOS_CON_001_Your_First_Car.html" style="color: var(--color-accent-blue);">20/4/10 budget</a>. You understand <a href="AUTOS_CON_003_The_Finance_Office.html" style="color: var(--color-accent-blue);">how the F&amp;I office works</a>. You can calculate <a href="AUTOS_CON_005_Total_Cost_of_Ownership.html" style="color: var(--color-accent-blue);">total cost of ownership</a>. You&rsquo;ve got <a href="AUTOS_CON_003_The_Finance_Office.html" style="color: var(--color-accent-blue);">pre-approved financing</a> from your credit union. And you know how to <a href="AUTOS_CON_009_Pre_Purchase_Inspection.html" style="color: var(--color-accent-blue);">inspect the car before you buy it</a>. This module gives you the final piece: the actual words to use so the negotiation works in your favor.</p>
 
         <figure>
           <img
             class="section-image"
-            src="https://images.unsplash.com/photo-1450101499163-c8848e66ad76?auto=format&fit=crop&w=1200&q=80"
-            alt="Person reviewing financial documents at a desk"
+            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80"
+            alt="Two people sitting across a desk reviewing paperwork during a negotiation"
             width="1200" height="600" loading="lazy"
           >
         </figure>
+      </div>
+    </section>
 
-        <div class="callout">
-          <strong>The F&amp;I office is the highest-margin department in most dealerships.</strong> Your negotiated price is the starting point &mdash; not the final number.
+    <!-- ====== SECTION 3: BEFORE YOU WALK IN ====== -->
+    <section class="section section--dark" id="before">
+      <div class="section-inner reveal">
+        <h2>Before You Walk In</h2>
+        <p class="styled-subheading">90% of negotiation happens before you set foot on the lot.</p>
+
+        <div class="phase-grid">
+          <div class="phase-card">
+            <h3>Before</h3>
+            <ul>
+              <li>Research fair market price on Edmunds (look for &ldquo;Fair Market Range&rdquo; or &ldquo;Edmunds Price&rdquo;)</li>
+              <li>Get pre-approved financing from your bank or credit union</li>
+              <li>Set your walk-away price &mdash; the maximum you&rsquo;ll pay, period</li>
+              <li>Check your credit score so you know what rate to expect</li>
+              <li>Identify 2&ndash;3 comparable vehicles at other dealers</li>
+            </ul>
+          </div>
+          <div class="phase-card">
+            <h3>During</h3>
+            <ul>
+              <li>Negotiate the purchase price first &mdash; nothing else</li>
+              <li>Keep your pre-approval in your pocket as leverage</li>
+              <li>Ask for the out-the-door price with all fees</li>
+              <li>Stay calm, stay quiet, let silence work for you</li>
+              <li>If the numbers don&rsquo;t match your research, say so</li>
+            </ul>
+          </div>
+          <div class="phase-card">
+            <h3>After</h3>
+            <ul>
+              <li>Review every line of the contract before signing</li>
+              <li>Confirm the agreed price matches the paperwork</li>
+              <li>Decline add-ons you didn&rsquo;t negotiate (paint protection, fabric coating, extended warranties)</li>
+              <li>Verify the interest rate matches your pre-approval or dealer offer</li>
+              <li>Keep all documents &mdash; you&rsquo;ll need them</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout callout--dark">
+          <strong>Timing matters.</strong> Shop on a weekday when the lot is slow and salespeople have more time (and more motivation to close). End of the month is ideal &mdash; sales staff have quotas to meet and may be more flexible on price. End of the model year (when new models arrive) creates clearance deals on the outgoing year.
         </div>
       </div>
     </section>
 
-    <!-- ====== SECTION 3: HOW AUTO LOANS WORK ====== -->
-    <section class="section" id="loans">
+    <!-- ====== SECTION 4: THE FOUR-SQUARE TRAP ====== -->
+    <section class="section" id="four-square">
       <div class="section-inner reveal">
-        <h2>How Auto Loans Actually Work</h2>
-        <p class="styled-subheading">Three numbers control how much you pay: principal, rate, and term.</p>
+        <h2>The Four-Square Trap</h2>
+        <p class="styled-subheading">The oldest trick in the dealership. Once you see it, you can&rsquo;t unsee it.</p>
 
-        <p><strong>Principal</strong> is the amount you borrow &mdash; the vehicle price minus your down payment minus any trade-in value. This is the actual debt.</p>
-
-        <p><strong>Interest Rate (APR)</strong> is the annual percentage you pay for the privilege of borrowing. It&rsquo;s expressed as a yearly rate but applied monthly. A 6% APR means you&rsquo;re paying 0.5% of the remaining balance each month in interest.</p>
-
-        <p><strong>Term</strong> is how many months you&rsquo;ll make payments. Common terms are 36, 48, 60, 72, and 84 months. Longer terms mean lower monthly payments &mdash; and significantly more interest paid over the life of the loan.</p>
-
-        <h3>How Your Payment Gets Split</h3>
-        <p>Each month, part of your payment goes toward the principal (the actual car) and part goes toward interest (the cost of borrowing). Early in the loan, most of your payment is interest. Later, most goes to principal. This is called <strong>amortization</strong> &mdash; and it&rsquo;s why paying extra toward principal in the first year saves you the most money.</p>
+        <p>Many dealers use a worksheet divided into four boxes: <strong>purchase price</strong>, <strong>trade-in value</strong>, <strong>down payment</strong>, and <strong>monthly payment</strong>. It looks organized. It feels like progress. But the entire purpose of the four-square is to confuse you by moving money between boxes so you lose track of what you&rsquo;re actually paying.</p>
 
         <div class="comparison-grid">
-          <div class="comparison-card comparison-card--mfr">
-            <h3>Shorter Term</h3>
-            <span class="detail">$22,000 loan &middot; 4.5% APR &middot; 48 months</span>
-            <span class="big-number">$502/mo</span>
-            <span class="detail">Total paid: $24,096</span>
-            <span class="detail">Interest cost: $2,096</span>
-          </div>
           <div class="comparison-card comparison-card--dealer">
-            <h3>Longer Term</h3>
-            <span class="detail">$22,000 loan &middot; 6.5% APR &middot; 72 months</span>
-            <span class="big-number">$371/mo</span>
-            <span class="detail">Total paid: $26,712</span>
-            <span class="detail">Interest cost: $4,712</span>
+            <h3>What They Do</h3>
+            <span class="big-number">4 boxes</span>
+            <span class="detail">Shift numbers between squares</span>
+            <span class="detail">&ldquo;Lower&rdquo; your payment by extending the loan to 72+ months</span>
+            <span class="detail">Lower trade-in to offset a &ldquo;discount&rdquo; on purchase price</span>
+          </div>
+          <div class="comparison-card comparison-card--mfr">
+            <h3>What You Do</h3>
+            <span class="big-number">1 number</span>
+            <span class="detail">Negotiate purchase price ONLY</span>
+            <span class="detail">Handle trade-in separately (or sell privately)</span>
+            <span class="detail">Use your pre-approved financing</span>
           </div>
         </div>
 
         <div class="comparison-bottom">
-          <span class="savings">The longer loan feels cheaper. It costs $2,616 more.</span>
-          <p class="fine-print">Lower monthly payment &ne; better deal. Always compare total cost, not monthly cost.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== SECTION 4: THE PRE-APPROVAL ADVANTAGE ====== -->
-    <section class="section" id="pre-approval">
-      <div class="section-inner reveal">
-        <h2>The Pre-Approval Advantage</h2>
-        <p class="styled-subheading">Walk in with a rate. Walk out with leverage.</p>
-
-        <div class="flowchart">
-          <div class="flow-box">You need a car loan</div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box flow-box--accent">Get pre-approved at your bank or credit union FIRST</div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box">Walk into the dealership with your rate in hand</div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box">Dealer beats your rate?</div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-branch">
-            <div>
-              <div class="flow-branch-label">Yes</div>
-              <div class="flow-box flow-box--success">Take the dealer&rsquo;s rate</div>
-            </div>
-            <div>
-              <div class="flow-branch-label">No</div>
-              <div class="flow-box flow-box--success">Use your pre-approval</div>
-            </div>
-          </div>
+          <span class="savings">One number at a time. That&rsquo;s the whole defense.</span>
         </div>
 
-        <p>Pre-approval gives you a ceiling. You already know the best rate you qualify for. The dealer can try to beat it &mdash; and sometimes they will, because they want your business. But they can&rsquo;t inflate the rate above what you already have. Without pre-approval, you&rsquo;re negotiating blind.</p>
+        <p>When the salesperson says &ldquo;What monthly payment are you comfortable with?&rdquo; &mdash; that&rsquo;s the four-square activating. They can make almost any monthly payment work by stretching the loan term. A $400/month payment sounds better than $500/month, but if the first one is 84 months and the second is 48, you&rsquo;re paying thousands more. Don&rsquo;t negotiate on monthly payment. Negotiate on <strong>total purchase price</strong>.</p>
 
         <div class="callout">
-          <strong>Never let the dealer be your only financing option.</strong> A 2% rate difference on a $20,000 loan over 60 months costs you over $1,000.
+          <strong>The rule is simple:</strong> refuse to discuss monthly payment, trade-in, or financing until you&rsquo;ve agreed on the out-the-door purchase price. If the salesperson keeps circling back to monthly payment, repeat your question: &ldquo;What&rsquo;s the out-the-door price?&rdquo;
         </div>
       </div>
     </section>
 
-    <!-- ====== SECTION 5: THE F&I PRODUCT GAUNTLET ====== -->
-    <section class="section" id="fi-products">
-      <div class="section-inner--wide reveal">
-        <h2>The F&amp;I Product Gauntlet</h2>
-        <p class="styled-subheading">After the price negotiation, they&rsquo;ll present products. Most are overpriced at the dealer.</p>
-
-        <p>After the price negotiation, the F&amp;I manager will present a series of products &mdash; some worth considering, most overpriced at the dealer. Here&rsquo;s what you&rsquo;ll see:</p>
-
-        <div class="fluid-grid">
-          <div class="fluid-card">
-            <div class="fluid-card__accent" style="background: var(--color-danger);"></div>
-            <div class="fluid-card__body">
-              <h3>Extended Warranty / Service Contract</h3>
-              <p>Coverage beyond the factory warranty for mechanical breakdowns.</p>
-              <p><strong>Reality check:</strong> Most new cars are reliable within the factory warranty period. If you want extended coverage, buy it later from a third party for 30&ndash;50% less.</p>
-              <p class="interval">Dealer price: $1,500&ndash;$3,000+</p>
-            </div>
-          </div>
-          <div class="fluid-card">
-            <div class="fluid-card__accent" style="background: var(--color-accent-amber);"></div>
-            <div class="fluid-card__body">
-              <h3>GAP Insurance</h3>
-              <p>Covers the difference between what you owe and what insurance pays if your car is totaled.</p>
-              <p><strong>Worth it if:</strong> You put less than 20% down or have a long loan term. <strong>Reality:</strong> Buy it through your auto insurance company for $20&ndash;$40/year instead of $700&ndash;$900 from the dealer.</p>
-              <p class="interval">Dealer price: $700&ndash;$900</p>
-            </div>
-          </div>
-          <div class="fluid-card">
-            <div class="fluid-card__accent" style="background: var(--color-accent-blue);"></div>
-            <div class="fluid-card__body">
-              <h3>Paint / Fabric Protection</h3>
-              <p>A spray-on coating the dealer applies to your paint and upholstery.</p>
-              <p><strong>Reality:</strong> A $20 bottle of quality car wax and an $8 can of Scotchgard do the same thing. You&rsquo;re paying for a 5-minute application.</p>
-              <p class="interval">Dealer price: $399&ndash;$999</p>
-            </div>
-          </div>
-          <div class="fluid-card">
-            <div class="fluid-card__accent" style="background: var(--color-success);"></div>
-            <div class="fluid-card__body">
-              <h3>Tire &amp; Wheel Protection</h3>
-              <p>Covers damage to tires and wheels from road hazards like potholes and debris.</p>
-              <p><strong>Reality:</strong> Most auto insurance comprehensive coverage already handles this. Check your policy first before paying separately.</p>
-              <p class="interval">Dealer price: $499&ndash;$899</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="defense-box">
-          <h3>Your Defense</h3>
-          <p>For every F&amp;I product, ask: <strong>&ldquo;Can I buy this later from a third party for less?&rdquo;</strong> The answer is almost always yes. You are never required to buy anything in the F&amp;I office.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== SECTION 6: READING THE CONTRACT ====== -->
-    <section class="section" id="contract">
+    <!-- ====== SECTION 5: SCRIPTS THAT WORK ====== -->
+    <section class="section section--warm" id="scripts">
       <div class="section-inner reveal">
-        <h2>Reading the Contract</h2>
-        <p class="styled-subheading">Before you sign anything, verify these numbers match what you negotiated.</p>
+        <h2>Scripts That Work</h2>
+        <p class="styled-subheading">You don&rsquo;t have to wing it. Use these exact words.</p>
+
+        <p>Negotiation feels intimidating because you don&rsquo;t know what to say. Here are tested phrases that keep you in control without being confrontational. Practice them out loud before you go.</p>
+
+        <ul class="dialog-list">
+          <li>
+            <span class="script-text">I&rsquo;ve researched fair market value and I&rsquo;m prepared to pay $X.</span>
+            <span class="script-why">Anchors the conversation to data, not their sticker price. Fill in your Edmunds fair market price.</span>
+          </li>
+          <li>
+            <span class="script-text">I have pre-approved financing at X%.</span>
+            <span class="script-why">Tells them you&rsquo;ve done your homework and eliminates their financing markup as a profit center. They may try to beat it &mdash; let them. That&rsquo;s a win for you.</span>
+          </li>
+          <li>
+            <span class="script-text">I&rsquo;d like to see the out-the-door price with all fees included.</span>
+            <span class="script-why">Forces transparency. &ldquo;Doc fees,&rdquo; &ldquo;dealer prep,&rdquo; and other add-ons can inflate the price by $500&ndash;$2,000 after you think you&rsquo;ve negotiated.</span>
+          </li>
+          <li>
+            <span class="script-text">I need to think about it.</span>
+            <span class="script-why">The single most powerful phrase in the entire negotiation. It breaks the urgency cycle. If they let you leave, you can compare deals. If they drop the price to keep you, you&rsquo;ve already won.</span>
+          </li>
+          <li>
+            <span class="script-text">What&rsquo;s your best price if I buy today?</span>
+            <span class="script-why">Use only when you&rsquo;re genuinely ready. This signals commitment and often pulls out the final discount &mdash; but only use it at the end, not the beginning.</span>
+          </li>
+        </ul>
 
         <figure>
           <img
             class="section-image"
-            src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=80"
-            alt="Close-up of a pen on a contract document ready for signing"
+            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80"
+            alt="Person reviewing documents and notes at a desk with a calculator and laptop"
             width="1200" height="600" loading="lazy"
           >
         </figure>
 
-        <ol class="assignment-steps">
-          <li><strong>Vehicle price</strong> &mdash; matches your negotiated price (not MSRP, not a different number).</li>
-          <li><strong>Trade-in value</strong> &mdash; matches what was agreed on the sales floor.</li>
-          <li><strong>Down payment</strong> &mdash; matches what you offered.</li>
-          <li><strong>Interest rate (APR)</strong> &mdash; matches your pre-approval or the rate they quoted.</li>
-          <li><strong>Loan term</strong> &mdash; the number of months you agreed to. Watch for 72 or 84 slipping in where you discussed 48 or 60.</li>
-          <li><strong>Monthly payment</strong> &mdash; calculate it yourself. Does the math work with the principal, rate, and term shown?</li>
-          <li><strong>Total of payments</strong> &mdash; the full amount you&rsquo;ll pay over the life of the loan. This is the real price of the car.</li>
-          <li><strong>Added products</strong> &mdash; only the ones you explicitly agreed to. Nothing extra.</li>
-        </ol>
-
-        <div class="callout">
-          <strong>If any number changed from what you negotiated on the floor, stop.</strong> Ask why. Do not sign until it matches. This is not confrontational &mdash; it&rsquo;s competent.
+        <div class="note-box">
+          <strong>Silence is a strategy.</strong> After you state your offer or ask a question, stop talking. The urge to fill silence is powerful &mdash; resist it. Salespeople are trained to wait you out. If you speak first, you negotiate against yourself. State your number, then wait.
         </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 6: WALKING AWAY ====== -->
+    <section class="section section--dark" id="walking-away">
+      <div class="section-inner reveal">
+        <h2>Walking Away</h2>
+        <p class="styled-subheading">The most valuable skill in negotiation is the willingness to leave.</p>
+
+        <p>If the deal doesn&rsquo;t meet the numbers your research supports, get up and leave. This is not a bluff &mdash; actually leave. Thank them for their time, take your keys, and walk out the door. No drama, no anger, no burning bridges.</p>
+
+        <div class="flowchart">
+          <div class="flow-box flow-box--accent">You state your offer based on research</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box">Dealer counters above your walk-away price</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box flow-box--danger">You say: &ldquo;That&rsquo;s above what I&rsquo;m prepared to pay. Thank you for your time.&rdquo;</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-branch">
+            <div>
+              <div class="flow-branch-label">They call you back</div>
+              <div class="flow-box flow-box--success">Better offer &mdash; evaluate on your terms</div>
+            </div>
+            <div>
+              <div class="flow-branch-label">They don&rsquo;t</div>
+              <div class="flow-box">The deal wasn&rsquo;t right &mdash; you saved money by not overpaying</div>
+            </div>
+          </div>
+        </div>
+
+        <p>Here&rsquo;s what actually happens: most of the time, they call you. Maybe before you reach the parking lot. Maybe the next day. The phone rings, and suddenly the price is $1,000 lower. That phone call is proof that there was room in the deal the whole time.</p>
+
+        <div class="callout callout--dark">
+          <strong>Your walk-away price is non-negotiable &mdash; with yourself.</strong> Set it before you go, based on your research. Write it on a piece of paper and keep it in your pocket. If the deal crosses that line, you leave. The moment you abandon your walk-away price, you&rsquo;ve lost the negotiation.
+        </div>
+
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1200&q=80"
+            alt="Person walking confidently through a parking lot"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
       </div>
     </section>
 
@@ -886,40 +960,40 @@
     <section class="section section--warm check-section" id="check">
       <div class="section-inner reveal">
         <h2>Check Yourself</h2>
-        <p class="styled-subheading">Make sure you understand how financing works before you sign for it.</p>
+        <p class="styled-subheading">Make sure you&rsquo;ve got the concepts before you move on.</p>
 
         <details>
-          <summary>A dealer offers you 0% APR for 72 months OR $3,000 cash back with a 5% loan for 48 months. The car costs $30,000. Which deal costs less total?</summary>
+          <summary>The salesperson asks, &ldquo;What monthly payment works for you?&rdquo; What&rsquo;s the right response?</summary>
           <div class="answer">
-            <p><strong>The cash-back deal costs less.</strong> The 0% APR for 72 months = $30,000 total. The $3,000 cash back means a $27,000 loan at 5% for 48 months = $27,000 + approximately $2,844 in interest = roughly $29,844 total. The cash-back deal saves about $156 AND you pay it off 2 years sooner. But always run the numbers &mdash; every situation is different.</p>
+            <p><strong>Redirect to total price.</strong> Say: &ldquo;I&rsquo;d rather focus on the out-the-door purchase price first.&rdquo; Negotiating on monthly payment lets the dealer stretch the loan term to make any price look affordable. A $350/month payment over 84 months costs far more than $450/month over 48 months. Always negotiate the total price, then figure out the payment.</p>
           </div>
         </details>
 
         <details>
-          <summary>Your monthly budget allows $350 for a car payment. A dealer says &ldquo;We can get you to $349/month!&rdquo; What question should you ask?</summary>
+          <summary>You&rsquo;ve found your car on Edmunds at a fair market price of $18,200. The dealer&rsquo;s sticker says $21,500. Where do you start your offer?</summary>
           <div class="answer">
-            <p><strong>&ldquo;What&rsquo;s the total cost of the loan?&rdquo;</strong> A $349 payment over 84 months costs $29,316. A $440 payment over 48 months costs $21,120. The monthly payment is meaningless without knowing the total. The dealer can always hit your target payment &mdash; they just stretch the term.</p>
+            <p><strong>Start at or slightly below the Edmunds fair market price.</strong> Your research says $18,200 is what people are actually paying. Open with something like $17,500&ndash;$18,000 and expect to land near that number. The sticker price of $21,500 is aspirational &mdash; it&rsquo;s what the dealer hopes someone will pay without doing any research. Your data is your leverage.</p>
           </div>
         </details>
 
         <details>
-          <summary>The F&amp;I manager says you &ldquo;need&rdquo; an extended warranty because &ldquo;modern cars are so computerized.&rdquo; Is this true?</summary>
+          <summary>The dealer says, &ldquo;This deal is only good today. If you leave, I can&rsquo;t guarantee this price tomorrow.&rdquo; What should you do?</summary>
           <div class="answer">
-            <p><strong>No.</strong> Modern cars are generally more reliable than older ones. The factory warranty covers you for 3&ndash;5 years or 36,000&ndash;60,000 miles. If you want extended coverage later, buy from a third party for significantly less. The F&amp;I manager earns a commission on every warranty sold.</p>
+            <p><strong>Leave anyway.</strong> Manufactured urgency is one of the oldest pressure tactics. A legitimate good price will still be a good price tomorrow. If the dealer won&rsquo;t honor their offer for even 24 hours, that tells you the &ldquo;deal&rdquo; wasn&rsquo;t real. Say: &ldquo;I appreciate that, but I need to think about it.&rdquo; If the price really was fair, they&rsquo;ll call you back.</p>
           </div>
         </details>
 
         <details>
-          <summary>You get pre-approved at 5.2% from your credit union. The dealer offers 5.9%. What do you do?</summary>
+          <summary>You agreed on a purchase price of $16,000, but in the finance office the total comes out to $17,400. What happened?</summary>
           <div class="answer">
-            <p><strong>Use your pre-approval.</strong> Tell the dealer your credit union offered 5.2%. They may match or beat it to keep the financing in-house (dealers earn a commission on the loan). If they can&rsquo;t beat it, you already have the better rate locked in. That&rsquo;s the entire point of pre-approval.</p>
+            <p><strong>Fees got added.</strong> Doc fees, dealer prep, VIN etching, nitrogen tire fill, paint protection &mdash; these are profit centers disguised as standard charges. Some fees are legitimate (tax, title, registration). Others are negotiable or pure profit. Ask for a line-by-line breakdown and push back on anything you didn&rsquo;t agree to. This is why you ask for the <strong>out-the-door price</strong> up front.</p>
           </div>
         </details>
 
         <details>
-          <summary>You notice the contract shows a 72-month term. You agreed to 60 months on the sales floor. What do you do?</summary>
+          <summary>Your walk-away price is $19,000. The dealer&rsquo;s best offer is $19,400. It&rsquo;s only $400 over. Should you take it?</summary>
           <div class="answer">
-            <p><strong>Stop. Do not sign.</strong> Point out the discrepancy. This is either a mistake or an intentional change. Either way, it must be corrected before you sign. You are not being difficult &mdash; you are being careful. Every number in the contract must match what was agreed upon verbally.</p>
+            <p><strong>No.</strong> Your walk-away price exists for a reason. $400 over might seem small, but the moment you flex your limit, you&rsquo;ve told yourself that your boundaries are suggestions. If $19,000 was your researched maximum, hold to it. Say: &ldquo;I appreciate the offer, but my maximum is $19,000 out the door. If you can make that work, we have a deal.&rdquo; If they can&rsquo;t, leave. There are other cars.</p>
           </div>
         </details>
       </div>
@@ -928,59 +1002,57 @@
     <!-- ====== SECTION 8: ASSIGNMENT ====== -->
     <section class="section section--warm" id="assignment">
       <div class="section-inner reveal">
-        <h2>Your Assignment: Run the Numbers</h2>
-        <p class="styled-subheading">Use your Portfolio vehicle to build a real financing comparison.</p>
+        <h2>Your Assignment: Build a Negotiation Plan</h2>
+        <p class="styled-subheading">Walk in with a plan. Walk out with a fair deal.</p>
 
         <div class="worked-example">
-          <h3>Worked Example &mdash; 2022 Honda Civic (Sport, 2.0L)</h3>
+          <h3>Worked Example &mdash; Negotiation Plan for a 2021 Honda Civic LX</h3>
           <ul>
-            <li>Purchase price: $21,000</li>
-            <li>Down payment: $3,000 (14%)</li>
-            <li>Loan amount: $18,000</li>
-            <li>Pre-approved rate: 5.5% APR</li>
-            <li>Scenario A: 48 months = $418/mo &middot; Total loan payments: $20,083 &middot; Interest paid: $2,083</li>
-            <li>Scenario B: 60 months = $344/mo &middot; Total loan payments: $20,656 &middot; Interest paid: $2,656</li>
-            <li>Scenario C: 72 months = $295/mo &middot; Total loan payments: $21,242 &middot; Interest paid: $3,242</li>
-            <li>Total out-of-pocket (down payment + loan): A = $23,083 &middot; B = $23,656 &middot; C = $24,242</li>
-            <li>Extra interest cost of 72 months vs. 48 months: $1,159</li>
+            <li>Edmunds fair market price: $19,400</li>
+            <li>Target price (opening offer): $18,800</li>
+            <li>Walk-away price (absolute max): $20,000 out the door</li>
+            <li>Pre-approved rate: 5.9% from OCCU, 48 months</li>
+            <li>Script 1: &ldquo;I&rsquo;ve researched fair market value and I&rsquo;m prepared to pay $18,800.&rdquo;</li>
+            <li>Script 2: &ldquo;I have pre-approved financing at 5.9%. Can you beat that?&rdquo;</li>
+            <li>Script 3: &ldquo;I need to see the out-the-door price with all fees before I commit.&rdquo;</li>
+            <li>If they say no: &ldquo;Thank you for your time&rdquo; &mdash; walk away and try next dealer</li>
           </ul>
         </div>
 
         <ol class="assignment-steps">
-          <li>Using your Portfolio vehicle&rsquo;s price from Module 1, determine a realistic down payment amount. Aim for 20% if possible, but use what&rsquo;s realistic for you.</li>
-          <li>Calculate the loan amount: vehicle price minus down payment.</li>
-          <li>Using a 5.5% APR (a reasonable average for someone with limited credit history), calculate the monthly payment and total cost at three loan terms: <strong>48 months</strong>, <strong>60 months</strong>, and <strong>72 months</strong>. Use an online auto loan calculator.</li>
-          <li>For each term, record: monthly payment, total interest paid, and total amount paid.</li>
-          <li>Choose the term you would select and explain your reasoning in one paragraph.</li>
-          <li>Submit your financing comparison to Canvas. This becomes Page 3 of your Vehicle Ownership Portfolio.</li>
+          <li>Look up your portfolio vehicle on <a href="https://www.edmunds.com/" target="_blank" rel="noopener">Edmunds.com</a> and find the <strong>fair market price</strong> (look for &ldquo;Edmunds Price&rdquo; or &ldquo;Fair Market Range&rdquo;) for your specific year, make, model, trim, and mileage range. Cross-check on <a href="https://www.kbb.com/" target="_blank" rel="noopener">KBB.com</a> for a second data point.</li>
+          <li>Set your <strong>target price</strong> (your opening offer &mdash; typically at or slightly below TMV) and your <strong>walk-away price</strong> (the absolute maximum you&rsquo;d pay, including all fees).</li>
+          <li>Write <strong>three negotiation phrases</strong> you would use at the dealership. You can adapt the scripts from this module or write your own &mdash; but they must be specific to your vehicle and situation.</li>
+          <li>Write your <strong>walk-away plan</strong>: what exactly would you say and do if the dealer won&rsquo;t meet your price? Include the words you&rsquo;d use.</li>
+          <li>Submit your negotiation plan to Canvas. This becomes <strong>Page 12 of your Vehicle Ownership Portfolio.</strong></li>
         </ol>
 
-        <p><em>The dealer will focus on the monthly payment. You focus on the total cost. That&rsquo;s the difference between a buyer and an informed buyer.</em></p>
+        <p><em>The goal isn&rsquo;t to &ldquo;win&rdquo; a negotiation. The goal is to pay a fair price, keep your boundaries, and leave the dealership knowing you made a decision based on research &mdash; not pressure.</em></p>
       </div>
     </section>
 
-    <!-- ====== FOOTER ====== -->
+    <!-- ====== SECTION 9: FOOTER ====== -->
     <footer class="section section--dark footer-section" id="footer">
       <div class="section-inner--wide reveal">
         <ol class="takeaways">
-          <li>Compare total cost, not monthly payment. Longer loans cost thousands more.</li>
-          <li>Get pre-approved before you walk into the dealership. It&rsquo;s your best leverage.</li>
-          <li>Every F&amp;I product can be bought later, cheaper, from a third party.</li>
+          <li>Preparation beats personality &mdash; know your TMV, your walk-away price, and your financing before you arrive.</li>
+          <li>Negotiate one number at a time &mdash; total purchase price first, everything else after.</li>
+          <li>Walking away is not losing. It&rsquo;s the move that gives you all the leverage.</li>
         </ol>
 
         <div class="next-steps">
           <h3>Next Steps</h3>
-          <p>Up next: <strong>auto insurance</strong> &mdash; you&rsquo;re required to buy it, so you should understand it.</p>
+          <p>Up next: every mile is on your record &mdash; how your driving record affects your financial life.</p>
         </div>
 
 
         <div style="display: flex; justify-content: space-between; max-width: var(--max-width-content); margin: var(--space-md) auto 0; padding-top: var(--space-md); border-top: 1px solid rgba(255,255,255,0.1);">
-          <a href="AUTOS_CON_002_Reading_the_Window.html" style="color: var(--color-accent-amber); text-decoration: none;">&larr; Module 2: Window Sticker</a>
-          <a href="AUTOS_CON_004_Insurance_Decoded.html" style="color: var(--color-accent-amber); text-decoration: none;">Module 4: Insurance &rarr;</a>
+          <a href="AUTOS_CON_011_Warranties_and_Recalls.html" style="color: var(--color-accent-amber); text-decoration: none;">&larr; Module 11: Warranties &amp; Recalls</a>
+          <a href="AUTOS_CON_013_Your_Driving_Record.html" style="color: var(--color-accent-amber); text-decoration: none;">Module 13: Driving Record &rarr;</a>
         </div>
 
         <div class="course-info">
-          Mr. McAteer &middot; Crescent Valley High School &middot; AUTOS.CON.003
+          Mr. McAteer &middot; Crescent Valley High School &middot; AUTOS.CON.012
         </div>
       </div>
     </footer>
