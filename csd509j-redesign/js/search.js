@@ -53,6 +53,13 @@
 
   if (!searchOverlay || !searchInput || !resultsBox) return;
 
+  /* Add ARIA live region for screen reader announcements */
+  resultsBox.setAttribute('role', 'status');
+  resultsBox.setAttribute('aria-live', 'polite');
+
+  /* Track which element opened search so we can return focus */
+  var searchTrigger = null;
+
   /* ---- Helpers ---- */
   function escapeHtml(str) {
     var div = document.createElement('div');
@@ -61,22 +68,25 @@
   }
 
   function getBasePath() {
-    var base = '/csd509j-redesign/';
-    var path = window.location.pathname;
-
-    /* If we are already under the base, compute relative prefix */
-    if (path.indexOf(base) === 0) {
-      var rest = path.substring(base.length).replace(/\/+$/, '');
-      var depth = rest ? rest.split('/').length : 0;
-      var prefix = '';
-      for (var i = 0; i < depth; i++) {
-        prefix += '../';
-      }
-      return prefix || './';
+    /* Detect base from the site logo link (always points to site root) */
+    var logoLink = document.querySelector('.site-nav__logo');
+    if (logoLink) {
+      try {
+        var logoHref = new URL(logoLink.getAttribute('href'), window.location.href).pathname;
+        var path = window.location.pathname;
+        if (path.indexOf(logoHref) === 0) {
+          var rest = path.substring(logoHref.length).replace(/\/+$/, '');
+          var depth = rest ? rest.split('/').length : 0;
+          var prefix = '';
+          for (var i = 0; i < depth; i++) {
+            prefix += '../';
+          }
+          return prefix || './';
+        }
+        return logoHref;
+      } catch (e) {}
     }
-
-    /* Fallback: use absolute base */
-    return base;
+    return './';
   }
 
   function highlightMatch(text, query) {
@@ -92,7 +102,9 @@
 
   /* ---- Open / Close ---- */
   function openSearch() {
+    searchTrigger = document.activeElement;
     searchOverlay.classList.add('open');
+    searchOverlay.setAttribute('aria-hidden', 'false');
     searchInput.value = '';
     resultsBox.innerHTML = '';
     searchInput.focus();
@@ -100,8 +112,22 @@
 
   function closeSearch() {
     searchOverlay.classList.remove('open');
+    searchOverlay.setAttribute('aria-hidden', 'true');
     searchInput.value = '';
     resultsBox.innerHTML = '';
+    /* Return focus to the element that triggered search */
+    if (searchTrigger && searchTrigger.focus) {
+      searchTrigger.focus();
+      searchTrigger = null;
+    }
+  }
+
+  /* ---- Search button click ---- */
+  var searchBtn = document.querySelector('.site-nav__search-btn');
+  if (searchBtn) {
+    searchBtn.addEventListener('click', function () {
+      openSearch();
+    });
   }
 
   /* ---- Keyboard shortcut: Cmd/Ctrl + K ---- */

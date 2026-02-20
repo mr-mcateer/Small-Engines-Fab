@@ -101,7 +101,7 @@
 
     if (normCurrent === normLink) {
       navLinks[j].classList.add('active');
-    } else if (normCurrent.indexOf(normLink) === 0 && normLink !== normalisePath('/csd509j-redesign/')) {
+    } else if (normCurrent.indexOf(normLink) === 0 && normLink !== normalisePath(document.baseURI ? new URL(document.baseURI).pathname : '/')) {
       /* Sub-page match: e.g. /about/team/ matches /about/ */
       navLinks[j].classList.add('active');
     }
@@ -111,7 +111,19 @@
      Breadcrumb generation
      ============================================================ */
   if (breadcrumb) {
-    var basePath = '/csd509j-redesign/';
+    /* Detect base path from <link rel="canonical"> or fall back to first path segment */
+    var canonicalEl = document.querySelector('link[rel="canonical"]');
+    var basePath = '/';
+    if (canonicalEl) {
+      try { basePath = new URL(canonicalEl.href).pathname.replace(/[^\/]+\/?$/, ''); } catch (e) {}
+    }
+    if (basePath === '/') {
+      /* Heuristic: find the base from <a class="site-nav__logo"> href */
+      var logoLink = document.querySelector('.site-nav__logo');
+      if (logoLink) {
+        try { basePath = new URL(logoLink.href, window.location.href).pathname; } catch (e) {}
+      }
+    }
     var relativePath = currentPath;
 
     /* Strip the base path prefix */
