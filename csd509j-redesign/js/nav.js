@@ -151,25 +151,29 @@
       });
     }
 
-    /* Render */
+    /* Render — match the static HTML structure: <a> + <span class="breadcrumb__sep"> + <span> */
     var frag = document.createDocumentFragment();
     for (var m = 0; m < crumbs.length; m++) {
-      var li = document.createElement('li');
-      li.className = 'breadcrumb__item';
+      /* Add separator before all items except the first */
+      if (m > 0) {
+        var sep = document.createElement('span');
+        sep.className = 'breadcrumb__sep';
+        sep.setAttribute('aria-hidden', 'true');
+        sep.textContent = '/';
+        frag.appendChild(sep);
+      }
 
       if (crumbs[m].href && m < crumbs.length - 1) {
         var a = document.createElement('a');
         a.href = crumbs[m].href;
         a.textContent = crumbs[m].label;
-        li.appendChild(a);
+        frag.appendChild(a);
       } else {
         var span = document.createElement('span');
         span.textContent = crumbs[m].label;
         span.setAttribute('aria-current', 'page');
-        li.appendChild(span);
+        frag.appendChild(span);
       }
-
-      frag.appendChild(li);
     }
 
     breadcrumb.innerHTML = '';
