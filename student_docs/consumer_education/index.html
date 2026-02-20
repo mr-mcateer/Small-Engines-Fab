@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automotive Consumer Education — CVHS McAteer Programs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg-dark: #1a1a1a;
+      --color-bg-light: #faf9f6;
+      --color-bg-warm-gray: #f2f0ec;
+      --color-accent-amber: #d4a843;
+      --color-accent-blue: #4a6fa5;
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555555;
+      --color-text-inverse: #faf9f6;
+      --color-success: #3a7d44;
+      --color-danger: #c0392b;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      --max-width-content: 780px;
+      --max-width-wide: 1100px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+      background: var(--color-bg-light);
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 {
+      font-family: 'DM Serif Display', serif;
+      line-height: 1.2;
+      margin-top: 0;
+    }
+    a { color: var(--color-accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ========== HERO ========== */
+    .hero {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+      padding: var(--space-xl) var(--space-md);
+      text-align: center;
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      margin-bottom: var(--space-xs);
+      max-width: 700px;
+    }
+    .hero .lead {
+      font-size: 1.25rem;
+      color: var(--color-accent-amber);
+      margin-bottom: var(--space-md);
+      max-width: 560px;
+    }
+    .hero .school {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-top: var(--space-sm);
+    }
+
+    /* ========== CONTENT ========== */
+    .content {
+      max-width: var(--max-width-wide);
+      margin: 0 auto;
+      padding: var(--space-lg) var(--space-md);
+    }
+    .intro {
+      max-width: var(--max-width-content);
+      margin: 0 auto var(--space-lg);
+      text-align: center;
+    }
+    .intro p {
+      color: var(--color-text-secondary);
+      font-size: 1.1rem;
+    }
+
+    /* ========== MODULE GRID ========== */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+    .module-card {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+    .module-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      text-decoration: none;
+    }
+    .module-card__number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-accent-amber);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+    .module-card__title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      line-height: 1.3;
+      margin-bottom: var(--space-xs);
+      color: var(--color-text-primary);
+    }
+    .module-card__desc {
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+      flex: 1;
+    }
+    .module-card__tag {
+      display: inline-block;
+      margin-top: var(--space-sm);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      align-self: flex-start;
+    }
+    .tag--buying { background: #e8f0fe; color: #1a56db; }
+    .tag--finance { background: #fef3c7; color: #92400e; }
+    .tag--ownership { background: #d1fae5; color: #065f46; }
+    .tag--selling { background: #fce7f3; color: #9d174d; }
+    .tag--capstone { background: #f3e8ff; color: #6b21a8; }
+
+    /* ========== SECTION DIVIDERS ========== */
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+      padding-bottom: var(--space-xs);
+      border-bottom: 2px solid var(--color-accent-amber);
+      display: inline-block;
+    }
+    .section-group {
+      margin-bottom: var(--space-lg);
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+      text-align: center;
+      padding: var(--space-md);
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
+    footer a { color: var(--color-accent-amber); }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 600px) {
+      .module-grid { grid-template-columns: 1fr; }
+      .content { padding: var(--space-md) var(--space-sm); }
+    }
+
+    /* ========== PRINT ========== */
+    @media print {
+      .hero { min-height: auto; padding: var(--space-md); }
+      .module-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>Automotive Consumer Education</h1>
+    <p class="lead">16 modules that teach you the money side of cars &mdash; before you learn the hard way.</p>
+    <div class="school">Crescent Valley High School &middot; McAteer Programs</div>
+  </section>
+
+  <div class="content">
+
+    <div class="intro">
+      <p>Every module is a self-contained lesson. Work through them in order, or jump to what you need. By Module 16, you&rsquo;ll have a complete owner&rsquo;s portfolio with real numbers for a real vehicle.</p>
+    </div>
+
+    <!-- ====== BUYING A CAR ====== -->
+    <div class="section-group">
+      <div class="section-label">Part 1 &mdash; Buying a Car</div>
+      <div class="module-grid">
+
+        <a class="module-card" href="AUTOS_CON_001_Your_First_Car.html">
+          <span class="module-card__number">Module 01</span>
+          <div class="module-card__title">Your First Car Is Probably a Bad Deal</div>
+          <div class="module-card__desc">The 20/4/10 rule, depreciation math, and why your budget matters more than the car.</div>
+          <span class="module-card__tag tag--buying">Buying</span>
+        </a>
+
+        <a class="module-card" href="AUTOS_CON_002_Reading_the_Window.html">
+          <span class="module-card__number">Module 02</span>
+          <div class="module-card__title">Everything on the Sticker They Hope You Won&rsquo;t Read</div>
+          <div class="module-card__desc">Monroney stickers, EPA labels, VIN decoding, and what the window really tells you.</div>
+          <span class="module-card__tag tag--buying">Buying</span>
+        </a>
+
+        <a class="module-card" href="AUTOS_CON_009_Pre_Purchase_Inspection.html">
+          <span class="module-card__number">Module 09</span>
+          <div class="module-card__title">The Pre-Purchase Inspection</div>
+          <div class="module-card__desc">How to inspect a used car before you buy it &mdash; test drives, red flags, and the mechanic check.</div>
+          <span class="module-card__tag tag--buying">Buying</span>
+        </a>
+
+        <a class="module-card" href="AUTOS_CON_012_Negotiation.html">
+          <span class="module-card__number">Module 12</span>
+          <div class="module-card__title">Negotiation</div>
+          <div class="module-card__desc">Dealer tactics, walk-away power, and how to get a fair price without getting played.</div>
+          <span class="module-card__tag tag--buying">Buying</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ====== FINANCING & INSURANCE ====== -->
+    <div class="section-group">
+      <div class="section-label">Part 2 &mdash; Financing &amp; Insurance</div>
+      <div class="module-grid">
+
+        <a class="module-card" href="AUTOS_CON_003_The_Finance_Office.html">
+          <span class="module-card__number">Module 03</span>
+          <div class="module-card__title">The Most Expensive Room in the Dealership</div>
+          <div class="module-card__desc">Auto loans, pre-approval, the F&amp;I office, and products they&rsquo;ll try to sell you.</div>
+          <span class="module-card__tag tag--finance">Finance</span>
+        </a>
+
+        <a class="module-card" href="AUTOS_CON_004_Insurance_Decoded.html">
+          <span class="module-card__number">Module 04</span>
+          <div class="module-card__title">Insurance Decoded</div>
+          <div class="module-card__desc">Liability, collision, comprehensive, deductibles, and what Oregon requires.</div>
+          <span class="module-card__tag tag--finance">Finance</span>
+        </a>
+
+        <a class="module-card" href="AUTOS_CON_005_Total_Cost_of_Ownership.html">
+          <span class="module-card__number">Module 05</span>
+          <div class="module-card__title">Total Cost of Ownership</div>
+          <div class="module-card__desc">The 7 categories that determine what a car really costs you per year and per mile.</div>
+          <span class="module-card__tag tag--finance">Finance</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ====== OWNING & MAINTAINING ====== -->
+    <div class="section-group">
+      <div class="section-label">Part 3 &mdash; Owning &amp; Maintaining</div>
+      <div class="module-grid">
+
+        <a class="module-card" href="AUTOS_CON_006_Tires_and_Safety.html">
+          <span class="module-card__number">Module 06</span>
+          <div class="module-card__title">Tires &amp; Safety</div>
+          <div class="module-card__desc">DOT date codes, tire sizing, tread depth, rotation, and when to replace.</div>
+          <span class="module-card__tag tag--ownership">Ownership</span>
+        </a>
+
+        <a class="module-card" href="AUTOS_CON_007_Routine_Maintenance.html">
+          <span class="module-card__number">Module 07</span>
+          <div class="module-card__title">Routine Maintenance</div>
+          <div class="module-card__desc">Maintenance schedules, DIY vs. professional, and the fluids that keep your car alive.</div>
+          <span class="module-card__tag tag--ownership">Ownership</span>
+        </a>
+
+        <a class="module-card" href="AUTOS_CON_008_Finding_a_Mechanic.html">
+          <span class="module-card__number">Module 08</span>
+          <div class="module-card__title">Finding a Mechanic You Can Trust</div>
+          <div class="module-card__desc">ASE certification, reading reviews, getting quotes, and knowing when you&rsquo;re being upsold.</div>
+          <span class="module-card__tag tag--ownership">Ownership</span>
+        </a>
+
+        <a class="module-card" href="AUTOS_CON_010_Roadside_Emergencies.html">
+          <span class="module-card__number">Module 10</span>
+          <div class="module-card__title">Roadside Emergencies</div>
+          <div class="module-card__desc">Flat tires, dead batteries, overheating, and what to do when things go wrong.</div>
+          <span class="module-card__tag tag--ownership">Ownership</span>
+        </a>
+
+        <a class="module-card" href="AUTOS_CON_011_Warranties_and_Recalls.html">
+          <span class="module-card__number">Module 11</span>
+          <div class="module-card__title">Warranties &amp; Recalls</div>
+          <div class="module-card__desc">What&rsquo;s covered, what isn&rsquo;t, the Magnuson-Moss Act, and how to check for recalls.</div>
+          <span class="module-card__tag tag--ownership">Ownership</span>
+        </a>
+
+        <a class="module-card" href="AUTOS_CON_013_Your_Driving_Record.html">
+          <span class="module-card__number">Module 13</span>
+          <div class="module-card__title">Your Driving Record</div>
+          <div class="module-card__desc">How tickets, accidents, and violations affect your insurance rates for years.</div>
+          <span class="module-card__tag tag--ownership">Ownership</span>
+        </a>
+
+        <a class="module-card" href="AUTOS_CON_015_Electric_and_Alternative.html">
+          <span class="module-card__number">Module 15</span>
+          <div class="module-card__title">Electric &amp; Alternative Fuel Vehicles</div>
+          <div class="module-card__desc">EVs, hybrids, hydrogen &mdash; real costs, real range, and what makes sense today.</div>
+          <span class="module-card__tag tag--ownership">Ownership</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ====== SELLING & MOVING ON ====== -->
+    <div class="section-group">
+      <div class="section-label">Part 4 &mdash; Selling &amp; Moving On</div>
+      <div class="module-grid">
+
+        <a class="module-card" href="AUTOS_CON_014_When_to_Sell.html">
+          <span class="module-card__number">Module 14</span>
+          <div class="module-card__title">When to Sell</div>
+          <div class="module-card__desc">Depreciation curves, repair-vs-replace math, and timing the market on your car.</div>
+          <span class="module-card__tag tag--selling">Selling</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ====== CAPSTONE ====== -->
+    <div class="section-group">
+      <div class="section-label">Capstone</div>
+      <div class="module-grid">
+
+        <a class="module-card" href="AUTOS_CON_016_Portfolio_Assembly.html">
+          <span class="module-card__number">Module 16</span>
+          <div class="module-card__title">Your Owner&rsquo;s Manual for Owning a Car</div>
+          <div class="module-card__desc">Pull everything together into a real portfolio with real numbers for a real vehicle.</div>
+          <span class="module-card__tag tag--capstone">Capstone</span>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>CVHS Small Engines &amp; Metals/Fabrication &middot; Mr. McAteer &middot; Corvallis, OR</p>
+  </footer>
+
+</body>
+</html>
