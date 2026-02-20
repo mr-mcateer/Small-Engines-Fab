@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're Required to Buy It. You Should Understand It. — AUTOS.CON.004</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========== CSS VARIABLES ========== */
+    :root {
+      --color-bg-dark: #1a1a1a;
+      --color-bg-light: #faf9f6;
+      --color-bg-warm-gray: #f2f0ec;
+      --color-accent-amber: #d4a843;
+      --color-accent-blue: #4a6fa5;
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555555;
+      --color-text-inverse: #faf9f6;
+      --color-success: #3a7d44;
+      --color-danger: #c0392b;
+      --color-fluid-transmission: #c0392b;
+      --color-fluid-brake: #d4a843;
+      --color-fluid-washer: #4a90d9;
+      --color-fluid-coolant: #27ae60;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      --space-section: 8rem;
+      --max-width-content: 780px;
+      --max-width-wide: 1100px;
+      --transition-reveal: opacity 0.6s ease, transform 0.6s ease;
+      --transition-hover: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+      background: var(--color-bg-light);
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 {
+      font-family: 'DM Serif Display', serif;
+      line-height: 1.2;
+      margin-top: 0;
+    }
+    h2 { font-size: 2.2rem; margin-bottom: var(--space-xs); }
+    h3 { font-size: 1.35rem; }
+    p { margin: 0 0 var(--space-sm); }
+    a { color: var(--color-accent-blue); }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ========== PROGRESS BAR ========== */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: var(--color-accent-amber);
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* ========== SCROLL REVEAL ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition-reveal);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== LAYOUT ========== */
+    .section { padding: var(--space-section) var(--space-md); }
+    .section-inner {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+    .section-inner--wide {
+      max-width: var(--max-width-wide);
+      margin: 0 auto;
+    }
+    .section--warm { background: var(--color-bg-warm-gray); }
+    .section--dark {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+    }
+    .styled-subheading {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-md);
+    }
+    .section--dark .styled-subheading { color: #bbb; }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--color-text-inverse);
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      background-attachment: fixed;
+      padding: var(--space-lg) var(--space-md);
+      position: relative;
+    }
+    .hero-fallback {
+      background: linear-gradient(135deg, var(--color-bg-dark) 0%, #2c2c2c 50%, var(--color-accent-amber) 150%);
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: var(--space-xs);
+      letter-spacing: -0.02em;
+    }
+    .hero .lead {
+      font-size: 1.3rem;
+      font-style: italic;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto var(--space-lg);
+    }
+    .scroll-arrow {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.8rem;
+      opacity: 0.7;
+      animation: bounce 2s ease infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* ========== COMPARISON CARDS ========== */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .comparison-card {
+      padding: var(--space-md);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+    }
+    .comparison-card--dealer {
+      border: 2px solid var(--color-danger);
+    }
+    .comparison-card--mfr {
+      border: 2px solid var(--color-success);
+    }
+    .comparison-card h3 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+    .comparison-card--dealer h3 { color: var(--color-danger); }
+    .comparison-card--mfr h3 { color: var(--color-success); }
+    .comparison-card .big-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.4rem;
+      font-weight: 700;
+      display: block;
+      margin: var(--space-xs) 0;
+    }
+    .comparison-card .detail {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .comparison-bottom {
+      text-align: center;
+      margin: var(--space-md) 0 var(--space-xs);
+    }
+    .comparison-bottom .savings {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-success);
+    }
+    .comparison-bottom .fine-print {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-top: var(--space-xs);
+    }
+
+    /* ========== CALLOUT BOX ========== */
+    .callout {
+      border-left: 4px solid var(--color-accent-amber);
+      background: rgba(212, 168, 67, 0.08);
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-md) 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 1rem;
+    }
+    .callout--dark {
+      background: rgba(212, 168, 67, 0.12);
+    }
+    .callout strong { color: var(--color-accent-amber); }
+
+    /* ========== FLOWCHART ========== */
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: var(--space-md) 0;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .flow-box {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 8px;
+      text-align: center;
+      max-width: 360px;
+      width: 100%;
+      font-weight: 600;
+    }
+    .flow-box--accent { background: var(--color-accent-amber); color: var(--color-bg-dark); }
+    .flow-box--success { background: var(--color-success); }
+    .flow-box--danger { background: var(--color-danger); }
+    .flow-arrow {
+      font-size: 1.5rem;
+      color: var(--color-text-secondary);
+      line-height: 1;
+      padding: var(--space-xs) 0;
+    }
+    .flow-branch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      max-width: 360px;
+      width: 100%;
+    }
+    .flow-branch-label {
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-xs);
+    }
+
+    /* ========== SECTION IMAGE ========== */
+    .section-image {
+      border-radius: 8px;
+      margin: var(--space-md) 0;
+      width: 100%;
+    }
+
+    /* ========== OIL TYPE CARDS ========== */
+    .oil-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .oil-card {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+      text-align: center;
+    }
+    .oil-card h3 {
+      margin-bottom: var(--space-sm);
+      font-size: 1.15rem;
+    }
+    .oil-card .oil-row {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid #f0ede8;
+      font-size: 0.9rem;
+    }
+    .oil-card .oil-row:last-child { border-bottom: none; }
+    .oil-card .oil-label {
+      color: var(--color-text-secondary);
+      text-align: left;
+    }
+    .oil-card .oil-value {
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      text-align: right;
+      font-size: 0.85rem;
+    }
+
+    /* ========== FLUID CARDS ========== */
+    .fluid-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .fluid-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e0ddd8;
+    }
+    .fluid-card__accent {
+      height: 6px;
+    }
+    .fluid-card__body {
+      padding: var(--space-md);
+    }
+    .fluid-card h3 { margin-bottom: var(--space-xs); font-size: 1.15rem; }
+    .fluid-card p { font-size: 0.95rem; margin-bottom: var(--space-xs); }
+    .fluid-card .warning {
+      color: var(--color-danger);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .fluid-card .interval {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ========== NOTE BOX ========== */
+    .note-box {
+      background: var(--color-bg-warm-gray);
+      border: 1px solid #e0ddd8;
+      border-radius: 6px;
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      margin: var(--space-md) 0;
+    }
+
+    /* ========== UPSELL DEFENSE ========== */
+    .defense-box {
+      border: 2px solid var(--color-accent-amber);
+      border-radius: 8px;
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+      background: rgba(212, 168, 67, 0.06);
+    }
+    .defense-box h3 {
+      color: var(--color-accent-amber);
+      margin-bottom: var(--space-xs);
+      font-family: 'Source Sans 3', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+    }
+
+    /* ========== VALUE COMPARISON ========== */
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+      text-align: center;
+    }
+    .value-card {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+    }
+    .value-card h3 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-xs);
+    }
+    .value-card .price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .value-card--low .price { color: var(--color-danger); }
+    .value-card--high .price { color: var(--color-success); }
+    .value-card .label { font-size: 0.85rem; color: var(--color-text-secondary); }
+    .value-diff {
+      text-align: center;
+      margin: var(--space-sm) 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-success);
+    }
+
+    /* ========== DETAILS / SUMMARY ========== */
+    .check-section details {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      margin-bottom: var(--space-sm);
+      overflow: hidden;
+    }
+    .check-section summary {
+      padding: var(--space-sm) var(--space-md);
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      padding-right: 3rem;
+    }
+    .check-section summary::-webkit-details-marker { display: none; }
+    .check-section summary::after {
+      content: '+';
+      position: absolute;
+      right: var(--space-md);
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.2rem;
+      color: var(--color-accent-amber);
+    }
+    .check-section details[open] summary::after { content: '\2212'; }
+    .check-section .answer {
+      padding: 0 var(--space-md) var(--space-md);
+      color: var(--color-text-secondary);
+      border-top: 1px solid #f0ede8;
+      padding-top: var(--space-sm);
+    }
+
+    /* ========== ASSIGNMENT ========== */
+    .worked-example {
+      background: #fff;
+      border: 2px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+    }
+    .worked-example h3 { margin-bottom: var(--space-sm); font-size: 1.1rem; }
+    .worked-example ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .worked-example li {
+      padding: var(--space-xs) 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f0ede8;
+    }
+    .worked-example li:last-child { border-bottom: none; }
+    .assignment-steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+    }
+    .assignment-steps > li {
+      counter-increment: step;
+      padding: var(--space-sm) 0;
+      padding-left: 3rem;
+      position: relative;
+      border-bottom: 1px solid #e0ddd8;
+    }
+    .assignment-steps > li:last-child { border-bottom: none; }
+    .assignment-steps > li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: var(--space-sm);
+      width: 2rem;
+      height: 2rem;
+      background: var(--color-accent-amber);
+      color: var(--color-bg-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .assignment-steps li ul {
+      margin-top: var(--space-xs);
+      padding-left: var(--space-md);
+      list-style: disc;
+    }
+    .assignment-steps li ul li {
+      padding-left: 0;
+      border-bottom: none;
+    }
+    .assignment-steps li ul li::before {
+      display: none;
+    }
+    .due-date {
+      background: rgba(212, 168, 67, 0.12);
+      border: 2px solid var(--color-accent-amber);
+      border-radius: 8px;
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-md) 0;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer-section { padding: var(--space-xl) var(--space-md) var(--space-lg); }
+    .takeaways {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto var(--space-lg);
+      max-width: var(--max-width-content);
+    }
+    .takeaways li {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .takeaways li:last-child { border-bottom: none; }
+    .next-steps {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: var(--space-md);
+      background: rgba(255,255,255,0.04);
+    }
+    .next-steps h3 { color: var(--color-accent-amber); margin-bottom: var(--space-xs); }
+    .course-info {
+      max-width: var(--max-width-content);
+      margin: var(--space-lg) auto 0;
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero .lead { font-size: 1.1rem; }
+      h2 { font-size: 1.7rem; }
+      .section { padding: var(--space-lg) var(--space-sm); }
+      .comparison-grid,
+      .fluid-grid,
+      .value-grid { grid-template-columns: 1fr; }
+      .oil-grid { grid-template-columns: 1fr; }
+      .flow-branch { grid-template-columns: 1fr; max-width: 280px; }
+      .comparison-card .big-number { font-size: 1.8rem; }
+      .takeaways li { font-size: 1.15rem; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.9rem; }
+      h2 { font-size: 1.45rem; }
+      body { font-size: 0.95rem; }
+      .section { padding: var(--space-md) var(--space-sm); }
+      .comparison-card .big-number { font-size: 1.5rem; }
+      .value-card .price { font-size: 1.5rem; }
+    }
+
+    /* ========== REDUCED MOTION ========== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+      .hero { background-attachment: scroll; }
+    }
+
+    /* ========== PRINT ========== */
+    @media print {
+      * { animation: none !important; transition: none !important; }
+      .progress-bar, .scroll-arrow { display: none; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      body {
+        font-size: 11pt;
+        max-width: 100%;
+        color: #000;
+        background: #fff;
+      }
+      .section {
+        page-break-before: always;
+        padding: 1rem 0;
+      }
+      .section:first-of-type { page-break-before: auto; }
+      .hero {
+        min-height: auto;
+        background: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 2rem 1rem;
+      }
+      img { max-width: 100%; height: auto; }
+      .comparison-card, .oil-card, .fluid-card, .value-card, .worked-example {
+        border: 2pt solid #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      details > summary ~ * { display: block !important; }
+      details:not([open]) > summary ~ * { display: block !important; }
+      details { break-inside: avoid; }
+      .section--dark {
+        background: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ====== SECTION 1: HERO ====== -->
+    <section class="hero" id="hero">
+      <h1>You&rsquo;re Required to Buy It. You Should Understand It.</h1>
+      <p class="lead">Auto insurance is mandatory. Understanding it is optional &mdash; and that&rsquo;s where most people lose money.</p>
+      <div class="scroll-arrow" aria-hidden="true">&#8595;</div>
+    </section>
+
+    <!-- ====== SECTION 2: OPENER — THE LAW SAYS YOU MUST ====== -->
+    <section class="section" id="opener">
+      <div class="section-inner reveal">
+        <h2>The Law Says You Must</h2>
+        <p class="styled-subheading">Insurance isn&rsquo;t optional. But understanding it is &mdash; and that&rsquo;s the problem.</p>
+
+        <p>Oregon requires every driver to carry liability insurance. The state minimum is 25/50/20 &mdash; that&rsquo;s $25,000 for bodily injury per person, $50,000 per accident, and $20,000 for property damage. Those numbers sound big until you realize a single trip to the ER can cost $50,000+, and a new truck bumper runs $5,000. Minimums are a floor, not a recommendation.</p>
+
+        <p>Get caught driving without insurance in Oregon and you&rsquo;re looking at a license suspension, fines, and an SR-22 filing requirement &mdash; which is basically a flag on your record that tells the state your insurance company is watching you. That SR-22 stays with you for three years and makes your premiums significantly more expensive.</p>
+
+        <p>Here&rsquo;s the reframe: you&rsquo;re not throwing money away. You&rsquo;re buying protection against a financial disaster that could follow you for decades. A single at-fault accident without insurance can result in a lawsuit, wage garnishment, and a wrecked credit score before you&rsquo;re 20 years old.</p>
+
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80"
+            alt="Close-up of car keys and insurance documents on a desk"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 3: COVERAGE TYPES ====== -->
+    <section class="section section--warm" id="coverage-types">
+      <div class="section-inner--wide reveal">
+        <h2>What the Coverage Types Actually Mean</h2>
+        <p class="styled-subheading">Four types of coverage. Each one protects something different.</p>
+
+        <div class="fluid-grid">
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-fluid-brake);"></div>
+            <div class="fluid-card__body">
+              <h3>Liability</h3>
+              <p>Pays for damage <strong>you cause</strong> to <strong>other people and their property</strong>. This is the coverage Oregon requires. It does NOT cover your car &mdash; only theirs. If you rear-end someone, liability pays for their bumper, their medical bills, and their lawyer. Your car? That&rsquo;s on you.</p>
+              <p class="interval">Required by law &middot; 25/50/20 minimum in OR</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-fluid-washer);"></div>
+            <div class="fluid-card__body">
+              <h3>Collision</h3>
+              <p>Pays to fix <strong>your car</strong> after an accident, regardless of who was at fault. You hit a pole? Collision. Someone hits you and drives off? Collision. This is technically optional &mdash; but if you have a car loan, your lender will require it.</p>
+              <p class="interval">Optional &middot; Required by lenders</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-fluid-coolant);"></div>
+            <div class="fluid-card__body">
+              <h3>Comprehensive</h3>
+              <p>Pays for damage to <strong>your car</strong> from everything <em>except</em> collisions: theft, hail, fire, hitting a deer, falling tree branches, vandalism, a shopping cart rolling into your door. If it wasn&rsquo;t a crash, it&rsquo;s comprehensive.</p>
+              <p class="interval">Optional &middot; Required by lenders</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-fluid-transmission);"></div>
+            <div class="fluid-card__body">
+              <h3>Uninsured/Underinsured Motorist (UM/UIM)</h3>
+              <p>Pays for <strong>your injuries</strong> when the other driver has no insurance or not enough to cover your costs. Oregon requires UM/UIM coverage matching your liability limits &mdash; 25/50 minimum. This is your backup plan for other people&rsquo;s bad decisions.</p>
+              <p class="interval">Required in OR &middot; Must match liability limits</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>The simple version:</strong> Liability = their stuff. Collision = your car in a crash. Comprehensive = your car from everything else. UM/UIM = you, when they don&rsquo;t have insurance.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 4: THE DEDUCTIBLE TRADE-OFF ====== -->
+    <section class="section section--dark" id="deductibles">
+      <div class="section-inner reveal">
+        <h2>The Deductible Trade-Off</h2>
+        <p class="styled-subheading">Lower deductible = higher premium. Higher deductible = lower premium. The math matters.</p>
+
+        <p>Your deductible is the amount you pay out of pocket before insurance kicks in. If you have a $1,000 deductible and your repair costs $4,000, you pay $1,000 and insurance covers $3,000. Choosing your deductible is a bet on how likely you are to file a claim.</p>
+
+        <div class="comparison-grid">
+          <div class="comparison-card comparison-card--dealer">
+            <h3>$250 Deductible</h3>
+            <span class="big-number">~$140/mo</span>
+            <span class="detail">Lower out-of-pocket if you file a claim</span>
+            <span class="detail">$1,680/year in premiums</span>
+          </div>
+          <div class="comparison-card comparison-card--mfr">
+            <h3>$1,000 Deductible</h3>
+            <span class="big-number">~$105/mo</span>
+            <span class="detail">Higher out-of-pocket if you file a claim</span>
+            <span class="detail">$1,260/year in premiums</span>
+          </div>
+        </div>
+
+        <div class="comparison-bottom">
+          <span class="savings">$420 saved per year with the higher deductible</span>
+          <p class="fine-print">But you pay $750 more out of pocket if you file a claim</p>
+        </div>
+
+        <div class="callout callout--dark">
+          <strong>The decision rule:</strong> If you can afford to cover $1,000 in an emergency, the higher deductible saves money over time. If you can&rsquo;t, the lower deductible is insurance for your insurance. Either way, know the trade-off before you choose.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 5: WHY YOUNG DRIVERS PAY MORE ====== -->
+    <section class="section" id="young-drivers">
+      <div class="section-inner--wide reveal">
+        <h2>Why Young Drivers Pay More</h2>
+        <p class="styled-subheading">Age is the single biggest factor in what you pay. Here&rsquo;s why &mdash; and what you can control.</p>
+
+        <p>Insurance companies price risk. Statistically, drivers aged 16&ndash;19 are involved in more accidents per mile driven than any other age group. That&rsquo;s not an opinion &mdash; it&rsquo;s actuarial data built from millions of claims. The result: a 17-year-old in Oregon pays roughly $3,500&ndash;$5,000 per year for their own policy. Added to a parent&rsquo;s policy, that drops to roughly $1,500&ndash;$2,500 per year &mdash; still significant, but much more manageable.</p>
+
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1549317661-bd32c8ce0afa?auto=format&fit=crop&w=1200&q=80"
+            alt="Young driver behind the wheel of a car, hands on the steering wheel"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
+
+        <div class="oil-grid">
+          <div class="oil-card">
+            <h3>Costs More</h3>
+            <div class="oil-row"><span class="oil-label">Age under 25</span><span class="oil-value">+50&ndash;200%</span></div>
+            <div class="oil-row"><span class="oil-label">Sports car or high-HP vehicle</span><span class="oil-value">+15&ndash;40%</span></div>
+            <div class="oil-row"><span class="oil-label">At-fault accident on record</span><span class="oil-value">+25&ndash;50%</span></div>
+            <div class="oil-row"><span class="oil-label">Speeding ticket</span><span class="oil-value">+10&ndash;30%</span></div>
+          </div>
+          <div class="oil-card">
+            <h3>Costs Less</h3>
+            <div class="oil-row"><span class="oil-label">On parent&rsquo;s policy</span><span class="oil-value">&minus;40&ndash;60%</span></div>
+            <div class="oil-row"><span class="oil-label">Good student discount</span><span class="oil-value">&minus;5&ndash;15%</span></div>
+            <div class="oil-row"><span class="oil-label">Clean driving record</span><span class="oil-value">&minus;10&ndash;20%</span></div>
+            <div class="oil-row"><span class="oil-label">Higher deductible</span><span class="oil-value">&minus;15&ndash;30%</span></div>
+          </div>
+          <div class="oil-card">
+            <h3>Doesn&rsquo;t Matter (But They Ask)</h3>
+            <div class="oil-row"><span class="oil-label">Car color</span><span class="oil-value">No effect</span></div>
+            <div class="oil-row"><span class="oil-label">Political bumper stickers</span><span class="oil-value">No effect</span></div>
+            <div class="oil-row"><span class="oil-label">Music system value</span><span class="oil-value">No effect</span></div>
+            <div class="oil-row"><span class="oil-label">How &ldquo;careful&rdquo; you say you are</span><span class="oil-value">No effect</span></div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <strong>Credit score matters in most states.</strong> Insurance companies in 47 states (including Oregon) can use your credit-based insurance score to set premiums. A lower credit score often means a higher premium &mdash; one more reason your financial habits in your late teens matter more than you think.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 6: HOW TO SAVE ====== -->
+    <section class="section section--warm" id="savings">
+      <div class="section-inner reveal">
+        <h2>How to Save on Insurance</h2>
+        <p class="styled-subheading">You can&rsquo;t change your age. But you can control almost everything else.</p>
+
+        <div class="defense-box">
+          <h3>Your Premium Defense Playbook</h3>
+          <p><strong>Stay on your parent&rsquo;s policy as long as possible.</strong> This is the single biggest discount available to you. Being added to an existing policy is dramatically cheaper than starting your own.</p>
+          <p><strong>Earn the good student discount.</strong> Most insurers offer 5&ndash;15% off for maintaining a GPA of 3.0 or higher. Bring your transcript or report card &mdash; it&rsquo;s free money.</p>
+          <p><strong>Take a defensive driving course.</strong> Oregon-approved courses can knock another 5&ndash;10% off your premium, and you&rsquo;ll be a better driver in the process.</p>
+          <p><strong>Bundle policies.</strong> If your family bundles auto with homeowner&rsquo;s or renter&rsquo;s insurance, the multi-policy discount typically saves 5&ndash;15%.</p>
+          <p><strong>Raise your deductible &mdash; if you can cover the cost.</strong> Moving from $500 to $1,000 can save 15&ndash;30% on collision and comprehensive premiums.</p>
+          <p><strong>Shop around.</strong> Get quotes from at least three companies. Rates vary dramatically &mdash; the same driver can see quotes that differ by $1,000+ per year between companies.</p>
+          <p><strong>Ask about telematics programs.</strong> Programs like Snapshot, Drive Safe &amp; Save, or similar usage-based options track your driving habits and can offer discounts for safe driving. Read the fine print &mdash; some can also raise your rate if your driving is poor.</p>
+        </div>
+
+        <div class="callout">
+          <strong>Stack the discounts.</strong> A young driver on a parent&rsquo;s policy with good student + defensive driving + bundling + higher deductible can realistically save 40&ndash;50% compared to a standalone policy with default settings. That&rsquo;s potentially $1,500&ndash;$2,000 per year back in your pocket.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 7: CHECK YOURSELF ====== -->
+    <section class="section section--warm check-section" id="check">
+      <div class="section-inner reveal">
+        <h2>Check Yourself</h2>
+        <p class="styled-subheading">Make sure you&rsquo;ve got the concepts before you move on.</p>
+
+        <details>
+          <summary>You rear-end someone at a stop light. Which coverage pays for the damage to their car?</summary>
+          <div class="answer">
+            <p><strong>Liability.</strong> Your liability coverage pays for damage you cause to other people and their property. It does not cover your own vehicle &mdash; only theirs. This is the coverage Oregon requires you to carry.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>A tree falls on your car during a storm. Which coverage applies?</summary>
+          <div class="answer">
+            <p><strong>Comprehensive.</strong> Falling objects, weather damage, theft, fire, animal strikes, and vandalism are all covered under comprehensive &mdash; not collision. Collision only applies when your car hits (or is hit by) another vehicle or object while driving.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Your friend says they only carry liability because it&rsquo;s cheapest. They drive a $15,000 car with a loan. What&rsquo;s wrong with this plan?</summary>
+          <div class="answer">
+            <p><strong>Their lender almost certainly requires collision and comprehensive coverage.</strong> If they&rsquo;re only carrying liability, they&rsquo;re likely violating their loan agreement. Worse: if the car is totaled, they still owe the full loan balance with no insurance payout to cover it. They&rsquo;d be making payments on a car that no longer exists.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>You&rsquo;re comparing two policies: one at $120/month with a $500 deductible, another at $95/month with a $1,000 deductible. Over 2 years with no claims, which costs less total?</summary>
+          <div class="answer">
+            <p><strong>The $95/month policy.</strong> $95 &times; 24 months = $2,280. $120 &times; 24 months = $2,880. The lower-premium policy saves you $600 over two claim-free years. The trade-off: if you do file a claim, you&rsquo;ll pay $500 more out of pocket with the higher deductible. But over two years of no claims, the savings far outweigh the risk.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Someone without insurance hits your car. Who pays?</summary>
+          <div class="answer">
+            <p><strong>Your Uninsured/Underinsured Motorist (UM/UIM) coverage.</strong> This is exactly why Oregon requires it. UM/UIM protects you when the other driver has no insurance or doesn&rsquo;t have enough to cover your injuries and damages. Without it, you&rsquo;d be left paying your own medical bills out of pocket &mdash; or suing someone who likely can&rsquo;t pay.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 8: ASSIGNMENT ====== -->
+    <section class="section section--warm" id="assignment">
+      <div class="section-inner reveal">
+        <h2>Your Assignment: Build Your Insurance Plan</h2>
+        <p class="styled-subheading">Use your Portfolio vehicle to build a realistic insurance plan.</p>
+
+        <div class="worked-example">
+          <h3>Worked Example &mdash; Insurance Plan for a Portfolio Vehicle</h3>
+          <ul>
+            <li>Vehicle: 2022 Honda Civic Sport &middot; 17-year-old driver &middot; Corvallis, OR</li>
+            <li>Liability: 50/100/50 ($50K per person / $100K per accident / $50K property)</li>
+            <li>Collision: $1,000 deductible</li>
+            <li>Comprehensive: $1,000 deductible</li>
+            <li>UM/UIM: 50/100 (matching liability)</li>
+            <li>Discounts: on parent&rsquo;s policy + good student (3.2 GPA)</li>
+            <li>Estimated annual premium: ~$2,200</li>
+            <li>Monthly cost: ~$183</li>
+          </ul>
+        </div>
+
+        <ol class="assignment-steps">
+          <li>Using your Portfolio vehicle from Module 1, get an insurance quote estimate. Use an online estimator (such as Progressive, GEICO, or State Farm&rsquo;s website) or ask a parent/guardian to request a quote to add the vehicle to their policy.</li>
+          <li>Record your coverage levels:
+            <ul>
+              <li>Liability limits (bodily injury per person / per accident / property damage)</li>
+              <li>Collision deductible</li>
+              <li>Comprehensive deductible</li>
+              <li>UM/UIM limits</li>
+            </ul>
+          </li>
+          <li>Record the estimated monthly premium and calculate the annual cost.</li>
+          <li>Calculate two scenarios: your current coverage with a $500 deductible and with a $1,000 deductible for both collision and comprehensive. Which option saves more over 3 years of claim-free driving? Show the math.</li>
+          <li>Submit your insurance plan to Canvas. This becomes <strong>Page 4 of your Vehicle Ownership Portfolio &mdash; Insurance Plan</strong> (coverage levels, estimated premium, deductible comparison).</li>
+        </ol>
+
+        <p><em>There are no wrong answers here &mdash; only uninformed ones. The goal is to understand what you&rsquo;re buying and why, so when you&rsquo;re signing a real policy, you know exactly what every line means.</em></p>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 9: FOOTER ====== -->
+    <footer class="section section--dark footer-section" id="footer">
+      <div class="section-inner--wide reveal">
+        <ol class="takeaways">
+          <li>Liability pays for their stuff. Collision and comprehensive pay for yours. Know the difference.</li>
+          <li>Your deductible is a trade-off between monthly cost and out-of-pocket risk &mdash; choose based on what you can afford in an emergency.</li>
+          <li>Young drivers pay more, but stacking discounts (parent&rsquo;s policy, good student, higher deductible, shopping around) can cut costs by 40&ndash;50%.</li>
+        </ol>
+
+        <div class="next-steps">
+          <h3>Next Steps</h3>
+          <p>Up next: the total cost of ownership &mdash; because the car payment is the smallest part.</p>
+        </div>
+
+        <div class="course-info">
+          Mr. McAteer &middot; Crescent Valley High School &middot; AUTOS.CON.004
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // Scroll reveal via Intersection Observer
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var reveals = document.querySelectorAll('.reveal');
+
+      if (prefersReducedMotion) {
+        reveals.forEach(function(el) { el.classList.add('visible'); });
+      } else {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -60px 0px'
+        });
+        reveals.forEach(function(el) { observer.observe(el); });
+      }
+
+      // Progress bar — throttled via requestAnimationFrame
+      var progressBar = document.querySelector('.progress-bar');
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            var scrollTop = window.scrollY;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

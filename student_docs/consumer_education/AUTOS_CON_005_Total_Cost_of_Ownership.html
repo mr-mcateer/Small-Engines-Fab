@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Car Payment Is the Smallest Part — AUTOS.CON.005</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========== CSS VARIABLES ========== */
+    :root {
+      --color-bg-dark: #1a1a1a;
+      --color-bg-light: #faf9f6;
+      --color-bg-warm-gray: #f2f0ec;
+      --color-accent-amber: #d4a843;
+      --color-accent-blue: #4a6fa5;
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555555;
+      --color-text-inverse: #faf9f6;
+      --color-success: #3a7d44;
+      --color-danger: #c0392b;
+      --color-fluid-transmission: #c0392b;
+      --color-fluid-brake: #d4a843;
+      --color-fluid-washer: #4a90d9;
+      --color-fluid-coolant: #27ae60;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      --space-section: 8rem;
+      --max-width-content: 780px;
+      --max-width-wide: 1100px;
+      --transition-reveal: opacity 0.6s ease, transform 0.6s ease;
+      --transition-hover: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+      background: var(--color-bg-light);
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 {
+      font-family: 'DM Serif Display', serif;
+      line-height: 1.2;
+      margin-top: 0;
+    }
+    h2 { font-size: 2.2rem; margin-bottom: var(--space-xs); }
+    h3 { font-size: 1.35rem; }
+    p { margin: 0 0 var(--space-sm); }
+    a { color: var(--color-accent-blue); }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ========== PROGRESS BAR ========== */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: var(--color-accent-amber);
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* ========== SCROLL REVEAL ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition-reveal);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== LAYOUT ========== */
+    .section { padding: var(--space-section) var(--space-md); }
+    .section-inner {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+    .section-inner--wide {
+      max-width: var(--max-width-wide);
+      margin: 0 auto;
+    }
+    .section--warm { background: var(--color-bg-warm-gray); }
+    .section--dark {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+    }
+    .styled-subheading {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-md);
+    }
+    .section--dark .styled-subheading { color: #bbb; }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--color-text-inverse);
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      background-attachment: fixed;
+      padding: var(--space-lg) var(--space-md);
+      position: relative;
+    }
+    .hero-fallback {
+      background: linear-gradient(135deg, var(--color-bg-dark) 0%, #2c2c2c 50%, var(--color-accent-amber) 150%);
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: var(--space-xs);
+      letter-spacing: -0.02em;
+    }
+    .hero .lead {
+      font-size: 1.3rem;
+      font-style: italic;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto var(--space-lg);
+    }
+    .scroll-arrow {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.8rem;
+      opacity: 0.7;
+      animation: bounce 2s ease infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* ========== COMPARISON CARDS ========== */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .comparison-card {
+      padding: var(--space-md);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+    }
+    .comparison-card--dealer {
+      border: 2px solid var(--color-danger);
+    }
+    .comparison-card--mfr {
+      border: 2px solid var(--color-success);
+    }
+    .comparison-card h3 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+    .comparison-card--dealer h3 { color: var(--color-danger); }
+    .comparison-card--mfr h3 { color: var(--color-success); }
+    .comparison-card .big-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.4rem;
+      font-weight: 700;
+      display: block;
+      margin: var(--space-xs) 0;
+    }
+    .comparison-card .detail {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .comparison-bottom {
+      text-align: center;
+      margin: var(--space-md) 0 var(--space-xs);
+    }
+    .comparison-bottom .savings {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-success);
+    }
+    .comparison-bottom .fine-print {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-top: var(--space-xs);
+    }
+
+    /* ========== CALLOUT BOX ========== */
+    .callout {
+      border-left: 4px solid var(--color-accent-amber);
+      background: rgba(212, 168, 67, 0.08);
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-md) 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 1rem;
+    }
+    .callout--dark {
+      background: rgba(212, 168, 67, 0.12);
+    }
+    .callout strong { color: var(--color-accent-amber); }
+
+    /* ========== FLOWCHART ========== */
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: var(--space-md) 0;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .flow-box {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 8px;
+      text-align: center;
+      max-width: 360px;
+      width: 100%;
+      font-weight: 600;
+    }
+    .flow-box--accent { background: var(--color-accent-amber); color: var(--color-bg-dark); }
+    .flow-box--success { background: var(--color-success); }
+    .flow-box--danger { background: var(--color-danger); }
+    .flow-arrow {
+      font-size: 1.5rem;
+      color: var(--color-text-secondary);
+      line-height: 1;
+      padding: var(--space-xs) 0;
+    }
+    .flow-branch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      max-width: 360px;
+      width: 100%;
+    }
+    .flow-branch-label {
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-xs);
+    }
+
+    /* ========== SECTION IMAGE ========== */
+    .section-image {
+      border-radius: 8px;
+      margin: var(--space-md) 0;
+      width: 100%;
+    }
+
+    /* ========== OIL TYPE CARDS ========== */
+    .oil-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .oil-card {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+      text-align: center;
+    }
+    .oil-card h3 {
+      margin-bottom: var(--space-sm);
+      font-size: 1.15rem;
+    }
+    .oil-card .oil-row {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid #f0ede8;
+      font-size: 0.9rem;
+    }
+    .oil-card .oil-row:last-child { border-bottom: none; }
+    .oil-card .oil-label {
+      color: var(--color-text-secondary);
+      text-align: left;
+    }
+    .oil-card .oil-value {
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      text-align: right;
+      font-size: 0.85rem;
+    }
+
+    /* ========== FLUID CARDS ========== */
+    .fluid-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .fluid-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e0ddd8;
+    }
+    .fluid-card__accent {
+      height: 6px;
+    }
+    .fluid-card__body {
+      padding: var(--space-md);
+    }
+    .fluid-card h3 { margin-bottom: var(--space-xs); font-size: 1.15rem; }
+    .fluid-card p { font-size: 0.95rem; margin-bottom: var(--space-xs); }
+    .fluid-card .warning {
+      color: var(--color-danger);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .fluid-card .interval {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ========== NOTE BOX ========== */
+    .note-box {
+      background: var(--color-bg-warm-gray);
+      border: 1px solid #e0ddd8;
+      border-radius: 6px;
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      margin: var(--space-md) 0;
+    }
+
+    /* ========== UPSELL DEFENSE ========== */
+    .defense-box {
+      border: 2px solid var(--color-accent-amber);
+      border-radius: 8px;
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+      background: rgba(212, 168, 67, 0.06);
+    }
+    .defense-box h3 {
+      color: var(--color-accent-amber);
+      margin-bottom: var(--space-xs);
+      font-family: 'Source Sans 3', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+    }
+
+    /* ========== VALUE COMPARISON ========== */
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+      text-align: center;
+    }
+    .value-card {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+    }
+    .value-card h3 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-xs);
+    }
+    .value-card .price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .value-card--low .price { color: var(--color-danger); }
+    .value-card--high .price { color: var(--color-success); }
+    .value-card .label { font-size: 0.85rem; color: var(--color-text-secondary); }
+    .value-diff {
+      text-align: center;
+      margin: var(--space-sm) 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-success);
+    }
+
+    /* ========== DETAILS / SUMMARY ========== */
+    .check-section details {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      margin-bottom: var(--space-sm);
+      overflow: hidden;
+    }
+    .check-section summary {
+      padding: var(--space-sm) var(--space-md);
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      padding-right: 3rem;
+    }
+    .check-section summary::-webkit-details-marker { display: none; }
+    .check-section summary::after {
+      content: '+';
+      position: absolute;
+      right: var(--space-md);
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.2rem;
+      color: var(--color-accent-amber);
+    }
+    .check-section details[open] summary::after { content: '\2212'; }
+    .check-section .answer {
+      padding: 0 var(--space-md) var(--space-md);
+      color: var(--color-text-secondary);
+      border-top: 1px solid #f0ede8;
+      padding-top: var(--space-sm);
+    }
+
+    /* ========== ASSIGNMENT ========== */
+    .worked-example {
+      background: #fff;
+      border: 2px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+    }
+    .worked-example h3 { margin-bottom: var(--space-sm); font-size: 1.1rem; }
+    .worked-example ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .worked-example li {
+      padding: var(--space-xs) 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f0ede8;
+    }
+    .worked-example li:last-child { border-bottom: none; }
+    .assignment-steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+    }
+    .assignment-steps > li {
+      counter-increment: step;
+      padding: var(--space-sm) 0;
+      padding-left: 3rem;
+      position: relative;
+      border-bottom: 1px solid #e0ddd8;
+    }
+    .assignment-steps > li:last-child { border-bottom: none; }
+    .assignment-steps > li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: var(--space-sm);
+      width: 2rem;
+      height: 2rem;
+      background: var(--color-accent-amber);
+      color: var(--color-bg-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .assignment-steps li ul {
+      margin-top: var(--space-xs);
+      padding-left: var(--space-md);
+      list-style: disc;
+    }
+    .assignment-steps li ul li {
+      padding-left: 0;
+      border-bottom: none;
+    }
+    .assignment-steps li ul li::before {
+      display: none;
+    }
+    .due-date {
+      background: rgba(212, 168, 67, 0.12);
+      border: 2px solid var(--color-accent-amber);
+      border-radius: 8px;
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-md) 0;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer-section { padding: var(--space-xl) var(--space-md) var(--space-lg); }
+    .takeaways {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto var(--space-lg);
+      max-width: var(--max-width-content);
+    }
+    .takeaways li {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .takeaways li:last-child { border-bottom: none; }
+    .next-steps {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: var(--space-md);
+      background: rgba(255,255,255,0.04);
+    }
+    .next-steps h3 { color: var(--color-accent-amber); margin-bottom: var(--space-xs); }
+    .course-info {
+      max-width: var(--max-width-content);
+      margin: var(--space-lg) auto 0;
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero .lead { font-size: 1.1rem; }
+      h2 { font-size: 1.7rem; }
+      .section { padding: var(--space-lg) var(--space-sm); }
+      .comparison-grid,
+      .fluid-grid,
+      .value-grid { grid-template-columns: 1fr; }
+      .oil-grid { grid-template-columns: 1fr; }
+      .flow-branch { grid-template-columns: 1fr; max-width: 280px; }
+      .comparison-card .big-number { font-size: 1.8rem; }
+      .takeaways li { font-size: 1.15rem; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.9rem; }
+      h2 { font-size: 1.45rem; }
+      body { font-size: 0.95rem; }
+      .section { padding: var(--space-md) var(--space-sm); }
+      .comparison-card .big-number { font-size: 1.5rem; }
+      .value-card .price { font-size: 1.5rem; }
+    }
+
+    /* ========== REDUCED MOTION ========== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+      .hero { background-attachment: scroll; }
+    }
+
+    /* ========== PRINT ========== */
+    @media print {
+      * { animation: none !important; transition: none !important; }
+      .progress-bar, .scroll-arrow { display: none; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      body {
+        font-size: 11pt;
+        max-width: 100%;
+        color: #000;
+        background: #fff;
+      }
+      .section {
+        page-break-before: always;
+        padding: 1rem 0;
+      }
+      .section:first-of-type { page-break-before: auto; }
+      .hero {
+        min-height: auto;
+        background: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 2rem 1rem;
+      }
+      img { max-width: 100%; height: auto; }
+      .comparison-card, .oil-card, .fluid-card, .value-card, .worked-example {
+        border: 2pt solid #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      details > summary ~ * { display: block !important; }
+      details:not([open]) > summary ~ * { display: block !important; }
+      details { break-inside: avoid; }
+      .section--dark {
+        background: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ====== SECTION 1: HERO ====== -->
+    <section class="hero" id="hero">
+      <h1>The Car Payment Is the Smallest Part</h1>
+      <p class="lead">Most people budget for the payment. Smart owners budget for everything.</p>
+      <div class="scroll-arrow" aria-hidden="true">&#8595;</div>
+    </section>
+
+    <!-- ====== SECTION 2: OPENER — THE INVISIBLE COSTS ====== -->
+    <section class="section" id="opener">
+      <div class="section-inner reveal">
+        <h2>The Invisible Costs</h2>
+        <p class="styled-subheading">The payment is the only cost most people plan for. It&rsquo;s not even the biggest one.</p>
+
+        <p>When someone asks &ldquo;how much does your car cost?&rdquo; most people answer with the monthly payment. But that number is just the beginning. Fuel, insurance, maintenance, registration, depreciation, and parking all add up &mdash; and in most cases, those invisible costs total <em>more</em> than the payment itself.</p>
+
+        <p>A $300/month car payment actually costs $600&ndash;$800/month to operate. Most first-time buyers are completely blindsided by this. They budget for the payment, sign the paperwork, and then wonder why they&rsquo;re broke by the second week of every month.</p>
+
+        <p>This module brings together everything from Modules 1&ndash;4 into one number: <strong>what does this car actually cost you per month and per year?</strong> That number is called Total Cost of Ownership &mdash; TCO &mdash; and once you know it, you&rsquo;ll never look at a car the same way again.</p>
+
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1200&q=80"
+            alt="Person calculating expenses with a calculator, receipts spread across a desk"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 3: THE SEVEN CATEGORIES ====== -->
+    <section class="section section--dark" id="seven-categories">
+      <div class="section-inner--wide reveal">
+        <h2>The Seven Categories of Ownership Cost</h2>
+        <p class="styled-subheading">Every dollar you spend on your car fits into one of these buckets.</p>
+
+        <div class="oil-grid" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="oil-card" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); color: var(--color-text-inverse);">
+            <h3 style="color: var(--color-accent-amber);">1. Car Payment / Purchase</h3>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">What it is</span><span class="oil-value" style="color: var(--color-text-inverse);">Monthly loan payment or cash equivalent</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">Typical range</span><span class="oil-value" style="color: var(--color-text-inverse);">$200&ndash;$500/mo</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">Module</span><span class="oil-value" style="color: var(--color-accent-amber);">Module 3</span></div>
+          </div>
+          <div class="oil-card" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); color: var(--color-text-inverse);">
+            <h3 style="color: var(--color-accent-amber);">2. Insurance</h3>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">What it is</span><span class="oil-value" style="color: var(--color-text-inverse);">Monthly premium for coverage</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">Young driver range</span><span class="oil-value" style="color: var(--color-text-inverse);">$150&ndash;$400/mo</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">Module</span><span class="oil-value" style="color: var(--color-accent-amber);">Module 4</span></div>
+          </div>
+          <div class="oil-card" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); color: var(--color-text-inverse);">
+            <h3 style="color: var(--color-accent-amber);">3. Fuel</h3>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">What it is</span><span class="oil-value" style="color: var(--color-text-inverse);">Based on miles, MPG, fuel price</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">National average</span><span class="oil-value" style="color: var(--color-text-inverse);">$150&ndash;$200/mo</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">Module</span><span class="oil-value" style="color: var(--color-accent-amber);">Module 2</span></div>
+          </div>
+          <div class="oil-card" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); color: var(--color-text-inverse);">
+            <h3 style="color: var(--color-accent-amber);">4. Maintenance &amp; Repairs</h3>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">What it is</span><span class="oil-value" style="color: var(--color-text-inverse);">Oil, tires, brakes, filters, surprises</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">Budget average</span><span class="oil-value" style="color: var(--color-text-inverse);">$75&ndash;$150/mo</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">Module</span><span class="oil-value" style="color: var(--color-accent-amber);">Module 7</span></div>
+          </div>
+          <div class="oil-card" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); color: var(--color-text-inverse);">
+            <h3 style="color: var(--color-accent-amber);">5. Registration &amp; Fees</h3>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">What it is</span><span class="oil-value" style="color: var(--color-text-inverse);">Title, plates, DEQ, renewal</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">Oregon first year</span><span class="oil-value" style="color: var(--color-text-inverse);">~$200</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">Oregon renewal</span><span class="oil-value" style="color: var(--color-text-inverse);">~$90/yr</span></div>
+          </div>
+          <div class="oil-card" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); color: var(--color-text-inverse);">
+            <h3 style="color: var(--color-accent-amber);">6. Depreciation</h3>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">What it is</span><span class="oil-value" style="color: var(--color-text-inverse);">Silent loss in value over time</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">Average (first 5 yrs)</span><span class="oil-value" style="color: var(--color-text-inverse);">$3,000&ndash;$5,000/yr</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">Module</span><span class="oil-value" style="color: var(--color-accent-amber);">Module 1</span></div>
+          </div>
+          <div class="oil-card" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12); color: var(--color-text-inverse); grid-column: 1 / -1;">
+            <h3 style="color: var(--color-accent-amber);">7. Parking &amp; Tolls</h3>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">What it is</span><span class="oil-value" style="color: var(--color-text-inverse);">Garage fees, meters, bridge/road tolls</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">Corvallis</span><span class="oil-value" style="color: var(--color-text-inverse);">Usually $0</span></div>
+            <div class="oil-row" style="border-color: rgba(255,255,255,0.08);"><span class="oil-label" style="color: #bbb;">Portland / cities</span><span class="oil-value" style="color: var(--color-text-inverse);">$50&ndash;$300+/mo</span></div>
+          </div>
+        </div>
+
+        <div class="callout callout--dark">
+          <strong>The car payment is just one of seven costs.</strong> When someone tells you they can afford a $400 payment, the real question is whether they can afford the $800&ndash;$1,000/month it actually takes to keep that car on the road.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 4: A REAL TCO BREAKDOWN ====== -->
+    <section class="section" id="tco-breakdown">
+      <div class="section-inner--wide reveal">
+        <h2>A Real TCO Breakdown</h2>
+        <p class="styled-subheading">Same car. Different age. Dramatically different cost.</p>
+
+        <div class="comparison-grid">
+          <div class="comparison-card comparison-card--dealer">
+            <h3>New Compact Sedan</h3>
+            <span class="big-number">$1,252/mo</span>
+            <span class="detail">Payment: $450/mo</span>
+            <span class="detail">Insurance: $200/mo</span>
+            <span class="detail">Fuel: $160/mo</span>
+            <span class="detail">Maintenance: $75/mo</span>
+            <span class="detail">Registration/fees: $17/mo</span>
+            <span class="detail">Depreciation: $350/mo</span>
+            <span class="detail" style="margin-top: var(--space-xs); opacity: 1; font-weight: 700;">= $15,024/year</span>
+          </div>
+          <div class="comparison-card comparison-card--mfr">
+            <h3>Same Sedan, 3 Years Old</h3>
+            <span class="big-number">$868/mo</span>
+            <span class="detail">Payment: $280/mo</span>
+            <span class="detail">Insurance: $170/mo</span>
+            <span class="detail">Fuel: $160/mo (same MPG)</span>
+            <span class="detail">Maintenance: $100/mo</span>
+            <span class="detail">Registration/fees: $8/mo</span>
+            <span class="detail">Depreciation: $150/mo</span>
+            <span class="detail" style="margin-top: var(--space-xs); opacity: 1; font-weight: 700;">= $10,416/year</span>
+          </div>
+        </div>
+
+        <div class="comparison-bottom">
+          <span class="savings">$4,608/year saved &mdash; $384/month &mdash; just by buying 3 years used.</span>
+          <p class="fine-print">Same car, same reliability, same features. The only difference is who absorbed the depreciation cliff.</p>
+        </div>
+
+        <div class="callout">
+          <strong>Depreciation is the hidden engine of TCO.</strong> The new car&rsquo;s payment is only $170/month more, but its depreciation is $200/month more. The cost you never see on a bill is the one that hurts the most.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 5: OREGON-SPECIFIC COSTS ====== -->
+    <section class="section section--warm" id="oregon-costs">
+      <div class="section-inner reveal">
+        <h2>Oregon-Specific Costs</h2>
+        <p class="styled-subheading">Living in Oregon has real advantages &mdash; and a few quirks.</p>
+
+        <div class="defense-box">
+          <h3>Title &amp; Registration</h3>
+          <p>Oregon DMV charges a <strong>$98.50 title fee</strong> when you first register a vehicle in your name. Registration costs <strong>$122 for two years</strong> (~$61/year). New plates cost <strong>$24 one-time</strong>. First-year total for a newly purchased vehicle: approximately <strong>$200</strong>. Renewal years drop to roughly <strong>$90/year</strong>.</p>
+        </div>
+
+        <div class="defense-box">
+          <h3>DEQ Emissions Testing</h3>
+          <p>Oregon requires DEQ emissions testing in the <strong>Portland metro area</strong> and <strong>Medford/Ashland area</strong>. The test costs <strong>$25 every two years</strong>. Vehicles in the <strong>Corvallis area are exempt</strong> from DEQ testing. However, if you buy a car from the Portland area, it may need a passing DEQ test before the title can transfer. Always check before you buy from out of the area.</p>
+        </div>
+
+        <div class="defense-box">
+          <h3>No Sales Tax</h3>
+          <p>Oregon has <strong>no sales tax on vehicle purchases</strong>. This is a significant advantage. In Washington, sales tax on a $20,000 car would add approximately <strong>$2,000</strong> to the purchase price. In California, it could add <strong>$1,500&ndash;$1,900</strong>. When you buy a car in Oregon, the sticker price is the price &mdash; no tax surprise at the register.</p>
+        </div>
+
+        <div class="defense-box">
+          <h3>Studded Tire Season</h3>
+          <p>Oregon allows studded tires from <strong>November 1 through March 31</strong>. Studded tires cause road damage, and the cost of that damage is built into registration fees for all drivers. Alternatives like <strong>siped tires</strong> or <strong>all-weather tires</strong> provide winter traction without the road damage &mdash; and without the seasonal swap hassle.</p>
+        </div>
+
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1200&q=80"
+            alt="Cars parked along a tree-lined road in the Pacific Northwest"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 6: THE PER-MILE PERSPECTIVE ====== -->
+    <section class="section section--dark" id="per-mile">
+      <div class="section-inner reveal">
+        <h2>The Per-Mile Perspective</h2>
+        <p class="styled-subheading">Every mile you drive costs money. This changes how you think about driving.</p>
+
+        <div class="value-grid">
+          <div class="value-card" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12);">
+            <h3 style="color: #bbb;">Annual Cost</h3>
+            <span class="price" style="color: var(--color-accent-amber);">$10,416</span>
+            <p class="label" style="color: #bbb;">Used sedan example from above</p>
+          </div>
+          <div class="value-card" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12);">
+            <h3 style="color: #bbb;">Miles Per Year</h3>
+            <span class="price" style="color: var(--color-accent-amber);">13,500</span>
+            <p class="label" style="color: #bbb;">National average annual mileage</p>
+          </div>
+        </div>
+        <div class="value-diff">$10,416 &divide; 13,500 = $0.77 per mile</div>
+
+        <p>Every single mile you drive costs money. It&rsquo;s not just gas &mdash; it&rsquo;s insurance pro-rated by the day, depreciation ticking down with every mile on the odometer, maintenance intervals creeping closer, and tires wearing thinner. The AAA annual driving cost study consistently finds the average sedan costs between $0.72 and $0.84 per mile when all costs are included.</p>
+
+        <p>This changes how you think about everything. Commute distance? That&rsquo;s a daily cost you&rsquo;re locking in. Carpooling? That&rsquo;s splitting $0.77/mile with someone. A road trip? Multiply the miles by $0.77 before you compare it to a plane ticket.</p>
+
+        <div class="callout callout--dark">
+          <strong>When someone offers you a ride, they&rsquo;re giving you $0.77 per mile.</strong> When you drive 20 miles to the next town for a cheaper price, calculate whether you actually saved anything after spending $15.40 in driving costs each way.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 7: CHECK YOURSELF ====== -->
+    <section class="section section--warm check-section" id="check">
+      <div class="section-inner reveal">
+        <h2>Check Yourself</h2>
+        <p class="styled-subheading">Make sure you&rsquo;ve got the concepts before you move on.</p>
+
+        <details>
+          <summary>Your car payment is $250/month. Your friend says your car costs $250/month. What are they forgetting?</summary>
+          <div class="answer">
+            <p><strong>Almost everything.</strong> The payment is only one of seven cost categories. They&rsquo;re forgetting insurance ($150&ndash;$400/mo for a young driver), fuel (~$150&ndash;$200/mo), maintenance ($75&ndash;$150/mo averaged), registration and fees (~$8/mo), depreciation ($150&ndash;$350/mo), and potentially parking. The real cost of that car is likely <strong>$500&ndash;$700/month</strong> &mdash; double or triple the payment alone.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>You drive 20 miles to save $30 on a purchase. Your car costs $0.77/mile. Did you actually save money?</summary>
+          <div class="answer">
+            <p><strong>No &mdash; you lost money.</strong> 20 miles each way = 40 miles round trip. At $0.77/mile, that&rsquo;s $30.80 in driving costs. You spent $30.80 to save $30.00, which means you actually <strong>lost $0.80 and two hours of your time</strong>. The per-mile cost reframes every driving decision.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Oregon has no sales tax. Your friend in Washington pays 10.1% sales tax on vehicles. On a $15,000 car, how much do they pay that you don&rsquo;t?</summary>
+          <div class="answer">
+            <p><strong>$1,515.</strong> $15,000 &times; 0.101 = $1,515 in sales tax. That&rsquo;s money your friend pays on top of the purchase price that you, as an Oregon buyer, simply don&rsquo;t owe. On more expensive vehicles, this advantage is even larger &mdash; a $30,000 car would save you over $3,000 compared to buying in Washington.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Two cars: Car A costs $5,000 less to buy but gets 22 MPG. Car B gets 35 MPG. At $3.80/gal and 13,500 miles/year, how many years until fuel savings make up the price difference?</summary>
+          <div class="answer">
+            <p><strong>About 5.8 years.</strong> Car A fuel cost: 13,500 &divide; 22 = 614 gallons &times; $3.80 = <strong>$2,332/year</strong>. Car B fuel cost: 13,500 &divide; 35 = 386 gallons &times; $3.80 = <strong>$1,466/year</strong>. Annual fuel savings with Car B: $2,332 &minus; $1,466 = <strong>$866/year</strong>. Time to recoup $5,000: $5,000 &divide; $866 = <strong>5.8 years</strong>. If you plan to keep the car longer than that, Car B is the better deal. If not, Car A&rsquo;s lower upfront cost wins.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 8: ASSIGNMENT ====== -->
+    <section class="section section--warm" id="assignment">
+      <div class="section-inner reveal">
+        <h2>Your Assignment: Calculate Your TCO</h2>
+        <p class="styled-subheading">Bring together everything from Modules 1&ndash;4 and 7 into one number.</p>
+
+        <div class="worked-example">
+          <h3>Worked Example &mdash; 2022 Honda Civic Sport, 17-Year-Old Driver in Corvallis, OR</h3>
+          <ul>
+            <li>Payment: $344/mo (from Module 3, 60-month scenario)</li>
+            <li>Insurance: $183/mo (from Module 4)</li>
+            <li>Fuel: $137/mo (33 MPG combined, 13,500 mi/yr, $3.80/gal = $1,645/yr &divide; 12)</li>
+            <li>Maintenance: $90/mo (from Module 7 schedule, averaged over time)</li>
+            <li>Registration/fees: $8/mo ($93/yr averaged)</li>
+            <li>Depreciation: $150/mo (year 4 of ownership, past the steep cliff)</li>
+            <li style="font-weight: 700; color: var(--color-accent-amber);">Total: $912/month = $10,944/year = $0.81/mile</li>
+          </ul>
+        </div>
+
+        <p>The payment is $344. The actual cost of owning this car is $912/month &mdash; nearly three times the payment. That&rsquo;s the gap this module exists to close.</p>
+
+        <ol class="assignment-steps">
+          <li>Using data from your Portfolio work in <strong>Modules 1&ndash;4 and 7</strong>, fill in each of the seven cost categories for your vehicle: payment, insurance, fuel, maintenance, registration/fees, depreciation, and parking/tolls.
+            <ul>
+              <li>Use your actual Module 3 payment calculation</li>
+              <li>Use your Module 4 insurance estimate</li>
+              <li>Use your Module 2 fuel economy data with $3.80/gal and 13,500 miles/year (or your own estimated mileage)</li>
+              <li>Use your Module 7 maintenance schedule, averaged monthly</li>
+              <li>Use Oregon DMV fees for registration</li>
+              <li>Use your Module 1 depreciation research</li>
+            </ul>
+          </li>
+          <li>Calculate your <strong>total monthly cost</strong>, <strong>annual cost</strong>, and <strong>cost per mile</strong> (using 13,500 miles/year or your actual estimated mileage).</li>
+          <li>Create a comparison: calculate the TCO for a <strong>new version</strong> of your same vehicle model. Show the difference in monthly cost, annual cost, and cost per mile between new and used.</li>
+          <li>Write <strong>one paragraph</strong> explaining where your biggest costs are and <strong>one realistic step</strong> you could take to reduce your total cost of ownership.</li>
+          <li>Submit your TCO summary to Canvas. This becomes <strong>Page 5 of your Vehicle Ownership Portfolio.</strong></li>
+        </ol>
+
+        <div class="note-box">
+          <strong>Your TCO summary should include all seven categories in a clear table or list,</strong> your three totals (monthly, annual, per-mile), your new-vs-used comparison, and your written analysis. This is the most important page in your portfolio &mdash; it&rsquo;s where all the other modules come together into one answer.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 9: FOOTER ====== -->
+    <footer class="section section--dark footer-section" id="footer">
+      <div class="section-inner--wide reveal">
+        <ol class="takeaways">
+          <li>The car payment is usually the smallest part of what a car actually costs you each month.</li>
+          <li>Total Cost of Ownership combines seven categories &mdash; and buying 3 years used can save $4,000+ per year.</li>
+          <li>Every mile you drive costs roughly $0.77 &mdash; that number should influence every driving decision you make.</li>
+        </ol>
+
+        <div class="next-steps">
+          <h3>Next Steps</h3>
+          <p>Up next: four patches of rubber &mdash; why tires are the most important safety component on your car.</p>
+        </div>
+
+        <div class="course-info">
+          Mr. McAteer &middot; Crescent Valley High School &middot; AUTOS.CON.005
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // Scroll reveal via Intersection Observer
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var reveals = document.querySelectorAll('.reveal');
+
+      if (prefersReducedMotion) {
+        reveals.forEach(function(el) { el.classList.add('visible'); });
+      } else {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -60px 0px'
+        });
+        reveals.forEach(function(el) { observer.observe(el); });
+      }
+
+      // Progress bar — throttled via requestAnimationFrame
+      var progressBar = document.querySelector('.progress-bar');
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            var scrollTop = window.scrollY;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
