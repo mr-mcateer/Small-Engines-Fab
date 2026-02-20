@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Most Expensive Room in the Dealership — AUTOS.CON.003</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========== CSS VARIABLES ========== */
+    :root {
+      --color-bg-dark: #1a1a1a;
+      --color-bg-light: #faf9f6;
+      --color-bg-warm-gray: #f2f0ec;
+      --color-accent-amber: #d4a843;
+      --color-accent-blue: #4a6fa5;
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #555555;
+      --color-text-inverse: #faf9f6;
+      --color-success: #3a7d44;
+      --color-danger: #c0392b;
+      --color-fluid-transmission: #c0392b;
+      --color-fluid-brake: #d4a843;
+      --color-fluid-washer: #4a90d9;
+      --color-fluid-coolant: #27ae60;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
+      --space-xl: 6rem;
+      --space-section: 8rem;
+      --max-width-content: 780px;
+      --max-width-wide: 1100px;
+      --transition-reveal: opacity 0.6s ease, transform 0.6s ease;
+      --transition-hover: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-text-primary);
+      background: var(--color-bg-light);
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 {
+      font-family: 'DM Serif Display', serif;
+      line-height: 1.2;
+      margin-top: 0;
+    }
+    h2 { font-size: 2.2rem; margin-bottom: var(--space-xs); }
+    h3 { font-size: 1.35rem; }
+    p { margin: 0 0 var(--space-sm); }
+    a { color: var(--color-accent-blue); }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ========== PROGRESS BAR ========== */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: var(--color-accent-amber);
+      z-index: 1000;
+      transition: width 0.1s linear;
+    }
+
+    /* ========== SCROLL REVEAL ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition-reveal);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== LAYOUT ========== */
+    .section { padding: var(--space-section) var(--space-md); }
+    .section-inner {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+    .section-inner--wide {
+      max-width: var(--max-width-wide);
+      margin: 0 auto;
+    }
+    .section--warm { background: var(--color-bg-warm-gray); }
+    .section--dark {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+    }
+    .styled-subheading {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-md);
+    }
+    .section--dark .styled-subheading { color: #bbb; }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--color-text-inverse);
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&h=800&q=80') center/cover no-repeat;
+      background-attachment: fixed;
+      padding: var(--space-lg) var(--space-md);
+      position: relative;
+    }
+    .hero-fallback {
+      background: linear-gradient(135deg, var(--color-bg-dark) 0%, #2c2c2c 50%, var(--color-accent-amber) 150%);
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: var(--space-xs);
+      letter-spacing: -0.02em;
+    }
+    .hero .lead {
+      font-size: 1.3rem;
+      font-style: italic;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto var(--space-lg);
+    }
+    .scroll-arrow {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.8rem;
+      opacity: 0.7;
+      animation: bounce 2s ease infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* ========== COMPARISON CARDS ========== */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .comparison-card {
+      padding: var(--space-md);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+    }
+    .comparison-card--dealer {
+      border: 2px solid var(--color-danger);
+    }
+    .comparison-card--mfr {
+      border: 2px solid var(--color-success);
+    }
+    .comparison-card h3 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xs);
+    }
+    .comparison-card--dealer h3 { color: var(--color-danger); }
+    .comparison-card--mfr h3 { color: var(--color-success); }
+    .comparison-card .big-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.4rem;
+      font-weight: 700;
+      display: block;
+      margin: var(--space-xs) 0;
+    }
+    .comparison-card .detail {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .comparison-bottom {
+      text-align: center;
+      margin: var(--space-md) 0 var(--space-xs);
+    }
+    .comparison-bottom .savings {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-success);
+    }
+    .comparison-bottom .fine-print {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      margin-top: var(--space-xs);
+    }
+
+    /* ========== CALLOUT BOX ========== */
+    .callout {
+      border-left: 4px solid var(--color-accent-amber);
+      background: rgba(212, 168, 67, 0.08);
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-md) 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 1rem;
+    }
+    .callout--dark {
+      background: rgba(212, 168, 67, 0.12);
+    }
+    .callout strong { color: var(--color-accent-amber); }
+
+    /* ========== FLOWCHART ========== */
+    .flowchart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: var(--space-md) 0;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .flow-box {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 8px;
+      text-align: center;
+      max-width: 360px;
+      width: 100%;
+      font-weight: 600;
+    }
+    .flow-box--accent { background: var(--color-accent-amber); color: var(--color-bg-dark); }
+    .flow-box--success { background: var(--color-success); }
+    .flow-box--danger { background: var(--color-danger); }
+    .flow-arrow {
+      font-size: 1.5rem;
+      color: var(--color-text-secondary);
+      line-height: 1;
+      padding: var(--space-xs) 0;
+    }
+    .flow-branch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      max-width: 360px;
+      width: 100%;
+    }
+    .flow-branch-label {
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-xs);
+    }
+
+    /* ========== SECTION IMAGE ========== */
+    .section-image {
+      border-radius: 8px;
+      margin: var(--space-md) 0;
+      width: 100%;
+    }
+
+    /* ========== OIL TYPE CARDS ========== */
+    .oil-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .oil-card {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+      text-align: center;
+    }
+    .oil-card h3 {
+      margin-bottom: var(--space-sm);
+      font-size: 1.15rem;
+    }
+    .oil-card .oil-row {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid #f0ede8;
+      font-size: 0.9rem;
+    }
+    .oil-card .oil-row:last-child { border-bottom: none; }
+    .oil-card .oil-label {
+      color: var(--color-text-secondary);
+      text-align: left;
+    }
+    .oil-card .oil-value {
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      text-align: right;
+      font-size: 0.85rem;
+    }
+
+    /* ========== FLUID CARDS ========== */
+    .fluid-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .fluid-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e0ddd8;
+    }
+    .fluid-card__accent {
+      height: 6px;
+    }
+    .fluid-card__body {
+      padding: var(--space-md);
+    }
+    .fluid-card h3 { margin-bottom: var(--space-xs); font-size: 1.15rem; }
+    .fluid-card p { font-size: 0.95rem; margin-bottom: var(--space-xs); }
+    .fluid-card .warning {
+      color: var(--color-danger);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .fluid-card .interval {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ========== NOTE BOX ========== */
+    .note-box {
+      background: var(--color-bg-warm-gray);
+      border: 1px solid #e0ddd8;
+      border-radius: 6px;
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      margin: var(--space-md) 0;
+    }
+
+    /* ========== UPSELL DEFENSE ========== */
+    .defense-box {
+      border: 2px solid var(--color-accent-amber);
+      border-radius: 8px;
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+      background: rgba(212, 168, 67, 0.06);
+    }
+    .defense-box h3 {
+      color: var(--color-accent-amber);
+      margin-bottom: var(--space-xs);
+      font-family: 'Source Sans 3', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.9rem;
+    }
+
+    /* ========== VALUE COMPARISON ========== */
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+      text-align: center;
+    }
+    .value-card {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+    }
+    .value-card h3 {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1rem;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-xs);
+    }
+    .value-card .price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    .value-card--low .price { color: var(--color-danger); }
+    .value-card--high .price { color: var(--color-success); }
+    .value-card .label { font-size: 0.85rem; color: var(--color-text-secondary); }
+    .value-diff {
+      text-align: center;
+      margin: var(--space-sm) 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-success);
+    }
+
+    /* ========== DETAILS / SUMMARY ========== */
+    .check-section details {
+      background: #fff;
+      border: 1px solid #e0ddd8;
+      border-radius: 8px;
+      margin-bottom: var(--space-sm);
+      overflow: hidden;
+    }
+    .check-section summary {
+      padding: var(--space-sm) var(--space-md);
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      padding-right: 3rem;
+    }
+    .check-section summary::-webkit-details-marker { display: none; }
+    .check-section summary::after {
+      content: '+';
+      position: absolute;
+      right: var(--space-md);
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.2rem;
+      color: var(--color-accent-amber);
+    }
+    .check-section details[open] summary::after { content: '\2212'; }
+    .check-section .answer {
+      padding: 0 var(--space-md) var(--space-md);
+      color: var(--color-text-secondary);
+      border-top: 1px solid #f0ede8;
+      padding-top: var(--space-sm);
+    }
+
+    /* ========== ASSIGNMENT ========== */
+    .worked-example {
+      background: #fff;
+      border: 2px solid #e0ddd8;
+      border-radius: 8px;
+      padding: var(--space-md);
+      margin: var(--space-md) 0;
+    }
+    .worked-example h3 { margin-bottom: var(--space-sm); font-size: 1.1rem; }
+    .worked-example ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .worked-example li {
+      padding: var(--space-xs) 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f0ede8;
+    }
+    .worked-example li:last-child { border-bottom: none; }
+    .assignment-steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+    }
+    .assignment-steps > li {
+      counter-increment: step;
+      padding: var(--space-sm) 0;
+      padding-left: 3rem;
+      position: relative;
+      border-bottom: 1px solid #e0ddd8;
+    }
+    .assignment-steps > li:last-child { border-bottom: none; }
+    .assignment-steps > li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: var(--space-sm);
+      width: 2rem;
+      height: 2rem;
+      background: var(--color-accent-amber);
+      color: var(--color-bg-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .assignment-steps li ul {
+      margin-top: var(--space-xs);
+      padding-left: var(--space-md);
+      list-style: disc;
+    }
+    .assignment-steps li ul li {
+      padding-left: 0;
+      border-bottom: none;
+    }
+    .assignment-steps li ul li::before {
+      display: none;
+    }
+    .due-date {
+      background: rgba(212, 168, 67, 0.12);
+      border: 2px solid var(--color-accent-amber);
+      border-radius: 8px;
+      padding: var(--space-sm) var(--space-md);
+      margin: var(--space-md) 0;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer-section { padding: var(--space-xl) var(--space-md) var(--space-lg); }
+    .takeaways {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto var(--space-lg);
+      max-width: var(--max-width-content);
+    }
+    .takeaways li {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .takeaways li:last-child { border-bottom: none; }
+    .next-steps {
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: var(--space-md);
+      background: rgba(255,255,255,0.04);
+    }
+    .next-steps h3 { color: var(--color-accent-amber); margin-bottom: var(--space-xs); }
+    .course-info {
+      max-width: var(--max-width-content);
+      margin: var(--space-lg) auto 0;
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .hero .lead { font-size: 1.1rem; }
+      h2 { font-size: 1.7rem; }
+      .section { padding: var(--space-lg) var(--space-sm); }
+      .comparison-grid,
+      .fluid-grid,
+      .value-grid { grid-template-columns: 1fr; }
+      .oil-grid { grid-template-columns: 1fr; }
+      .flow-branch { grid-template-columns: 1fr; max-width: 280px; }
+      .comparison-card .big-number { font-size: 1.8rem; }
+      .takeaways li { font-size: 1.15rem; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.9rem; }
+      h2 { font-size: 1.45rem; }
+      body { font-size: 0.95rem; }
+      .section { padding: var(--space-md) var(--space-sm); }
+      .comparison-card .big-number { font-size: 1.5rem; }
+      .value-card .price { font-size: 1.5rem; }
+    }
+
+    /* ========== REDUCED MOTION ========== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+      .hero { background-attachment: scroll; }
+    }
+
+    /* ========== PRINT ========== */
+    @media print {
+      * { animation: none !important; transition: none !important; }
+      .progress-bar, .scroll-arrow { display: none; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      body {
+        font-size: 11pt;
+        max-width: 100%;
+        color: #000;
+        background: #fff;
+      }
+      .section {
+        page-break-before: always;
+        padding: 1rem 0;
+      }
+      .section:first-of-type { page-break-before: auto; }
+      .hero {
+        min-height: auto;
+        background: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding: 2rem 1rem;
+      }
+      img { max-width: 100%; height: auto; }
+      .comparison-card, .oil-card, .fluid-card, .value-card, .worked-example {
+        border: 2pt solid #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      details > summary ~ * { display: block !important; }
+      details:not([open]) > summary ~ * { display: block !important; }
+      details { break-inside: avoid; }
+      .section--dark {
+        background: #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ====== SECTION 1: HERO ====== -->
+    <section class="hero" id="hero">
+      <h1>The Most Expensive Room in the Dealership</h1>
+      <p class="lead">The finance office is where deals get expensive. Here&rsquo;s how to walk through it informed.</p>
+      <div class="scroll-arrow" aria-hidden="true">&#8595;</div>
+    </section>
+
+    <!-- ====== SECTION 2: OPENER — THE F&I OFFICE ====== -->
+    <section class="section" id="fi-office">
+      <div class="section-inner reveal">
+        <h2>Where the Real Money Is Made</h2>
+        <p class="styled-subheading">You negotiated the price. Now they&rsquo;re about to renegotiate the deal.</p>
+
+        <p>You negotiated the price. You feel good. Then they walk you to the Finance and Insurance (F&amp;I) office &mdash; a small room with a desk, a computer, and a person whose job is to add thousands to your deal. The F&amp;I manager is paid on commission for every product they sell you. This is not a neutral advisor &mdash; this is a salesperson. The average dealership makes $1,000&ndash;$3,000 per vehicle in F&amp;I products alone.</p>
+
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1450101499163-c8848e66ad76?auto=format&fit=crop&w=1200&q=80"
+            alt="Person reviewing financial documents at a desk"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
+
+        <div class="callout">
+          <strong>The F&amp;I office is the highest-margin department in most dealerships.</strong> Your negotiated price is the starting point &mdash; not the final number.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 3: HOW AUTO LOANS WORK ====== -->
+    <section class="section" id="loans">
+      <div class="section-inner reveal">
+        <h2>How Auto Loans Actually Work</h2>
+        <p class="styled-subheading">Three numbers control how much you pay: principal, rate, and term.</p>
+
+        <p><strong>Principal</strong> is the amount you borrow &mdash; the vehicle price minus your down payment minus any trade-in value. This is the actual debt.</p>
+
+        <p><strong>Interest Rate (APR)</strong> is the annual percentage you pay for the privilege of borrowing. It&rsquo;s expressed as a yearly rate but applied monthly. A 6% APR means you&rsquo;re paying 0.5% of the remaining balance each month in interest.</p>
+
+        <p><strong>Term</strong> is how many months you&rsquo;ll make payments. Common terms are 36, 48, 60, 72, and 84 months. Longer terms mean lower monthly payments &mdash; and significantly more interest paid over the life of the loan.</p>
+
+        <h3>How Your Payment Gets Split</h3>
+        <p>Each month, part of your payment goes toward the principal (the actual car) and part goes toward interest (the cost of borrowing). Early in the loan, most of your payment is interest. Later, most goes to principal. This is called <strong>amortization</strong> &mdash; and it&rsquo;s why paying extra toward principal in the first year saves you the most money.</p>
+
+        <div class="comparison-grid">
+          <div class="comparison-card comparison-card--mfr">
+            <h3>Shorter Term</h3>
+            <span class="detail">$22,000 loan &middot; 4.5% APR &middot; 48 months</span>
+            <span class="big-number">$502/mo</span>
+            <span class="detail">Total paid: $24,096</span>
+            <span class="detail">Interest cost: $2,096</span>
+          </div>
+          <div class="comparison-card comparison-card--dealer">
+            <h3>Longer Term</h3>
+            <span class="detail">$22,000 loan &middot; 6.5% APR &middot; 72 months</span>
+            <span class="big-number">$371/mo</span>
+            <span class="detail">Total paid: $26,712</span>
+            <span class="detail">Interest cost: $4,712</span>
+          </div>
+        </div>
+
+        <div class="comparison-bottom">
+          <span class="savings">The longer loan feels cheaper. It costs $2,616 more.</span>
+          <p class="fine-print">Lower monthly payment &ne; better deal. Always compare total cost, not monthly cost.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 4: THE PRE-APPROVAL ADVANTAGE ====== -->
+    <section class="section" id="pre-approval">
+      <div class="section-inner reveal">
+        <h2>The Pre-Approval Advantage</h2>
+        <p class="styled-subheading">Walk in with a rate. Walk out with leverage.</p>
+
+        <div class="flowchart">
+          <div class="flow-box">You need a car loan</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box flow-box--accent">Get pre-approved at your bank or credit union FIRST</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box">Walk into the dealership with your rate in hand</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-box">Dealer beats your rate?</div>
+          <div class="flow-arrow">&#8595;</div>
+          <div class="flow-branch">
+            <div>
+              <div class="flow-branch-label">Yes</div>
+              <div class="flow-box flow-box--success">Take the dealer&rsquo;s rate</div>
+            </div>
+            <div>
+              <div class="flow-branch-label">No</div>
+              <div class="flow-box flow-box--success">Use your pre-approval</div>
+            </div>
+          </div>
+        </div>
+
+        <p>Pre-approval gives you a ceiling. You already know the best rate you qualify for. The dealer can try to beat it &mdash; and sometimes they will, because they want your business. But they can&rsquo;t inflate the rate above what you already have. Without pre-approval, you&rsquo;re negotiating blind.</p>
+
+        <div class="callout">
+          <strong>Never let the dealer be your only financing option.</strong> A 2% rate difference on a $20,000 loan over 60 months costs you over $1,000.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 5: THE F&I PRODUCT GAUNTLET ====== -->
+    <section class="section" id="fi-products">
+      <div class="section-inner--wide reveal">
+        <h2>The F&amp;I Product Gauntlet</h2>
+        <p class="styled-subheading">After the price negotiation, they&rsquo;ll present products. Most are overpriced at the dealer.</p>
+
+        <p>After the price negotiation, the F&amp;I manager will present a series of products &mdash; some worth considering, most overpriced at the dealer. Here&rsquo;s what you&rsquo;ll see:</p>
+
+        <div class="fluid-grid">
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-danger);"></div>
+            <div class="fluid-card__body">
+              <h3>Extended Warranty / Service Contract</h3>
+              <p>Coverage beyond the factory warranty for mechanical breakdowns.</p>
+              <p><strong>Reality check:</strong> Most new cars are reliable within the factory warranty period. If you want extended coverage, buy it later from a third party for 30&ndash;50% less.</p>
+              <p class="interval">Dealer price: $1,500&ndash;$3,000+</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-accent-amber);"></div>
+            <div class="fluid-card__body">
+              <h3>GAP Insurance</h3>
+              <p>Covers the difference between what you owe and what insurance pays if your car is totaled.</p>
+              <p><strong>Worth it if:</strong> You put less than 20% down or have a long loan term. <strong>Reality:</strong> Buy it through your auto insurance company for $20&ndash;$40/year instead of $700&ndash;$900 from the dealer.</p>
+              <p class="interval">Dealer price: $700&ndash;$900</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-accent-blue);"></div>
+            <div class="fluid-card__body">
+              <h3>Paint / Fabric Protection</h3>
+              <p>A spray-on coating the dealer applies to your paint and upholstery.</p>
+              <p><strong>Reality:</strong> A $20 bottle of quality car wax and an $8 can of Scotchgard do the same thing. You&rsquo;re paying for a 5-minute application.</p>
+              <p class="interval">Dealer price: $399&ndash;$999</p>
+            </div>
+          </div>
+          <div class="fluid-card">
+            <div class="fluid-card__accent" style="background: var(--color-success);"></div>
+            <div class="fluid-card__body">
+              <h3>Tire &amp; Wheel Protection</h3>
+              <p>Covers damage to tires and wheels from road hazards like potholes and debris.</p>
+              <p><strong>Reality:</strong> Most auto insurance comprehensive coverage already handles this. Check your policy first before paying separately.</p>
+              <p class="interval">Dealer price: $499&ndash;$899</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="defense-box">
+          <h3>Your Defense</h3>
+          <p>For every F&amp;I product, ask: <strong>&ldquo;Can I buy this later from a third party for less?&rdquo;</strong> The answer is almost always yes. You are never required to buy anything in the F&amp;I office.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 6: READING THE CONTRACT ====== -->
+    <section class="section" id="contract">
+      <div class="section-inner reveal">
+        <h2>Reading the Contract</h2>
+        <p class="styled-subheading">Before you sign anything, verify these numbers match what you negotiated.</p>
+
+        <figure>
+          <img
+            class="section-image"
+            src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1200&q=80"
+            alt="Close-up of a pen on a contract document ready for signing"
+            width="1200" height="600" loading="lazy"
+          >
+        </figure>
+
+        <ol class="assignment-steps">
+          <li><strong>Vehicle price</strong> &mdash; matches your negotiated price (not MSRP, not a different number).</li>
+          <li><strong>Trade-in value</strong> &mdash; matches what was agreed on the sales floor.</li>
+          <li><strong>Down payment</strong> &mdash; matches what you offered.</li>
+          <li><strong>Interest rate (APR)</strong> &mdash; matches your pre-approval or the rate they quoted.</li>
+          <li><strong>Loan term</strong> &mdash; the number of months you agreed to. Watch for 72 or 84 slipping in where you discussed 48 or 60.</li>
+          <li><strong>Monthly payment</strong> &mdash; calculate it yourself. Does the math work with the principal, rate, and term shown?</li>
+          <li><strong>Total of payments</strong> &mdash; the full amount you&rsquo;ll pay over the life of the loan. This is the real price of the car.</li>
+          <li><strong>Added products</strong> &mdash; only the ones you explicitly agreed to. Nothing extra.</li>
+        </ol>
+
+        <div class="callout">
+          <strong>If any number changed from what you negotiated on the floor, stop.</strong> Ask why. Do not sign until it matches. This is not confrontational &mdash; it&rsquo;s competent.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 7: CHECK YOURSELF ====== -->
+    <section class="section section--warm check-section" id="check">
+      <div class="section-inner reveal">
+        <h2>Check Yourself</h2>
+        <p class="styled-subheading">Make sure you understand how financing works before you sign for it.</p>
+
+        <details>
+          <summary>A dealer offers you 0% APR for 72 months OR $3,000 cash back with a 5% loan for 48 months. The car costs $30,000. Which deal costs less total?</summary>
+          <div class="answer">
+            <p><strong>The cash-back deal costs less.</strong> The 0% APR for 72 months = $30,000 total. The $3,000 cash back means a $27,000 loan at 5% for 48 months = $27,000 + approximately $2,844 in interest = roughly $29,844 total. The cash-back deal saves about $156 AND you pay it off 2 years sooner. But always run the numbers &mdash; every situation is different.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Your monthly budget allows $350 for a car payment. A dealer says &ldquo;We can get you to $349/month!&rdquo; What question should you ask?</summary>
+          <div class="answer">
+            <p><strong>&ldquo;What&rsquo;s the total cost of the loan?&rdquo;</strong> A $349 payment over 84 months costs $29,316. A $440 payment over 48 months costs $21,120. The monthly payment is meaningless without knowing the total. The dealer can always hit your target payment &mdash; they just stretch the term.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>The F&amp;I manager says you &ldquo;need&rdquo; an extended warranty because &ldquo;modern cars are so computerized.&rdquo; Is this true?</summary>
+          <div class="answer">
+            <p><strong>No.</strong> Modern cars are generally more reliable than older ones. The factory warranty covers you for 3&ndash;5 years or 36,000&ndash;60,000 miles. If you want extended coverage later, buy from a third party for significantly less. The F&amp;I manager earns a commission on every warranty sold.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>You get pre-approved at 5.2% from your credit union. The dealer offers 5.9%. What do you do?</summary>
+          <div class="answer">
+            <p><strong>Use your pre-approval.</strong> Tell the dealer your credit union offered 5.2%. They may match or beat it to keep the financing in-house (dealers earn a commission on the loan). If they can&rsquo;t beat it, you already have the better rate locked in. That&rsquo;s the entire point of pre-approval.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>You notice the contract shows a 72-month term. You agreed to 60 months on the sales floor. What do you do?</summary>
+          <div class="answer">
+            <p><strong>Stop. Do not sign.</strong> Point out the discrepancy. This is either a mistake or an intentional change. Either way, it must be corrected before you sign. You are not being difficult &mdash; you are being careful. Every number in the contract must match what was agreed upon verbally.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 8: ASSIGNMENT ====== -->
+    <section class="section section--warm" id="assignment">
+      <div class="section-inner reveal">
+        <h2>Your Assignment: Run the Numbers</h2>
+        <p class="styled-subheading">Use your Portfolio vehicle to build a real financing comparison.</p>
+
+        <div class="worked-example">
+          <h3>Worked Example &mdash; 2022 Honda Civic (Sport, 2.0L)</h3>
+          <ul>
+            <li>Purchase price: $21,000</li>
+            <li>Down payment: $3,000 (14%)</li>
+            <li>Loan amount: $18,000</li>
+            <li>Pre-approved rate: 5.5% APR</li>
+            <li>Scenario A: 48 months = $418/mo &middot; Total loan payments: $20,083 &middot; Interest paid: $2,083</li>
+            <li>Scenario B: 60 months = $344/mo &middot; Total loan payments: $20,656 &middot; Interest paid: $2,656</li>
+            <li>Scenario C: 72 months = $295/mo &middot; Total loan payments: $21,242 &middot; Interest paid: $3,242</li>
+            <li>Total out-of-pocket (down payment + loan): A = $23,083 &middot; B = $23,656 &middot; C = $24,242</li>
+            <li>Extra interest cost of 72 months vs. 48 months: $1,159</li>
+          </ul>
+        </div>
+
+        <ol class="assignment-steps">
+          <li>Using your Portfolio vehicle&rsquo;s price from Module 1, determine a realistic down payment amount. Aim for 20% if possible, but use what&rsquo;s realistic for you.</li>
+          <li>Calculate the loan amount: vehicle price minus down payment.</li>
+          <li>Using a 5.5% APR (a reasonable average for someone with limited credit history), calculate the monthly payment and total cost at three loan terms: <strong>48 months</strong>, <strong>60 months</strong>, and <strong>72 months</strong>. Use an online auto loan calculator.</li>
+          <li>For each term, record: monthly payment, total interest paid, and total amount paid.</li>
+          <li>Choose the term you would select and explain your reasoning in one paragraph.</li>
+          <li>Submit your financing comparison to Canvas. This becomes Page 3 of your Vehicle Ownership Portfolio.</li>
+        </ol>
+
+        <p><em>The dealer will focus on the monthly payment. You focus on the total cost. That&rsquo;s the difference between a buyer and an informed buyer.</em></p>
+      </div>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="section section--dark footer-section" id="footer">
+      <div class="section-inner--wide reveal">
+        <ol class="takeaways">
+          <li>Compare total cost, not monthly payment. Longer loans cost thousands more.</li>
+          <li>Get pre-approved before you walk into the dealership. It&rsquo;s your best leverage.</li>
+          <li>Every F&amp;I product can be bought later, cheaper, from a third party.</li>
+        </ol>
+
+        <div class="next-steps">
+          <h3>Next Steps</h3>
+          <p>Up next: <strong>auto insurance</strong> &mdash; you&rsquo;re required to buy it, so you should understand it.</p>
+        </div>
+
+        <div class="course-info">
+          Mr. McAteer &middot; Crescent Valley High School &middot; AUTOS.CON.003
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    (function() {
+      'use strict';
+
+      // Scroll reveal via Intersection Observer
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var reveals = document.querySelectorAll('.reveal');
+
+      if (prefersReducedMotion) {
+        reveals.forEach(function(el) { el.classList.add('visible'); });
+      } else {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -60px 0px'
+        });
+        reveals.forEach(function(el) { observer.observe(el); });
+      }
+
+      // Progress bar — throttled via requestAnimationFrame
+      var progressBar = document.querySelector('.progress-bar');
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            var scrollTop = window.scrollY;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

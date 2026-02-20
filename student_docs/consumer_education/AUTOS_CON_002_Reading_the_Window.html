@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The 3,000-Mile Myth — AUTOS.CON.007</title>
+  <title>Everything on the Sticker They Hope You Won't Read — AUTOS.CON.002</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=JetBrains+Mono:wght@400;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -118,7 +118,7 @@
       color: var(--color-text-inverse);
       background:
         linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1400&h=800&q=80') center/cover no-repeat;
       background-attachment: fixed;
       padding: var(--space-lg) var(--space-md);
       position: relative;
@@ -515,6 +515,62 @@
       text-align: center;
     }
 
+    /* ========== STICKER ANATOMY CARDS ========== */
+    .sticker-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    .sticker-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e0ddd8;
+    }
+    .sticker-card__accent {
+      height: 6px;
+    }
+    .sticker-card__body {
+      padding: var(--space-md);
+    }
+    .sticker-card h3 { margin-bottom: var(--space-xs); font-size: 1.15rem; }
+    .sticker-card p { font-size: 0.95rem; margin-bottom: var(--space-xs); }
+    .sticker-card p:last-child { margin-bottom: 0; }
+
+    /* ========== VIN BREAKDOWN ========== */
+    .vin-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin: var(--space-md) 0;
+    }
+    .vin-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: var(--space-xs) var(--space-sm);
+      border-bottom: 1px solid #f0ede8;
+      background: #fff;
+      font-size: 0.95rem;
+    }
+    .vin-row:first-child { border-radius: 8px 8px 0 0; }
+    .vin-row:last-child { border-bottom: none; border-radius: 0 0 8px 8px; }
+    .vin-position {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--color-accent-amber);
+      min-width: 8rem;
+      flex-shrink: 0;
+    }
+    .vin-meaning {
+      color: var(--color-text-secondary);
+      text-align: right;
+      flex: 1;
+      padding-left: var(--space-sm);
+    }
+
     /* ========== FOOTER ========== */
     .footer-section { padding: var(--space-xl) var(--space-md) var(--space-lg); }
     .takeaways {
@@ -557,6 +613,7 @@
       .fluid-grid,
       .value-grid { grid-template-columns: 1fr; }
       .oil-grid { grid-template-columns: 1fr; }
+      .sticker-grid { grid-template-columns: 1fr; }
       .flow-branch { grid-template-columns: 1fr; max-width: 280px; }
       .comparison-card .big-number { font-size: 1.8rem; }
       .takeaways li { font-size: 1.15rem; }
@@ -608,7 +665,7 @@
         padding: 2rem 1rem;
       }
       img { max-width: 100%; height: auto; }
-      .comparison-card, .oil-card, .fluid-card, .value-card, .worked-example {
+      .comparison-card, .oil-card, .fluid-card, .value-card, .worked-example, .sticker-card {
         border: 2pt solid #333 !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
@@ -632,324 +689,299 @@
 
     <!-- ====== SECTION 1: HERO ====== -->
     <section class="hero" id="hero">
-      <h1>The 3,000-Mile Myth</h1>
-      <p class="lead">How an outdated rule costs American drivers hundreds every year.</p>
+      <h1>Everything on the Sticker They Hope You Won&rsquo;t Read</h1>
+      <p class="lead">The window sticker is your single best research tool. Learn to read it.</p>
       <div class="scroll-arrow" aria-hidden="true">&#8595;</div>
     </section>
 
-    <section class="section" id="myth-details">
+    <!-- ====== SECTION 2: OPENER ====== -->
+    <section class="section" id="opener">
       <div class="section-inner reveal">
-        <p>Dealership service drives &mdash; not the showroom floor &mdash; are the primary profit center at most auto dealers. That &ldquo;recommended&rdquo; maintenance schedule the service advisor hands you? It&rsquo;s often inflated beyond what the people who actually engineered your car say you need.</p>
+        <h2>The Monroney Sticker Exists Because of Federal Law</h2>
+        <p class="styled-subheading">Before 1958, car buyers had no way to know what a fair price looked like.</p>
 
-        <div class="comparison-grid">
-          <div class="comparison-card comparison-card--dealer">
-            <h3>Dealer Schedule</h3>
-            <span class="detail">Every 3,000 miles &middot; $45 conventional</span>
-            <span class="big-number">$203/yr</span>
-            <span class="detail">4.5 changes at 13,500 mi/yr</span>
-          </div>
-          <div class="comparison-card comparison-card--mfr">
-            <h3>Manufacturer Schedule</h3>
-            <span class="detail">Every 7,500 miles &middot; $65 synthetic</span>
-            <span class="big-number">$117/yr</span>
-            <span class="detail">1.8 changes at 13,500 mi/yr</span>
-          </div>
-        </div>
+        <p>In 1958, Senator A.S. &ldquo;Mike&rdquo; Monroney of Oklahoma pushed through the Automobile Information Disclosure Act. The law requires every new car sold in the United States to display a standardized price sticker on the window &mdash; visible to every buyer, with every cost itemized. Before this law, dealers could charge whatever they wanted, and buyers had no baseline for comparison.</p>
 
-        <div class="comparison-bottom">
-          <span class="savings">$86 saved per year &mdash; by reading one document.</span>
-          <p class="fine-print">Based on 13,500 miles/year (FHWA national average). Your mileage may vary &mdash; literally.</p>
-        </div>
-
-        <div class="callout">
-          <strong>Your owner&rsquo;s manual is the final authority.</strong> Not the sticker on your windshield. Not the service advisor.
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== SECTION 2: MANUFACTURER VS DEALER ====== -->
-    <section class="section" id="who-built">
-      <div class="section-inner reveal">
-        <h2>Who Built Your Car?</h2>
-        <p class="styled-subheading">The manufacturer wrote the maintenance schedule. The dealer wrote the upsell.</p>
-
-        <p>Manufacturers invest millions in testing engine tolerances and fluid longevity before publishing maintenance intervals. Every specification in your owner&rsquo;s manual exists because engineers validated it under real-world conditions &mdash; extreme heat, bitter cold, stop-and-go traffic, highway cruising.</p>
-
-        <p>Dealer &ldquo;recommended&rdquo; schedules are revenue-driven. The service department is often the highest-margin part of a dealership. When a service advisor suggests an oil change at 3,000 miles on a car engineered for 7,500-mile intervals, that recommendation is driven by the business model &mdash; not your engine&rsquo;s needs.</p>
-
-        <p>The owner&rsquo;s manual or manufacturer website is always the primary source of truth. When in doubt, trust the engineers who designed the machine.</p>
-
-        <div class="callout">
-          <strong>What you already know:</strong> You learned that tires degrade with mileage and tread depth &mdash; and that knowing when to replace them saves money and keeps you safe. Every fluid in your car works the same way. It degrades with use and time. Now you&rsquo;ll learn which fluids matter, when to service them, and how to tell if someone is trying to sell you something you don&rsquo;t need.
-        </div>
-
-        <div class="flowchart">
-          <div class="flow-box">Mechanic recommends a service</div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box flow-box--accent">Check your owner&rsquo;s manual</div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-box">Is it listed at your current mileage?</div>
-          <div class="flow-arrow">&#8595;</div>
-          <div class="flow-branch">
-            <div>
-              <div class="flow-branch-label">Yes</div>
-              <div class="flow-box flow-box--success">Authorize it</div>
-            </div>
-            <div>
-              <div class="flow-branch-label">No</div>
-              <div class="flow-box flow-box--danger">Decline politely. You just saved money.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== SECTION 3: ENGINE OIL ====== -->
-    <section class="section" id="oil">
-      <div class="section-inner reveal">
-        <h2>5W-30: What Those Numbers Actually Mean</h2>
+        <p>The Monroney sticker is not a suggestion. It is a federal requirement. The dealer cannot alter it or remove it before the sale. It shows the manufacturer&rsquo;s suggested retail price, every factory-installed option, the destination charge, and the EPA fuel economy estimates. It is your starting point &mdash; not the dealer&rsquo;s asking price, not a take-it-or-leave-it number, but the baseline from which every negotiation begins.</p>
 
         <figure>
           <img
             class="section-image"
-            src="https://images.unsplash.com/photo-1615906655593-ad0386982a0f?auto=format&fit=crop&w=1200&q=80"
-            alt="Close-up of golden motor oil being poured"
+            src="https://images.unsplash.com/photo-1568844293986-8d0400f4745b?auto=format&fit=crop&w=1200&q=80"
+            alt="Row of new cars on a dealer lot with price stickers visible in windshields"
             width="1200" height="600" loading="lazy"
           >
         </figure>
 
-        <p>Every bottle of motor oil has a viscosity rating like <strong>5W-30</strong>. Here&rsquo;s what it actually means.</p>
-
-        <p>The <strong>&ldquo;W&rdquo;</strong> indicates the oil&rsquo;s winter (cold-start) grade &mdash; it&rsquo;s a rating, not a unit of measurement. A <strong>5W</strong> flows more easily at startup in cold weather than a 10W. The second number (<strong>30</strong>) is the viscosity grade at normal operating temperature &mdash; higher means thicker protection at highway speed.</p>
-
-        <p>Think of the first number as <em>&ldquo;how easily does this pour on a freezing morning?&rdquo;</em> and the second as <em>&ldquo;how well does it protect when everything is hot and running hard?&rdquo;</em></p>
-
-        <div class="oil-grid">
-          <div class="oil-card">
-            <h3>Conventional</h3>
-            <div class="oil-row"><span class="oil-label">Cost per change</span><span class="oil-value">$35&ndash;45</span></div>
-            <div class="oil-row"><span class="oil-label">Change interval</span><span class="oil-value">3,000&ndash;5,000 mi</span></div>
-            <div class="oil-row"><span class="oil-label">Best for</span><span class="oil-value">Older vehicles, short commutes</span></div>
-            <div class="oil-row"><span class="oil-label">Annual cost*</span><span class="oil-value">~$135&ndash;203</span></div>
-          </div>
-          <div class="oil-card">
-            <h3>Synthetic Blend</h3>
-            <div class="oil-row"><span class="oil-label">Cost per change</span><span class="oil-value">$45&ndash;55</span></div>
-            <div class="oil-row"><span class="oil-label">Change interval</span><span class="oil-value">5,000&ndash;7,500 mi</span></div>
-            <div class="oil-row"><span class="oil-label">Best for</span><span class="oil-value">Moderate driving, light towing</span></div>
-            <div class="oil-row"><span class="oil-label">Annual cost*</span><span class="oil-value">~$99&ndash;149</span></div>
-          </div>
-          <div class="oil-card">
-            <h3>Full Synthetic</h3>
-            <div class="oil-row"><span class="oil-label">Cost per change</span><span class="oil-value">$55&ndash;75</span></div>
-            <div class="oil-row"><span class="oil-label">Change interval</span><span class="oil-value">7,500&ndash;10,000+ mi</span></div>
-            <div class="oil-row"><span class="oil-label">Best for</span><span class="oil-value">Most modern vehicles, extreme temps</span></div>
-            <div class="oil-row"><span class="oil-label">Annual cost*</span><span class="oil-value">~$74&ndash;117</span></div>
-          </div>
-        </div>
-        <p style="font-size: 0.8rem; color: var(--color-text-secondary); text-align: center;">*Based on 13,500 miles/year (FHWA national average)</p>
-
         <div class="callout">
-          <strong>Full synthetic costs more per change but lasts 2&ndash;3&times; longer.</strong> Over a year of driving, you&rsquo;ll likely spend less on synthetic than conventional. Do the math with your own car &mdash; it almost always works out.
+          <strong>The Monroney sticker is required by federal law.</strong> It cannot be altered by the dealer. Everything else they add &mdash; those are suggestions.
         </div>
       </div>
     </section>
 
-    <!-- ====== SECTION 4: VITAL FLUIDS ====== -->
-    <section class="section" id="fluids">
+    <!-- ====== SECTION 3: ANATOMY OF THE STICKER ====== -->
+    <section class="section" id="anatomy">
       <div class="section-inner--wide reveal">
-        <h2>The Other Fluids Keeping You Safe</h2>
-        <p class="styled-subheading">Your car runs on more than gasoline and engine oil.</p>
+        <h2>Anatomy of the Sticker</h2>
+        <p class="styled-subheading">Every section of the Monroney sticker tells you something specific. Here&rsquo;s what to look for.</p>
 
-        <figure>
-          <img
-            class="section-image"
-            src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=1200&q=80"
-            alt="Under-hood view of an engine bay showing fluid reservoirs and components"
-            width="1200" height="600" loading="lazy"
-          >
-        </figure>
-
-        <p>Your car has four fluids beyond engine oil that each serve a critical function. You don&rsquo;t need to memorize every interval &mdash; you need to know what each fluid does, what warning signs to watch for, and where to look up the schedule for your specific vehicle.</p>
-
-        <div class="fluid-grid">
-          <div class="fluid-card">
-            <div class="fluid-card__accent" style="background: var(--color-fluid-transmission);"></div>
-            <div class="fluid-card__body">
-              <h3>Transmission Fluid</h3>
-              <p>Lubricates gears for smooth shifting.</p>
-              <p class="warning">&#9888;&#65039; Warning: Slipping between gears, delayed or rough shifts.</p>
-              <p class="interval">60,000&ndash;100,000 mi &mdash; varies widely by manufacturer. Check your manual.</p>
+        <div class="sticker-grid">
+          <div class="sticker-card">
+            <div class="sticker-card__accent" style="background: var(--color-accent-amber);"></div>
+            <div class="sticker-card__body">
+              <h3>Base Price</h3>
+              <p>The manufacturer&rsquo;s starting price for this trim level. Includes standard equipment &mdash; the engine, transmission, base audio system, standard safety features, and everything that comes on the car before you add a single option.</p>
+              <p>This is <strong>not</strong> what you&rsquo;ll pay. It&rsquo;s where the math begins.</p>
             </div>
           </div>
-          <div class="fluid-card">
-            <div class="fluid-card__accent" style="background: var(--color-fluid-brake);"></div>
-            <div class="fluid-card__body">
-              <h3>Brake Fluid</h3>
-              <p>Transfers hydraulic force from your brake pedal to the calipers that stop your wheels.</p>
-              <p class="warning">&#9888;&#65039; Warning: Spongy brake pedal, brake pedal sinks closer to floor.</p>
-              <p class="interval">Varies &mdash; some manufacturers say every 2&ndash;3 years, others don&rsquo;t list it. Check your manual. If in doubt, ask for a moisture strip test &mdash; takes 30 seconds.</p>
+          <div class="sticker-card">
+            <div class="sticker-card__accent" style="background: var(--color-accent-blue);"></div>
+            <div class="sticker-card__body">
+              <h3>Optional Equipment / Packages</h3>
+              <p>Technology packages, premium audio, sunroof, heated seats, advanced driver-assist systems &mdash; anything added at the factory beyond the standard trim. Each has a listed price.</p>
+              <p><strong>Know which options matter to you before you shop.</strong> Dealers stock specific configurations. If you walk in without a list, you&rsquo;ll pay for features you never wanted.</p>
             </div>
           </div>
-          <div class="fluid-card">
-            <div class="fluid-card__accent" style="background: var(--color-fluid-washer);"></div>
-            <div class="fluid-card__body">
-              <h3>Windshield Washer Fluid</h3>
-              <p>Cleans your windshield for visibility. Simple, but critical for safe driving.</p>
-              <p class="warning">&#9888;&#65039; Warning: Empty reservoir, streaky windshield, washer pump runs but nothing sprays.</p>
-              <p class="interval">Refill as needed &mdash; check monthly. Use winter-rated fluid in cold climates to prevent freezing.</p>
+          <div class="sticker-card">
+            <div class="sticker-card__accent" style="background: var(--color-success);"></div>
+            <div class="sticker-card__body">
+              <h3>Destination &amp; Delivery Charge</h3>
+              <p>The cost to ship the car from the factory to the dealer. This is a real cost &mdash; vehicles are transported by rail and truck from assembly plants across the country or overseas.</p>
+              <p>This fee is the <strong>same for every dealer selling this model.</strong> It is non-negotiable and set by the manufacturer.</p>
             </div>
           </div>
-          <div class="fluid-card">
-            <div class="fluid-card__accent" style="background: var(--color-fluid-coolant);"></div>
-            <div class="fluid-card__body">
-              <h3>Coolant / Antifreeze</h3>
-              <p>Regulates engine temperature year-round &mdash; prevents overheating AND freezing.</p>
-              <p class="warning">&#9888;&#65039; Warning: Temperature gauge climbing, sweet smell from engine bay, visible leak (bright green/orange puddle).</p>
-              <p class="interval">30,000&ndash;60,000 mi depending on coolant type. Check your manual.</p>
+          <div class="sticker-card">
+            <div class="sticker-card__accent" style="background: var(--color-danger);"></div>
+            <div class="sticker-card__body">
+              <h3>Total MSRP</h3>
+              <p>Base Price + Options + Destination = the Manufacturer&rsquo;s Suggested Retail Price. The keyword is <strong>SUGGESTED</strong>.</p>
+              <p>This is not what you should pay. It is the ceiling. In most market conditions, buyers pay at or below MSRP. The only time you should consider paying above MSRP is when demand dramatically exceeds supply &mdash; and even then, shop around.</p>
             </div>
           </div>
         </div>
 
         <div class="note-box">
-          <strong>A note on power steering fluid:</strong> Older vehicles and some trucks still use hydraulic power steering, which requires its own fluid. Most cars built after ~2010 use Electric Power Steering (EPS) and have no power steering fluid at all. If someone tries to sell you a power steering flush on a modern car, check under the hood first &mdash; you might not even have a reservoir.
-        </div>
-
-        <div class="defense-box">
-          <h3>Upsell Defense</h3>
-          <p>If a mechanic shows you dark fluid and recommends a flush, ask one question: <strong>&ldquo;What does the manufacturer recommend at my current mileage?&rdquo;</strong> If you&rsquo;re under the interval &mdash; decline. You just saved $80&ndash;150.</p>
+          <strong>Important distinction:</strong> Anything labeled &ldquo;dealer-installed accessories&rdquo; or &ldquo;dealer markup&rdquo; is <em>not</em> part of the Monroney sticker. That&rsquo;s the dealer adding margin. The Monroney sticker only contains manufacturer information. You can negotiate dealer-added items off the price.
         </div>
       </div>
     </section>
 
-    <!-- ====== SECTION 5: RESALE VALUE ====== -->
-    <section class="section" id="resale">
+    <!-- ====== SECTION 4: EPA FUEL ECONOMY ====== -->
+    <section class="section" id="epa">
       <div class="section-inner reveal">
-        <h2>Receipts Are Worth Thousands</h2>
-        <p class="styled-subheading">A documented maintenance history is the single best investment in resale value.</p>
+        <h2>The EPA Fuel Economy Label</h2>
+        <p class="styled-subheading">The most useful number on the sticker that most buyers glance at and forget.</p>
+
+        <p>Every new car sold in the United States includes an EPA fuel economy estimate on the Monroney sticker. It shows city MPG, highway MPG, combined MPG, and an estimated annual fuel cost. These numbers come from standardized laboratory tests run by the Environmental Protection Agency &mdash; your real-world mileage will vary based on driving habits, terrain, weather, and how heavy your right foot is.</p>
+
+        <p>But even as estimates, these numbers are your best tool for comparing fuel costs between vehicles. The difference between 30 MPG and 40 MPG might not sound dramatic. Over a year? Over five years? It adds up fast.</p>
 
         <figure>
           <img
             class="section-image"
-            src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1200&q=80"
-            alt="Clean, well-maintained car"
+            src="https://images.unsplash.com/photo-1611288875785-f93d15440611?auto=format&fit=crop&w=1200&q=80"
+            alt="Close-up of a car's fuel gauge and dashboard instruments"
             width="1200" height="600" loading="lazy"
           >
         </figure>
 
-        <p>Buyers and dealers pay measurable premiums for vehicles with documented service histories. A complete maintenance record can add $1,000&ndash;$3,000+ to trade-in or private-sale value.</p>
-
-        <p>Tracking methods: a physical binder with receipts, apps like Carfax Car Care or Drivvo, or even a simple spreadsheet. The format doesn&rsquo;t matter &mdash; consistency does.</p>
-
-        <div class="value-grid">
-          <div class="value-card value-card--low">
-            <h3>Car A: No maintenance records</h3>
-            <span class="price">$8,200</span>
-            <p class="label">Trade-in value</p>
+        <div class="comparison-grid">
+          <div class="comparison-card comparison-card--dealer">
+            <h3>Less Efficient Option</h3>
+            <span class="detail">30 MPG combined &middot; 13,500 mi/yr &middot; $3.80/gal</span>
+            <span class="big-number">$1,710/yr</span>
+            <span class="detail">450 gallons per year</span>
           </div>
-          <div class="value-card value-card--high">
-            <h3>Car B: Complete service binder</h3>
-            <span class="price">$10,500</span>
-            <p class="label">Trade-in value</p>
+          <div class="comparison-card comparison-card--mfr">
+            <h3>More Efficient Option</h3>
+            <span class="detail">40 MPG combined &middot; 13,500 mi/yr &middot; $3.80/gal</span>
+            <span class="big-number">$1,283/yr</span>
+            <span class="detail">338 gallons per year</span>
           </div>
         </div>
-        <div class="value-diff">+$2,300</div>
+
+        <div class="comparison-bottom">
+          <span class="savings">$427 saved per year &mdash; just from choosing the more efficient car.</span>
+          <p class="fine-print">Based on 13,500 miles/year (FHWA average) and national average fuel price.</p>
+        </div>
 
         <div class="callout">
-          <strong>Practical tip:</strong> Every time you get work done &mdash; oil change, tire rotation, fluid flush &mdash; photograph the receipt and save it to a folder on your phone. Future-you will appreciate present-you.
+          <strong>Fuel economy differences compound over years.</strong> A 10 MPG difference over 5 years of ownership can mean $2,000+ in savings &mdash; before you even factor in rising fuel prices. Always check the EPA label and compare across the models you&rsquo;re considering.
         </div>
       </div>
     </section>
 
-    <!-- ====== SECTION 6: CHECK YOURSELF ====== -->
+    <!-- ====== SECTION 5: VIN DECODE ====== -->
+    <section class="section" id="vin">
+      <div class="section-inner reveal">
+        <h2>Decoding a VIN</h2>
+        <p class="styled-subheading">Seventeen characters that tell you everything about where, when, and how a vehicle was built.</p>
+
+        <p>Every vehicle manufactured for sale in the United States has a 17-character Vehicle Identification Number. It is stamped on a metal plate at the base of the windshield (driver&rsquo;s side), printed on the driver&rsquo;s door jamb sticker, and recorded in the title, registration, and insurance documents. It is not random &mdash; each segment encodes specific information.</p>
+
+        <div class="vin-grid">
+          <div class="vin-row">
+            <span class="vin-position">Position 1</span>
+            <span class="vin-meaning">Country of manufacture (1 = USA, 2 = Canada, J = Japan, K = Korea, W = Germany)</span>
+          </div>
+          <div class="vin-row">
+            <span class="vin-position">Positions 2&ndash;3</span>
+            <span class="vin-meaning">Manufacturer code (e.g., HG = Hyundai, 1G = General Motors, T3 = Toyota)</span>
+          </div>
+          <div class="vin-row">
+            <span class="vin-position">Positions 4&ndash;8</span>
+            <span class="vin-meaning">Vehicle attributes &mdash; engine type, body style, model, trim level, and restraint system</span>
+          </div>
+          <div class="vin-row">
+            <span class="vin-position">Position 9</span>
+            <span class="vin-meaning">Check digit &mdash; a mathematical formula verifies the entire VIN is legitimate (fraud prevention)</span>
+          </div>
+          <div class="vin-row">
+            <span class="vin-position">Position 10</span>
+            <span class="vin-meaning">Model year (e.g., R = 2024, S = 2025, T = 2026)</span>
+          </div>
+          <div class="vin-row">
+            <span class="vin-position">Position 11</span>
+            <span class="vin-meaning">Assembly plant &mdash; the specific factory where the vehicle was built</span>
+          </div>
+          <div class="vin-row">
+            <span class="vin-position">Positions 12&ndash;17</span>
+            <span class="vin-meaning">Production sequence number &mdash; the vehicle&rsquo;s unique serial within that plant and model year</span>
+          </div>
+        </div>
+
+        <div class="defense-box">
+          <h3>Before You Buy: Run the VIN</h3>
+          <p>Always check a vehicle&rsquo;s VIN before buying &mdash; especially used vehicles. <strong><a href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener">NHTSA.gov/recalls</a></strong> lets you check for open safety recalls for free. For full history &mdash; accidents, title status (clean, salvage, flood), odometer readings, number of previous owners &mdash; use services like Carfax or AutoCheck. A $40 report can save you from a $4,000 mistake.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 6: DEALER ADD-ONS ====== -->
+    <section class="section section--dark" id="addons">
+      <div class="section-inner reveal">
+        <h2>Dealer Add-Ons: The Sticker After the Sticker</h2>
+        <p class="styled-subheading">The second sticker is where dealerships make their real margin.</p>
+
+        <p>Many dealers attach a second sticker &mdash; sometimes called an &ldquo;addendum sticker&rdquo; or &ldquo;supplemental sticker&rdquo; &mdash; next to the Monroney. This lists dealer-installed accessories with their own prices. These are not factory options. They were added by the dealership after the car arrived, often at a dramatic markup over the actual cost of the product or service.</p>
+
+        <p>Common examples include nitrogen tire fill, paint sealant, pinstripes, VIN etching, fabric protection, and window tinting. Some dealers pre-install these items on every car in their inventory so they can tell you they &ldquo;come with the car.&rdquo;</p>
+
+        <div class="comparison-grid">
+          <div class="comparison-card comparison-card--dealer">
+            <h3>Dealer Addendum</h3>
+            <span class="detail">Nitrogen tire fill</span>
+            <span class="detail" style="display:block;">$199</span>
+            <span class="detail" style="display:block; margin-top: 0.25rem;">Paint sealant: $499</span>
+            <span class="detail" style="display:block; margin-top: 0.25rem;">Fabric protection: $399</span>
+            <span class="big-number">$1,097</span>
+            <span class="detail">Dealer-added total</span>
+          </div>
+          <div class="comparison-card comparison-card--mfr">
+            <h3>Reality Check</h3>
+            <span class="detail">Nitrogen: tires work fine with regular air</span>
+            <span class="detail" style="display:block;">$0</span>
+            <span class="detail" style="display:block; margin-top: 0.25rem;">Paint sealant: a $20 bottle of wax</span>
+            <span class="detail" style="display:block; margin-top: 0.25rem;">Fabric protection: a $8 can of Scotchgard</span>
+            <span class="big-number">~$28</span>
+            <span class="detail">Actual cost of equivalent products</span>
+          </div>
+        </div>
+
+        <div class="comparison-bottom">
+          <span class="savings">$1,069 saved &mdash; by knowing what things actually cost.</span>
+          <p class="fine-print">Dealer accessory pricing from national average dealer addendum surveys.</p>
+        </div>
+
+        <div class="callout callout--dark">
+          <strong>If a dealer says these items &ldquo;can&rsquo;t be removed,&rdquo; they can.</strong> Every dealer-added accessory is negotiable. &ldquo;I&rsquo;d like the car without those add-ons&rdquo; is a complete sentence. If they won&rsquo;t budge, the dealer down the road will.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 7: CHECK YOURSELF ====== -->
     <section class="section section--warm check-section" id="check">
       <div class="section-inner reveal">
         <h2>Check Yourself</h2>
-        <p class="styled-subheading">Before you build your schedule, make sure you&rsquo;ve got the concepts down.</p>
+        <p class="styled-subheading">Make sure you can read a sticker before you stand in front of one at a dealership.</p>
 
         <details>
-          <summary>Your 2021 Civic&rsquo;s dealer says to change the oil every 5,000 miles. Honda&rsquo;s manual says every 7,500 miles with 0W-20 full synthetic. Who do you follow?</summary>
+          <summary>A car&rsquo;s Monroney sticker shows a base price of $27,500 and a total MSRP of $32,100. What accounts for the $4,600 difference?</summary>
           <div class="answer">
-            <p><strong>The manufacturer. Honda. Always.</strong> The dealer benefits from more frequent visits. Honda engineered the engine and tested the oil&rsquo;s performance over that interval.</p>
+            <p><strong>Optional equipment packages and the destination/delivery charge.</strong> The Monroney sticker itemizes every factory-installed option and its individual price, plus the destination charge. Add them up &mdash; they&rsquo;ll total the difference between the base price and total MSRP.</p>
           </div>
         </details>
 
         <details>
-          <summary>A mechanic says your brake fluid is dark and needs flushing at 20,000 miles. Your manual says every 3 years. Your car is 18 months old. What do you do?</summary>
+          <summary>The dealer&rsquo;s window has a second sticker showing $1,400 in &ldquo;dealer accessories.&rdquo; The sales associate says it comes standard on all their vehicles. What do you do?</summary>
           <div class="answer">
-            <p><strong>Decline.</strong> You&rsquo;re well under the manufacturer&rsquo;s interval. If you&rsquo;re concerned, ask for a quick moisture strip test instead &mdash; it&rsquo;s fast and objective.</p>
+            <p><strong>Ask for the car without the addendum items, or negotiate the total price down by that amount.</strong> Dealer accessories are never &ldquo;standard&rdquo; &mdash; they&rsquo;re added by the dealership for margin. If the associate says it can&rsquo;t be removed, ask to speak with a manager, or move to another dealer.</p>
           </div>
         </details>
 
         <details>
-          <summary>5W-30: What does the &ldquo;5W&rdquo; tell you?</summary>
+          <summary>Two identical cars at different dealers have the same MSRP but different &ldquo;out-the-door&rdquo; prices. Why?</summary>
           <div class="answer">
-            <p><strong>It&rsquo;s the oil&rsquo;s cold-start grade.</strong> A 5W flows more easily in cold temperatures than a 10W. The &ldquo;W&rdquo; stands for Winter &mdash; but remember, it&rsquo;s a rating, not a unit of measurement.</p>
+            <p><strong>Dealer fees, dealer-added accessories, and potentially different local tax calculations.</strong> The MSRP is set by the manufacturer and is the same everywhere. But documentation fees, dealer prep charges, and addendum accessories vary from dealer to dealer. Always compare the out-the-door number, not just the sticker price.</p>
           </div>
         </details>
 
         <details>
-          <summary>Your friend&rsquo;s 2022 Mazda CX-5 has no power steering fluid reservoir. Is something wrong?</summary>
+          <summary>A VIN starts with &ldquo;JHM.&rdquo; What does this tell you?</summary>
           <div class="answer">
-            <p><strong>Nope.</strong> Most modern cars use Electric Power Steering (EPS) &mdash; no fluid needed. If a shop tries to sell a &ldquo;power steering flush&rdquo; on a car with EPS, that&rsquo;s a red flag.</p>
+            <p><strong>J = manufactured in Japan. H = Honda. M = specific division (Acura).</strong> The first three characters of a VIN identify the country of manufacture, the manufacturer, and the division or vehicle type. This car was built in Japan by Honda&rsquo;s Acura division.</p>
           </div>
         </details>
       </div>
     </section>
 
-    <!-- ====== SECTION 7: ASSIGNMENT ====== -->
+    <!-- ====== SECTION 8: ASSIGNMENT ====== -->
     <section class="section section--warm" id="assignment">
       <div class="section-inner reveal">
-        <h2>Your Assignment: Build It.</h2>
-        <p class="styled-subheading">Using your vehicle&rsquo;s owner&rsquo;s manual, create a personalized maintenance schedule.</p>
+        <h2>Your Assignment: Decode the Sticker.</h2>
+        <p class="styled-subheading">Find the Monroney sticker for your Portfolio vehicle and break down every line.</p>
 
         <div class="worked-example">
-          <h3>Worked Example &mdash; 2022 Toyota Camry (LE, 2.5L)</h3>
+          <h3>Worked Example &mdash; 2023 Toyota RAV4 LE (2.5L)</h3>
           <ul>
-            <li>Manufacturer specifies: 0W-20 full synthetic, changed every 10,000 miles</li>
-            <li>You drive approximately 12,000 miles/year</li>
-            <li>That&rsquo;s about 1.2 oil changes per year</li>
-            <li>At ~$65/change at a local shop: &asymp; $78/year for oil changes</li>
+            <li>Base Price: $28,275</li>
+            <li>Options: Convenience Package ($1,545)</li>
+            <li>Destination &amp; Delivery: $1,335</li>
+            <li>Total MSRP: $31,155</li>
+            <li>Dealer addendum: paint protection ($499), nitrogen ($199) = $698 in add-ons I would negotiate off</li>
+            <li>VIN: 2T3F1RFV8PW123456</li>
+            <li>&rarr; 2 = Canada, T3 = Toyota, F1RFV = RAV4 LE attributes, 8 = check digit, P = 2023, W = Woodstock ON plant</li>
           </ul>
         </div>
 
         <ol class="assignment-steps">
-          <li>Open your Chromebook and find the digital owner&rsquo;s manual for your portfolio vehicle. Try: <em>[Year] [Make] [Model] owner&rsquo;s manual PDF</em> on Google, or check the manufacturer&rsquo;s website directly.</li>
-          <li>Navigate to the <strong>Scheduled Maintenance</strong> section (usually in the back third of the manual).</li>
-          <li>Find and record the manufacturer&rsquo;s recommended intervals for:
-            <ul>
-              <li>Engine oil change (include the specified oil type and viscosity)</li>
-              <li>Tire rotation (connect this to your tire research)</li>
-              <li>Coolant flush</li>
-              <li>Transmission fluid service</li>
-              <li>Brake fluid service (if listed &mdash; some manufacturers don&rsquo;t include it as scheduled)</li>
-              <li>Any other manufacturer-specified services</li>
-            </ul>
-          </li>
-          <li>Calculate the annual cost of following the manufacturer schedule. Use the worked example above as your model. For local pricing, search: <em>[service type] cost [your city]</em> or check pricing at local shops&rsquo; websites.</li>
-          <li>Insert the completed schedule into Phase 1 of your Vehicle Ownership Portfolio.</li>
+          <li>Find the Monroney sticker (window sticker) for your Portfolio vehicle. For new cars: search <em>&ldquo;[Year] [Make] [Model] window sticker&rdquo;</em> or use the manufacturer&rsquo;s &ldquo;Build and Price&rdquo; tool online. For used cars: search <em>&ldquo;[Year] [Make] [Model] original MSRP&rdquo;</em> or look for the original build sheet.</li>
+          <li>Record: base price, each option/package and its cost, destination charge, and total MSRP. Identify what each line item is and whether it was a factory option or a dealer add-on.</li>
+          <li>Decode your Portfolio vehicle&rsquo;s VIN using the breakdown from this module. Record what each segment means &mdash; country of origin, manufacturer, vehicle attributes, model year, and assembly plant.</li>
+          <li>Identify any features on the sticker that you consider essential vs. unnecessary. Would you pay extra for the option packages listed? Which would you skip? Explain your reasoning.</li>
+          <li>Submit your sticker breakdown and VIN decode to Canvas. This becomes <strong>Page 2</strong> of your Vehicle Ownership Portfolio.</li>
         </ol>
 
-        <p><em>Use the manufacturer&rsquo;s schedule. Not the dealer&rsquo;s. Not Jiffy Lube&rsquo;s. Not your uncle&rsquo;s. The manufacturer&rsquo;s.</em></p>
+        <p><em>The sticker tells you what the manufacturer thinks the car is worth. Your job is to decide what it&rsquo;s worth to you.</em></p>
       </div>
     </section>
 
-    <!-- ====== SECTION 8: FOOTER ====== -->
+    <!-- ====== FOOTER ====== -->
     <footer class="section section--dark footer-section" id="footer">
       <div class="section-inner--wide reveal">
         <ol class="takeaways">
-          <li>The owner&rsquo;s manual is your single source of truth.</li>
-          <li>Full synthetic saves money over time &mdash; do the math for your car.</li>
-          <li>Document everything. Receipts become dollars at resale.</li>
+          <li>The Monroney sticker is your baseline. Everything the dealer adds is negotiable.</li>
+          <li>Fuel economy differences compound over years &mdash; always check the EPA label.</li>
+          <li>Decode the VIN before you buy. It tells you the car&rsquo;s story.</li>
         </ol>
 
         <div class="next-steps">
           <h3>Next Steps</h3>
-          <p>Up next: <strong>Maintenance &amp; Service Quiz</strong> &mdash; covering oil types, fluid identification, manufacturer vs. dealer intervals, and owner&rsquo;s manual navigation.</p>
+          <p>Up next: the finance office &mdash; the most expensive room in the dealership, and how to walk through it with your eyes open.</p>
         </div>
 
         <div class="course-info">
-          Mr. McAteer &middot; Crescent Valley High School &middot; AUTOS.CON.007
+          Mr. McAteer &middot; Crescent Valley High School &middot; AUTOS.CON.002
         </div>
       </div>
     </footer>
